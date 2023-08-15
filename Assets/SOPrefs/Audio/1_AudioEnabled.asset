@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cf17d7b6264a5ea4ea954ef5efa4fa75, type: 3}
+  m_Name: 1_AudioEnabled
+  m_EditorClassIdentifier: 
+  _dependUpon: {fileID: 0}
+  _rawValue:
+    _defaultValue: 1
+    _prefsKeyName: AudioEnabled
+    _debugLastValueGet:
+      _value: 0
+      _timeStamp: 0
+    _debugLastValueSet:
+      _value: 0
+      _timeStamp: 0
+  _DebugLastResultedValue:
+    _value: 0
+    _timeStamp: 0
