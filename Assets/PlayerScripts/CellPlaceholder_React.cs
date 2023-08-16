@@ -34,7 +34,22 @@ public class CellPlaceholder_React : MonoBehaviour
     [SerializeField]
     private Material[] _unityMaterials;
 
-    private CellPlaceholderStruct Current { get; set; }
+    private CellPlaceholderStruct _current;
+    private CellPlaceholderStruct Current { 
+        get => _current; 
+        set 
+        {
+            var prev = _current;
+            _current = value;
+            UpdateTRS();
+            UpdateCellMesh();
+            UpdateMaterial();
+            if (prev.orientation != _current.orientation || 
+                prev.material != _current.material ||
+                prev.cellMesh != _current.cellMesh)
+                StartScaleFlash();
+        } 
+    }
 
     private Grid6SidesCached _orientation;
     private Vector3 OrientationToScale() => new Vector3(1, _orientation._invertedY ? -1 : 1, 1);
@@ -43,9 +58,7 @@ public class CellPlaceholder_React : MonoBehaviour
     {
         if (Current.Equals(to))
             return;
-
         Current = to;
-        UpdatePlaceholder();
     }
     void OnEnable()
     {
@@ -61,23 +74,12 @@ public class CellPlaceholder_React : MonoBehaviour
         //orientation = Grid6SidesCached.Default;
 
         Current = new CellPlaceholderStruct { pos = Vector3Int.zero, orientation = 0, cellMesh = 1, material = DEMaterials.DefaultMaterial.id };
-        UpdatePlaceholder();
+
         //GridMaterials.DefaultMaterial;
         //GameEvents.placeholderCellChanged.Publish(meshIndex);
         //GameEvents.placeholderMaterialChanged.Publish(materialIndex);
         //GameEvents.placeholderOrientationChanged.Publish(orientation._orientation);
     }
-
-    private void UpdatePlaceholder()
-    {
-        UpdateTRS();
-        UpdateCellMesh();
-        UpdateMaterial();
-        StartScaleFlash();
-    }
-
-
-
 
 
     private void UpdateCellMesh()
