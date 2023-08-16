@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.atomknack.ucommonassets": "file:C:/GitFlic/ucommonassets",
     "com.atomknack.uknackbasis": "https://github.com/atomknack/UKnackBasis.git#upm",
     "com.atomknack.uknackforcinemachine": "file:C:/GitHub/UKnackExampleProjects/Cinemachine/Packages/com.atomknack.uknackforcinemachine",
     "com.atomknack.uknackpro": "file:C:/GitHub/UKnackPro/Packages/com.atomknack.uknackpro",

@@ -1,5 +1,15 @@
 {
   "dependencies": {
+    "com.atomknack.ucommonassets": {
+      "version": "file:C:/GitFlic/ucommonassets",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {
+        "com.unity.inputsystem": "1.5.1",
+        "com.atomknack.uknackbasis": "2.5.0",
+        "com.atomknack.uknackpro": "1.15.0"
+      }
+    },
     "com.atomknack.uknackbasis": {
       "version": "https://github.com/atomknack/UKnackBasis.git#upm",
       "depth": 0,
