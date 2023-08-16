@@ -1,9 +1,10 @@
 {
   "dependencies": {
-    "com.atomknack.mirrortemppackage": "file:C:/GitHub/MirrorTempPackageUKnackEditon/Packages/com.atomknack.mirrortemppackage",
+    "com.atomknack.mirrortemppackage": "https://github.com/atomknack/MirrorTempPackageUKnackEditon.git?path=/Packages/com.atomknack.mirrortemppackage",
     "com.atomknack.ucommonassets": "file:C:/GitFlic/ucommonassets",
     "com.atomknack.uknackbasis": "https://github.com/atomknack/UKnackBasis.git#upm",
-    "com.atomknack.uknackforcinemachine": "file:C:/GitHub/UKnackExampleProjects/Cinemachine/Packages/com.atomknack.uknackforcinemachine",
+    "com.atomknack.uknackforcinemachine": "https://github.com/atomknack/UKnackExampleProjects.git?path=/Cinemachine/Packages/com.atomknack.uknackforcinemachine",
+    "com.atomknack.uknackformirror": "https://github.com/atomknack/UKnackExampleProjects.git?path=/Mirror/Packages/com.atomknack.uknackformirror",
     "com.atomknack.uknackpro": "file:C:/GitHub/UKnackPro/Packages/com.atomknack.uknackpro",
     "com.unity.collab-proxy": "2.0.5",
     "com.unity.feature.development": "1.0.1",

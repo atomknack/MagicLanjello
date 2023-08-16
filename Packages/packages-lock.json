@@ -1,10 +1,11 @@
 {
   "dependencies": {
     "com.atomknack.mirrortemppackage": {
-      "version": "file:C:/GitHub/MirrorTempPackageUKnackEditon/Packages/com.atomknack.mirrortemppackage",
+      "version": "https://github.com/atomknack/MirrorTempPackageUKnackEditon.git?path=/Packages/com.atomknack.mirrortemppackage",
       "depth": 0,
-      "source": "local",
-      "dependencies": {}
+      "source": "git",
+      "dependencies": {},
+      "hash": "e1c46c396a92ed06fe3ee135b728ae61ac5df05d"
     },
     "com.atomknack.ucommonassets": {
       "version": "file:C:/GitFlic/ucommonassets",
@@ -26,14 +27,24 @@
       "hash": "2ad9d685ea8f098934f5cf100ebcafa4e4ce28a5"
     },
     "com.atomknack.uknackforcinemachine": {
-      "version": "file:C:/GitHub/UKnackExampleProjects/Cinemachine/Packages/com.atomknack.uknackforcinemachine",
+      "version": "https://github.com/atomknack/UKnackExampleProjects.git?path=/Cinemachine/Packages/com.atomknack.uknackforcinemachine",
       "depth": 0,
-      "source": "local",
+      "source": "git",
       "dependencies": {
         "com.unity.inputsystem": "1.5.1",
         "com.unity.cinemachine": "2.7.1",
         "com.atomknack.uknackbasis": "2.0.0"
-      }
+      },
+      "hash": "8ee8574c52f816e819a4b164564b81c01c8a9e24"
+    },
+    "com.atomknack.uknackformirror": {
+      "version": "https://github.com/atomknack/UKnackExampleProjects.git?path=/Mirror/Packages/com.atomknack.uknackformirror",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.atomknack.mirrortemppackage": "79.1.4"
+      },
+      "hash": "8ee8574c52f816e819a4b164564b81c01c8a9e24"
     },
     "com.atomknack.uknackpro": {
       "version": "file:C:/GitHub/UKnackPro/Packages/com.atomknack.uknackpro",
