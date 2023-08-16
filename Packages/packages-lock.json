@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.atomknack.mirrortemppackage": {
+      "version": "file:C:/GitHub/MirrorTempPackageUKnackEditon/Packages/com.atomknack.mirrortemppackage",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.atomknack.ucommonassets": {
       "version": "file:C:/GitFlic/ucommonassets",
       "depth": 0,

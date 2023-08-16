@@ -4,6 +4,8 @@
 #
 
 /Assets/Plugins/
+cellMeshesData.json_
+flatnodesData.json_
 
 /[Ll]ibrary/
 /[Tt]emp/
