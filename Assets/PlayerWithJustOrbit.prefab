@@ -419,7 +419,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1862278322572414735}
   - component: {fileID: 32772422731705503}
-  - component: {fileID: 4740998569210761189}
+  - component: {fileID: 2260051419066602004}
   m_Layer: 0
   m_Name: PseudoPlayerAndFollow
   m_TagString: Untagged
@@ -467,7 +467,7 @@ MonoBehaviour:
   distanceMax: 15
   flyOffdistance: 4
   flyOffSpeed: 1
---- !u!114 &4740998569210761189
+--- !u!114 &2260051419066602004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -476,10 +476,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7336149436200131714}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8ff3ba0becae47b8b9381191598957c8, type: 3}
+  m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
+  syncDirection: 1
   syncMode: 0
   syncInterval: 0
   target: {fileID: 1862278322572414735}
@@ -490,17 +490,16 @@ MonoBehaviour:
   interpolatePosition: 1
   interpolateRotation: 1
   interpolateScale: 1
-  sendIntervalMultiplier: 1
+  sendIntervalMultiplier: 5
   timelineOffset: 0
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   onlySyncOnChange: 1
-  onlySyncOnChangeCorrectionMultiplier: 2
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
   rotationSensitivity: 0.01
-  compressRotation: 0
-  positionPrecision: 0.01
-  scalePrecision: 0.01
+  scaleSensitivity: 0.01
 --- !u!1 &7898656356997366530
 GameObject:
   m_ObjectHideFlags: 0
