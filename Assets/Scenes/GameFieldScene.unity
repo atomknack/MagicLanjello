@@ -754,7 +754,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  m_CustomBlends: {fileID: 0}
+  m_CustomBlends: {fileID: 11400000, guid: 47bde58050cd30f448a140f2a06f7a40, type: 2}
   m_CameraCutEvent:
     m_PersistentCalls:
       m_Calls: []
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 1322605151}
   - component: {fileID: 1322605150}
   m_Layer: 0
-  m_Name: Virtual Camera
+  m_Name: Top View Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
