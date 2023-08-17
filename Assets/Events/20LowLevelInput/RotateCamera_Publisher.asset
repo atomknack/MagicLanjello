@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03869923e35c66d46b064de12bfc757f, type: 3}
+  m_Name: RotateCamera_Publisher
+  m_EditorClassIdentifier: 
+  where: {fileID: 11400000, guid: 3990c7f0f04ac51409418ad201973e72, type: 2}
+  publishWhenTrue: {fileID: 11400000, guid: 11c8b440501356341a695265bc322621, type: 2}
