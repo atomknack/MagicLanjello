@@ -11,64 +11,76 @@ public class TargetMoveRelativeToCamera : MonoBehaviour
 {
     [SerializeField]
     [ValidReference]
-    private SOEvent<Vector2> _inputMoveXZ;
+    private SOEvent<Vector2> _moveXZProvider;
 
-    private Vector2 _valueOfInputMoveXZ = Vector2.zero;
+    private Vector2 _moveXZ = Vector2.zero;
 
     [SerializeField]
     private Vector2 _speedXZ = Vector2.one;
 
     [SerializeField]
     [ValidReference]
-    private SOEvent<float> _inputMoveY;
+    private SOEvent<float> _moveYProvider;
 
-    private float _valueOfinputMoveY = 0f;
+    private float _moveY = 0f;
 
     [SerializeField]
-    private float _speedYZ = 1f;
+    private float _speedY = 1f;
 
     [SerializeField]
     [ValidReference]
     Transform _target;
 
-
-    public void OnEnable()
-    {
-        InitVariablesOrThrow();
-
-
-        void InitVariablesOrThrow()
-        {
-            if (_inputMoveXZ == null)
-                throw new System.ArgumentNullException(nameof(_inputMoveXZ));
-            if (_inputMoveY == null)
-                throw new System.ArgumentNullException(nameof(_inputMoveY));
-
-            _inputMoveXZ.Subscribe(MoveXZ);
-            _inputMoveY.Subscribe(MoveY);
-        }
-    }
-
+    private bool _initialized = false;
 
     private void Update()
     {
-        if (_valueOfInputMoveXZ.magnitude < 0.00001f && MathF.Abs(_valueOfinputMoveY) < 0.001f)
+        if (_initialized == false)
+            return;
+        if (_moveXZ.magnitude < 0.00001f && MathF.Abs(_moveY) < 0.001f)
             return;
         Camera camera = Camera.main;
         if (camera == null)
             return;
+        float delta = Time.deltaTime;
+        Vector3 position = (camera.transform.forward * _moveXZ.y * _speedXZ.y * delta) + (camera.transform.right * _moveXZ.x * _speedXZ.x * delta);
+        position += camera.transform.up * _moveY * _speedY * delta;
 
+        _target.position += position;
     }
 
+
+    public void OnEnable()
+    {
+        if (_moveYProvider == null)
+            throw new System.ArgumentNullException(nameof(_moveYProvider));
+        if (_moveXZProvider == null)
+            throw new System.ArgumentNullException(nameof(_moveXZProvider));
+        if (_target == null)
+            throw new System.ArgumentNullException(nameof(_target));
+
+        _moveXZProvider.Subscribe(MoveXZ);
+        _moveYProvider.Subscribe(MoveY);
+
+        _initialized = true;
+    }
+
+    public void OnDisable()
+    {
+        if (_initialized == false)
+            return;
+        _moveXZProvider.UnsubscribeNullSafe(MoveXZ);
+        _moveYProvider.UnsubscribeNullSafe(MoveY);
+    }
 
 
     private void MoveY(float y)
     {
-        _valueOfinputMoveY = y;
+        _moveY = y;
     }
 
     private void MoveXZ(Vector2 xz)
     {
-        _valueOfInputMoveXZ = xz;
+        _moveXZ = xz;
     }
 }

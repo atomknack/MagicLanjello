@@ -168,6 +168,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3422275642098926526}
   - component: {fileID: 2866631660533448707}
+  - component: {fileID: 4279807268785499169}
   m_Layer: 0
   m_Name: InputHandling
   m_TagString: Untagged
@@ -215,6 +216,23 @@ MonoBehaviour:
   _flyOffdistance: 4
   _flyOffSpeed: 1
   _distance: 5
+--- !u!114 &4279807268785499169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3581643972914950555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28d16482f63705645964439ea9026b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _moveXZProvider: {fileID: 11400000, guid: 54ec93fc429651941bd06b824482282c, type: 2}
+  _speedXZ: {x: 1, y: 1}
+  _moveYProvider: {fileID: 11400000, guid: 2f25d1cfc86daad458f1e6d0b789820c, type: 2}
+  _speedY: 1
+  _target: {fileID: 8688854024254290367}
 --- !u!1 &4784183269061981596
 GameObject:
   m_ObjectHideFlags: 0
