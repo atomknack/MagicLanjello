@@ -42,8 +42,16 @@ public class TargetMoveRelativeToCamera : MonoBehaviour
         Camera camera = Camera.main;
         if (camera == null)
             return;
+
         float delta = Time.deltaTime;
-        Vector3 position = (camera.transform.forward * _moveXZ.y * _speedXZ.y * delta) + (camera.transform.right * _moveXZ.x * _speedXZ.x * delta);
+
+        Vector3 forward = camera.transform.forward;
+        forward = new Vector3(forward.x, 0, forward.z);
+        Vector3 right = camera.transform.right;
+        right = new Vector3(right.x, 0, right.z);
+
+        Vector3 position = (forward * _moveXZ.y * _speedXZ.y * delta) + (right * _moveXZ.x * _speedXZ.x * delta);
+
         position += camera.transform.up * _moveY * _speedY * delta;
 
         _target.position += position;
