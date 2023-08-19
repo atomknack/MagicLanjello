@@ -6,6 +6,7 @@ using UKnack.Attributes;
 using UKnack.Events;
 using UKnack.Values;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class TargetMoveRelativeToCamera : MonoBehaviour
 {
@@ -46,15 +47,15 @@ public class TargetMoveRelativeToCamera : MonoBehaviour
         float delta = Time.deltaTime;
 
         Vector3 forward = camera.transform.forward;
-        forward = new Vector3(forward.x, 0, forward.z);
+        forward = new Vector3(forward.x, 0, forward.z).normalized *_moveXZ.y * _speedXZ.y * delta;
+
         Vector3 right = camera.transform.right;
-        right = new Vector3(right.x, 0, right.z);
+        right = new Vector3(right.x, 0, right.z).normalized * _moveXZ.x * _speedXZ.x * delta;
 
-        Vector3 position = (forward * _moveXZ.y * _speedXZ.y * delta) + (right * _moveXZ.x * _speedXZ.x * delta);
+        Vector3 up = camera.transform.up;
+        up = new Vector3(0, up.y, 0).normalized * _moveY * _speedY * delta;
 
-        position += camera.transform.up * _moveY * _speedY * delta;
-
-        _target.position += position;
+        _target.position += forward + right + up ;
     }
 
 

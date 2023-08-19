@@ -209,12 +209,13 @@ MonoBehaviour:
   _sateliteToSet: {fileID: 1862278322572414735}
   _center: {fileID: 8688854024254290367}
   _speed: {x: 120, y: 120}
-  _yMinLimit: -20
+  _yMinLimit: -75
   _yMaxLimit: 80
   _distanceMin: 0.5
-  _distanceMax: 15
-  _flyOffdistance: 4
-  _flyOffSpeed: 1
+  _distanceMax: 10
+  _flyOffdistance: 3
+  _flyOffSpeed: 2
+  _raycast: 0
   _distance: 5
 --- !u!114 &4279807268785499169
 MonoBehaviour:
@@ -229,9 +230,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveXZProvider: {fileID: 11400000, guid: 54ec93fc429651941bd06b824482282c, type: 2}
-  _speedXZ: {x: 1, y: 1}
+  _speedXZ: {x: 3, y: 4}
   _moveYProvider: {fileID: 11400000, guid: 2f25d1cfc86daad458f1e6d0b789820c, type: 2}
-  _speedY: 1
+  _speedY: 2
   _target: {fileID: 8688854024254290367}
 --- !u!1 &4784183269061981596
 GameObject:
@@ -712,6 +713,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8688854024254290367}
+  - component: {fileID: 523334687624487888}
   m_Layer: 0
   m_Name: RealPlayerPosition
   m_TagString: Untagged
@@ -735,6 +737,39 @@ Transform:
   - {fileID: 3702664037080843224}
   m_Father: {fileID: 868909905782338476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &523334687624487888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607427694892055235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a553cb17010b2403e8523b558bffbc14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 1
+  syncMode: 0
+  syncInterval: 0
+  target: {fileID: 8688854024254290367}
+  clientAuthority: 0
+  syncPosition: 1
+  syncRotation: 0
+  syncScale: 0
+  interpolatePosition: 1
+  interpolateRotation: 1
+  interpolateScale: 1
+  sendIntervalMultiplier: 15
+  timelineOffset: 0
+  showGizmos: 0
+  showOverlay: 0
+  overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+  onlySyncOnChange: 1
+  bufferResetMultiplier: 3
+  positionSensitivity: 0.01
+  rotationSensitivity: 0.01
+  scaleSensitivity: 0.01
 --- !u!1 &8818182116185844693
 GameObject:
   m_ObjectHideFlags: 0
