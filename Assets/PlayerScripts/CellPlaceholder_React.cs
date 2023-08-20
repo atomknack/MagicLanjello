@@ -11,13 +11,11 @@ public class CellPlaceholder_React : MonoBehaviour
     [System.Serializable]
     public struct CellPlaceholderStruct : IEquatable<CellPlaceholderStruct>
     {
-        public Vector3Int pos;
         public int orientation;
         public short cellMesh;
         public byte material;
 
         public bool Equals(CellPlaceholderStruct other) =>
-            pos == other.pos &&
             orientation == other.orientation &&
             cellMesh == other.cellMesh &&
             material == other.material;
@@ -34,6 +32,7 @@ public class CellPlaceholder_React : MonoBehaviour
     [SerializeField]
     private Material[] _unityMaterials;
 
+    public Vector3Int pos;
     private CellPlaceholderStruct _current;
     private CellPlaceholderStruct Current { 
         get => _current; 
@@ -41,7 +40,7 @@ public class CellPlaceholder_React : MonoBehaviour
         {
             var prev = _current;
             _current = value;
-            UpdateTRS();
+            UpdateRS();
             UpdateCellMesh();
             UpdateMaterial();
             if (prev.orientation != _current.orientation || 
@@ -54,6 +53,11 @@ public class CellPlaceholder_React : MonoBehaviour
     private Grid6SidesCached _orientation;
     private Vector3 OrientationToScale() => new Vector3(1, _orientation._invertedY ? -1 : 1, 1);
 
+    public void PositionChanged(Vector3Int newPos)
+    {
+        pos = newPos;
+        transform.position = pos;
+    }
     public void PlaceholderChanged(CellPlaceholderStruct to)
     {
         if (Current.Equals(to))
@@ -73,7 +77,8 @@ public class CellPlaceholder_React : MonoBehaviour
         //materialIndex = DEMaterials.DefaultMaterial.id;
         //orientation = Grid6SidesCached.Default;
 
-        Current = new CellPlaceholderStruct { pos = Vector3Int.zero, orientation = 0, cellMesh = 1, material = DEMaterials.DefaultMaterial.id };
+        pos = Vector3Int.zero;
+        Current = new CellPlaceholderStruct {  orientation = 0, cellMesh = 1, material = DEMaterials.DefaultMaterial.id };
 
         //GridMaterials.DefaultMaterial;
         //GameEvents.placeholderCellChanged.Publish(meshIndex);
@@ -109,12 +114,11 @@ public class CellPlaceholder_React : MonoBehaviour
         GetComponent<Renderer>().sharedMaterial = _unityMaterials[Current.material];//DEMaterials.GetUnityMaterial(materialIndex);
     }
 
-    private void UpdateTRS()
+    private void UpdateRS()
     {
         _orientation = Grid6SidesCached.FromRotationAndScale(ScaleInversionPerpendicularRotation3.FromInt(Current.orientation));
         transform.rotation = _orientation._rotation.ToQuaternion();
         transform.localScale = OrientationToScale();
-        transform.position = Current.pos;
     }
     private void SetOscilationEnabled()
     {
