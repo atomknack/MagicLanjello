@@ -2,25 +2,13 @@ using DoubleEngine;
 using DoubleEngine.Atom;
 using DoubleEngine.UHelpers;
 using System;
+using UKnack.MagicLanjello;
 using UnityEngine;
 
 [RequireComponent (typeof(MeshFilter))]
 [RequireComponent (typeof(OscilateScaleFromTo))]
 public class CellPlaceholder_React : MonoBehaviour
 {
-    [System.Serializable]
-    public struct CellPlaceholderStruct : IEquatable<CellPlaceholderStruct>
-    {
-        public int orientation;
-        public short cellMesh;
-        public byte material;
-
-        public bool Equals(CellPlaceholderStruct other) =>
-            orientation == other.orientation &&
-            cellMesh == other.cellMesh &&
-            material == other.material;
-    }
-
     private MeshFilter _meshFilter;
     private OscilateScaleFromTo _oscilateScale;
 
@@ -78,7 +66,7 @@ public class CellPlaceholder_React : MonoBehaviour
         //orientation = Grid6SidesCached.Default;
 
         pos = Vector3Int.zero;
-        Current = new CellPlaceholderStruct {  orientation = 0, cellMesh = 1, material = DEMaterials.DefaultMaterial.id };
+        Current = CellPlaceholderStruct.DefaultPlaceholder;
 
         //GridMaterials.DefaultMaterial;
         //GameEvents.placeholderCellChanged.Publish(meshIndex);
