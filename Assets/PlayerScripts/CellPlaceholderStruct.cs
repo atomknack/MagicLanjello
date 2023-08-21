@@ -21,17 +21,15 @@ namespace UKnack.MagicLanjello
             this.material = material;
         }
 
-        public static bool ValidateParameters(int orientation, short cellMesh, byte material)
+        public static void ValidateParameters(int orientation, short cellMesh, byte material)
         {
-            if (material < 0 || material >= DEMaterials.Count)
+            if (!DEMaterials.IsValidMaterial(material))
                 throw new Exception($"Material id {material} should be less than {DEMaterials.Count}");
             //if (DoubleEngine.UHelpers.UThreeDimensionalCellMeshes) helper does not have count
-            if (cellMesh < 0 || cellMesh >= ThreeDimensionalCellMeshes.GetCount())
+            if (!ThreeDimensionalCellMeshes.IsValidMeshId(cellMesh))
                 throw new Exception($"Mesh id {cellMesh} should be less than {ThreeDimensionalCellMeshes.GetCount()}");
-            //try{
-            var orient = ScaleInversionPerpendicularRotation3.FromInt(orientation);
-            //}catch (Exception ex) {throw ex}
-            return true;
+            if (!ScaleInversionPerpendicularRotation3.IsValid(orientation))
+                throw new Exception($"orientation {orientation} is not valid");
         }
 
         public bool Equals(CellPlaceholderStruct other) =>
