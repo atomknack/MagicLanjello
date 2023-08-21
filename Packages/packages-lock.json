@@ -18,13 +18,12 @@
       }
     },
     "com.atomknack.uknackbasis": {
-      "version": "https://github.com/atomknack/UKnackBasis.git#upm",
+      "version": "file:C:/GitHub/UKnackBasis/Packages/com.atomknack.uknackbasis",
       "depth": 0,
-      "source": "git",
+      "source": "local",
       "dependencies": {
         "com.unity.inputsystem": "1.5.1"
-      },
-      "hash": "2ad9d685ea8f098934f5cf100ebcafa4e4ce28a5"
+      }
     },
     "com.atomknack.uknackforcinemachine": {
       "version": "https://github.com/atomknack/UKnackExampleProjects.git?path=/Cinemachine/Packages/com.atomknack.uknackforcinemachine",
