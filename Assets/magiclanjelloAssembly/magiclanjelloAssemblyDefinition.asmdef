@@ -1,0 +1,26 @@
+{
+    "name": "magiclanjello",
+    "rootNamespace": "",
+    "references": [
+        "UKnackBasisConcrete",
+        "UKnackProConcrete",
+        "UKnackCinemachine",
+        "UKnackForMirror",
+        "uCommonAssetsScripts"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "DoubleEngine.dll",
+        "DoubleEngine.UHelpers.dll",
+        "UKnackBasis.dll",
+        "UKnackPro.dll",
+        ""
+    ],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -6,8 +6,8 @@ using UKnack.MagicLanjello;
 namespace UKnack.Concrete.Values
 {
 
-    [CreateAssetMenu(fileName = "SOValue_CellPlaceholder", menuName = "UKnackDoubleEngine/SOValueMutable/CellPlaceholderStruct", order = 110)]
-    public sealed class SOValueMutable_Concrete_CellPlaceholderStruct : SOValueMutable<CellPlaceholderStruct>
+    [CreateAssetMenu(fileName = "SOValueMutable_CellPlaceholderStruct_Stub", menuName = "UKnackDoubleEngine/SOValueMutable/CellPlaceholderSTUB", order = 110)]
+    public sealed class SOValueMutable_CellPlaceholderStruct_Stub : SOValueMutable<CellPlaceholderStruct>
     {
         [SerializeField]
         private USetOrDefault<CellPlaceholderStruct> _value = new (CellPlaceholderStruct.DefaultPlaceholder);
