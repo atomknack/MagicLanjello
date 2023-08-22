@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "com.atomknack.magiclanjellopackage": "file:C:/GitFlic/magiclanjellopackage",
     "com.atomknack.mirrortemppackage": "https://github.com/atomknack/MirrorTempPackageUKnackEditon.git?path=/Packages/com.atomknack.mirrortemppackage",
     "com.atomknack.ucommonassets": "file:C:/GitFlic/ucommonassets",
     "com.atomknack.uknackbasis": "file:C:/GitHub/UKnackBasis/Packages/com.atomknack.uknackbasis",

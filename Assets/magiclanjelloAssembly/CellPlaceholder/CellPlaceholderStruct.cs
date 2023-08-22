@@ -23,13 +23,10 @@ namespace MagicLanjello.CellPlaceholder
 
         public static void ValidateParameters(int orientation, short cellMesh, byte material)
         {
-            if (!DEMaterials.IsValidMaterial(material))
-                throw new Exception($"Material id {material} should be less than {DEMaterials.Count}");
-            //if (DoubleEngine.UHelpers.UThreeDimensionalCellMeshes) helper does not have count
-            if (!ThreeDimensionalCellMeshes.IsValidMeshId(cellMesh))
-                throw new Exception($"Mesh id {cellMesh} should be less than {ThreeDimensionalCellMeshes.GetCount()}");
             if (!ScaleInversionPerpendicularRotation3.IsValid(orientation))
                 throw new Exception($"orientation {orientation} is not valid");
+            ThreeDimensionalCellMeshes.ValidateMeshId(cellMesh);
+            DEMaterials.ValidateMaterial(material);
         }
 
         public bool Equals(CellPlaceholderStruct other) =>

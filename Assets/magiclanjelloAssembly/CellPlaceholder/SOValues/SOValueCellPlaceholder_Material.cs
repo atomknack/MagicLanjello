@@ -27,8 +27,7 @@ namespace MagicLanjello.CellPlaceholder.SOValues
 
         private void SetMaterialWithInvokeSubscribers(byte value)
         {
-            throw new System.NotImplementedException(); 
-            // _material = DEMaterials.ValidateMaterial(value);
+            _material = DEMaterials.ValidateMaterial(value);
             InvokeSubscribers(this, _material);
         }
         private void NextMaterial() => 

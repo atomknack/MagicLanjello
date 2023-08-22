@@ -1,11 +1,9 @@
-using DoubleEngine.Atom;
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using UnityEngine;
 using UKnack.Attributes;
 using UKnack.Events;
 using UKnack.Preconcrete.Values;
-using UnityEngine;
+using DoubleEngine;
+using DoubleEngine.Atom;
 
 
 namespace MagicLanjello.CellPlaceholder.SOValues
@@ -16,23 +14,21 @@ namespace MagicLanjello.CellPlaceholder.SOValues
         [SerializeField][ValidReference] private SOEvent<short> _cellMeshChanged;
         [SerializeField][ValidReference] private SOEvent _nextCellMesh;
 
-
-        [NonSerialized]
+        [System.NonSerialized]
         private bool _subscribedToDependency = false;
 
-        [NonSerialized]
+        [System.NonSerialized]
         private short _cellMesh = DEMaterials.DefaultMaterial.id;
 
-        public override byte GetValue() => _cellMesh;
+        public override short GetValue() => _cellMesh;
 
-        private void SetMaterialWithInvokeSubscribers(byte value)
+        private void SetCellMeshWithInvokeSubscribers(short value)
         {
-            throw new System.NotImplementedException(); 
-            // _material = DEMaterials.ValidateMaterial(value);
+            _cellMesh = ThreeDimensionalCellMeshes.ValidateMeshId(value);
             InvokeSubscribers(this, _cellMesh);
         }
-        private void NextMaterial() => 
-            SetMaterialWithInvokeSubscribers(DEMaterials.NextMaterialId(_cellMesh));
+        private void NextCellMeshId() => 
+            SetCellMeshWithInvokeSubscribers((short)((int)_cellMesh).NextIntCyclic(ThreeDimensionalCellMeshes.GetCount(), 0));
         
         protected override void AfterUnsubscribing()
         {
@@ -41,8 +37,8 @@ namespace MagicLanjello.CellPlaceholder.SOValues
             if (SubscribersCount() > 0)
                 return;
 
-            _materialChanged.UnsubscribeNullSafe(SetMaterialWithInvokeSubscribers);
-            _nextCellMesh.UnsubscribeNullSafe(NextMaterial);
+            _cellMeshChanged.UnsubscribeNullSafe(SetCellMeshWithInvokeSubscribers);
+            _nextCellMesh.UnsubscribeNullSafe(NextCellMeshId);
 
             _subscribedToDependency = false;
         }
@@ -53,16 +49,16 @@ namespace MagicLanjello.CellPlaceholder.SOValues
                 return;
 
             NullChecks();
-            _materialChanged.Subscribe(SetMaterialWithInvokeSubscribers);
-            _nextCellMesh.Subscribe(NextMaterial);
+            _cellMeshChanged.Subscribe(SetCellMeshWithInvokeSubscribers);
+            _nextCellMesh.Subscribe(NextCellMeshId);
 
             _subscribedToDependency = true;
         }
 
         private void NullChecks()
         {
-            if (_materialChanged == null) throw new ArgumentNullException(nameof(_materialChanged));
-            if (_nextCellMesh == null) throw new ArgumentNullException(nameof(_nextCellMesh));
+            if (_cellMeshChanged == null) throw new System.ArgumentNullException(nameof(_cellMeshChanged));
+            if (_nextCellMesh == null) throw new System.ArgumentNullException(nameof(_nextCellMesh));
         }
     }
 }
