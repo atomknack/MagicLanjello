@@ -67,9 +67,9 @@ namespace UKnack.Concrete.Values
 
             _subscribedToDependency = true;
         }
-        private void OrinetationChanged(int _) => InvokeSubscribers(this, RawValue);
-        private void CellMeshChanged(short _) => InvokeSubscribers(this, RawValue);
-        private void MaterialChanged(byte _) => InvokeSubscribers(this, RawValue);
+        private void OrinetationChanged(int _) => InvokeSubscribers(this, GetValue());
+        private void CellMeshChanged(short _) => InvokeSubscribers(this, GetValue());
+        private void MaterialChanged(byte _) => InvokeSubscribers(this, GetValue());
     }
 
 }
