@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a879fb4094207ae4fb9d155ad4889478, type: 3}
-  m_Name: 40SetPlaceholderOrientation
+  m_Name: 30CellPlaceholderOrientation
   m_EditorClassIdentifier: 
   rotateX90: {fileID: 11400000, guid: 93c7ecdff449c8b4e9e0b9265dc20675, type: 2}
   rotateY90: {fileID: 11400000, guid: e8a352d5d62da434782066a4d0cc0eea, type: 2}

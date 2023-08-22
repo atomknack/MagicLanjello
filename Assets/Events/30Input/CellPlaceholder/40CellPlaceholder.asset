@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7af76f49a209dd64e9aba2ea8ad025f4, type: 3}
-  m_Name: 50CellPlaceholder
+  m_Name: 40CellPlaceholder
   m_EditorClassIdentifier: 
   _orientation: {fileID: 11400000, guid: d8db4a23917f62f49a6f7729617a956f, type: 2}
-  _cellMesh: {fileID: 0}
-  _material: {fileID: 0}
+  _cellMesh: {fileID: 11400000, guid: b1d51183071658f488065a81c56c3273, type: 2}
+  _material: {fileID: 11400000, guid: 6bc30bb8eb14cdb42a563968af10b78f, type: 2}
   _value:
     _defaultValue:
       orientation: 0

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c3fe73ad6e86a45a4b56a0fb515ab9, type: 3}
-  m_Name: 30NextMesh_Publisher
+  m_Script: {fileID: 11500000, guid: 001787705a6386745b192b7fed39b35f, type: 3}
+  m_Name: 20SelectedCellMesh_Publisher
   m_EditorClassIdentifier: 
-  where: {fileID: 11400000, guid: d3198322c90c81747a4d422ebada7de5, type: 2}
+  where: {fileID: 11400000, guid: e63b01989892864459bfaf4e56c6a814, type: 2}
   publishWhenTrue: {fileID: 11400000, guid: 11c8b440501356341a695265bc322621, type: 2}
