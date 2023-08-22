@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace UKnack.Preconcrete.Values
 {
-    public abstract class SOValueMutableWithSubscribingAction<T> : SOValueMutable<T>
+    public abstract class SOValueImmutableWithSubscribingAction<T> : SOValueImmutable<T>
     {
         protected abstract void BeforeSubscribing();
         protected abstract void AfterUnsubscribing();

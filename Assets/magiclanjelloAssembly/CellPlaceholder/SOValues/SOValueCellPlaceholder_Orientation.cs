@@ -10,8 +10,8 @@ using UnityEngine;
 
 namespace MagicLanjello.CellPlaceholder.SOValues
 {
-    [CreateAssetMenu(fileName = "SOValueMutable_Orientation", menuName = "MagicLanjello/SOValueMutable_Orientation", order = 110)]
-    public sealed class SOValueMutable_Orientation : SOValueMutableWithSubscribingAction<int>
+    [CreateAssetMenu(fileName = "SOValueCellPlaceholder_Orientation", menuName = "MagicLanjello/CellPlaceholder/SOValue<int> - Orientation", order = 110)]
+    public sealed class SOValueCellPlaceholder_Orientation : SOValueImmutableWithSubscribingAction<int>
     {
         [SerializeField][ValidReference] private SOEvent rotateX90;
         [SerializeField][ValidReference] private SOEvent rotateY90;
@@ -34,17 +34,7 @@ namespace MagicLanjello.CellPlaceholder.SOValues
 
         private int OrientationAsInt => _orientation._orientation.index;
 
-        public override int RawValue 
-        { 
-            get => OrientationAsInt;
-            // we don't need Invoke subscribers here because SetValue do this afterwards if it setting value
-            // if user setting RawValue directly he probably does NOT want to InvokeSubscribers here
-            protected set 
-            {
-                ScaleInversionPerpendicularRotation3 temp = ScaleInversionPerpendicularRotation3.FromInt(value);
-                _orientation = Grid6SidesCached.FromRotationAndScale(temp);
-            }
-        }
+        public override int GetValue() => OrientationAsInt;
 
         void PlaceholderOrientationChanged_RotateX90() => SetOrientationWithInvokeSubscribers(_orientation.RotateX90());
         void PlaceholderOrientationChanged_RotateY90() => SetOrientationWithInvokeSubscribers(_orientation.RotateY90());
@@ -96,5 +86,6 @@ namespace MagicLanjello.CellPlaceholder.SOValues
             if (invertY == null) throw new ArgumentNullException(nameof(invertY));
             if (invertZ == null) throw new ArgumentNullException(nameof(invertZ));
         }
+
     }
 }

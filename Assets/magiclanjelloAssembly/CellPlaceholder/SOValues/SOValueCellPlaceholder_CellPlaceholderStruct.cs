@@ -8,8 +8,8 @@ using UKnack.Events;
 namespace MagicLanjello.CellPlaceholder.SOValues
 {
 
-    [CreateAssetMenu(fileName = "SOValueMutable_CellPlaceholderStruct", menuName = "MagicLanjello/SOValueMutable_CellPlaceholderStruct", order = 110)]
-    public sealed class SOValueMutable_CellPlaceholderStruct : SOValueMutableWithSubscribingAction<CellPlaceholderStruct>
+    [CreateAssetMenu(fileName = "SOValueCellPlaceholder_CellPlaceholderStruct", menuName = "MagicLanjello/CellPlaceholder/SOValue<CellPlaceholderStruct>", order = 110)]
+    public sealed class SOValueCellPlaceholder_CellPlaceholderStruct : SOValueImmutableWithSubscribingAction<CellPlaceholderStruct>
     {
         [SerializeField]
         [ValidReference]
@@ -29,9 +29,9 @@ namespace MagicLanjello.CellPlaceholder.SOValues
         [NonSerialized]
         private bool _subscribedToDependency = false;
 
-        public override CellPlaceholderStruct RawValue { 
-            get => new CellPlaceholderStruct(_orientation.GetValue(), _cellMesh.GetValue(), _material.GetValue()); 
-            protected set => throw new System.InvalidOperationException(); }
+        public override CellPlaceholderStruct GetValue() =>
+            new CellPlaceholderStruct(_orientation.GetValue(), _cellMesh.GetValue(), _material.GetValue());
+
 
         protected override void AfterUnsubscribing()
         {
@@ -68,6 +68,8 @@ namespace MagicLanjello.CellPlaceholder.SOValues
         private void OrinetationChanged(int _) => InvokeSubscribers(this, GetValue());
         private void CellMeshChanged(short _) => InvokeSubscribers(this, GetValue());
         private void MaterialChanged(byte _) => InvokeSubscribers(this, GetValue());
+
+
     }
 
 }
