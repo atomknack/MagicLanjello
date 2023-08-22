@@ -1,7 +1,7 @@
 using DoubleEngine.Atom;
 using System;
 
-namespace UKnack.MagicLanjello
+namespace MagicLanjello.CellPlaceholder
 {
     [System.Serializable]
     public struct CellPlaceholderStruct : IEquatable<CellPlaceholderStruct>

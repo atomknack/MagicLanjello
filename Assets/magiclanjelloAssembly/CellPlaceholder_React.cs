@@ -1,9 +1,9 @@
+using UnityEngine;
 using DoubleEngine;
 using DoubleEngine.Atom;
 using DoubleEngine.UHelpers;
-using System;
-using UKnack.MagicLanjello;
-using UnityEngine;
+using MagicLanjello.CellPlaceholder;
+
 
 [RequireComponent (typeof(MeshFilter))]
 [RequireComponent (typeof(OscilateScaleFromTo))]

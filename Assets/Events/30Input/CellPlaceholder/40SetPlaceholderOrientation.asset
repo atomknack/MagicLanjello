@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a879fb4094207ae4fb9d155ad4889478, type: 3}
+  m_Name: 40SetPlaceholderOrientation
+  m_EditorClassIdentifier: 
+  rotateX90: {fileID: 11400000, guid: 93c7ecdff449c8b4e9e0b9265dc20675, type: 2}
+  rotateY90: {fileID: 11400000, guid: e8a352d5d62da434782066a4d0cc0eea, type: 2}
+  rotateZ90: {fileID: 11400000, guid: 6160fe30d99b55142b15b0b0ecf601b9, type: 2}
+  invertX: {fileID: 11400000, guid: 4d87eb3afbf8bf2478e424c457a81ccb, type: 2}
+  invertY: {fileID: 11400000, guid: f5df7e358d85c4a4883b4d1e8af1524b, type: 2}
+  invertZ: {fileID: 11400000, guid: 2310d5cb0f9b20a4db1a0c97630328f0, type: 2}

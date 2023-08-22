@@ -1,16 +1,14 @@
 using UnityEngine;
 using UKnack.Values;
 using UKnack.Preconcrete.Values;
-using UKnack.MagicLanjello;
 using UKnack.Attributes;
 using System;
 using UKnack.Events;
 
-namespace UKnack.Concrete.Values
+namespace MagicLanjello.CellPlaceholder.SOValues
 {
 
-    [System.Obsolete("WIP")]
-    [CreateAssetMenu(fileName = "SOValueMutable_CellPlaceholderStruct", menuName = "UKnackDoubleEngine/SOValueMutable/CellPlaceholder", order = 110)]
+    [CreateAssetMenu(fileName = "SOValueMutable_CellPlaceholderStruct", menuName = "MagicLanjello/SOValueMutable_CellPlaceholderStruct", order = 110)]
     public sealed class SOValueMutable_CellPlaceholderStruct : SOValueMutableWithSubscribingAction<CellPlaceholderStruct>
     {
         [SerializeField]
