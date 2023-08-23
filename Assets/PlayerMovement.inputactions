@@ -40,6 +40,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "NextCellMesh",
+                    "type": "Button",
+                    "id": "418c9cd6-f7ec-43fd-9530-2215b92b6937",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "NextMaterial",
+                    "type": "Button",
+                    "id": "427d729d-2f01-40b4-8297-be157312d3ea",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -174,6 +192,28 @@
                     "action": "ScrollCamera",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "ddf1223d-fb7a-4f05-a055-e7ef08a5d295",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextMaterial",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "4b0301c5-9902-4cc4-b813-4c91017b2492",
+                    "path": "<Keyboard>/n",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "NextCellMesh",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
