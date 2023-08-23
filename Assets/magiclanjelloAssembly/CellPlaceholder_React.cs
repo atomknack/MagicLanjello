@@ -17,9 +17,6 @@ public class CellPlaceholder_React : MonoBehaviour
     [SerializeField]
     private float _onStartMoveScaleFlash = 1.3f;
 
-    [SerializeField]
-    private Material[] _unityMaterials;
-
     public Vector3Int pos;
     private CellPlaceholderStruct _current;
     private CellPlaceholderStruct Current { 
@@ -99,7 +96,7 @@ public class CellPlaceholder_React : MonoBehaviour
     }
     private void UpdateMaterial()
     {
-        GetComponent<Renderer>().sharedMaterial = _unityMaterials[Current.material];//DEMaterials.GetUnityMaterial(materialIndex);
+        GetComponent<Renderer>().sharedMaterial = UMaterials.GetUnityMaterial(Current.material);
     }
 
     private void UpdateRS()
