@@ -23,9 +23,6 @@ namespace MagicLanjello.CellPlaceholder.SOValues
         [ValidReference]
         private SOValue<byte> _material;
 
-        [SerializeField]
-        private USetOrDefault<CellPlaceholderStruct> _value = new (CellPlaceholderStruct.DefaultPlaceholder);
-
         [NonSerialized]
         private bool _subscribedToDependency = false;
 
