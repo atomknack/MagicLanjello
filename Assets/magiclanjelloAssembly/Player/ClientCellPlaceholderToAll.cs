@@ -5,25 +5,29 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 namespace MagicLanjello.Player
 {
     public class ClientCellPlaceholderToAll : NetworkBehaviour
     {
         [SerializeField]
-        private UnityEvent<CellPlaceholderStruct> _onAllClients;
+        [FormerlySerializedAs("_onAllClients")]
+        private UnityEvent<CellPlaceholderStruct> _varHookOnAllClients;
+
+        [SyncVar(hook = nameof(HookOnAllClients))]
+        private CellPlaceholderStruct _cellPlaceholder;
 
         public void OnClientAskToChangeOrientation(CellPlaceholderStruct cell) =>
             CommandClientAskToChangeOrientation(cell);
 
         [Command]
         private void CommandClientAskToChangeOrientation(CellPlaceholderStruct cell) =>
-            RpcOnAllClients(cell);
+            _cellPlaceholder = cell;
 
-        [ClientRpc]
-        private void RpcOnAllClients(CellPlaceholderStruct cell)
+        private void HookOnAllClients(CellPlaceholderStruct oldCell, CellPlaceholderStruct newCell)
         {
-            _onAllClients?.Invoke(cell);
+            _varHookOnAllClients?.Invoke(newCell);
         }
     }
 }
