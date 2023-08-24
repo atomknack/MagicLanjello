@@ -16,7 +16,7 @@ namespace MagicLanjello.Player
         private Vector3Int _discretePosition = Vector3Int.zero;
 
         private Vector3Int PositionToDiscrete(Vector3 pos) =>
-            new Vector3Int((int)pos.x, (int)pos.y, (int)pos.z);
+            new Vector3Int(Mathf.RoundToInt(pos.x), Mathf.RoundToInt(pos.y), Mathf.RoundToInt(pos.z));
 
         private void Update()
         {
