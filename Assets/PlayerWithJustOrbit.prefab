@@ -773,6 +773,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8688854024254290367}
+  - component: {fileID: 4039917341452422526}
   - component: {fileID: 523334687624487888}
   m_Layer: 0
   m_Name: RealPlayerPosition
@@ -797,6 +798,36 @@ Transform:
   - {fileID: 3702664037080843224}
   m_Father: {fileID: 868909905782338476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4039917341452422526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8607427694892055235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c327de9442180e34dbee2e8ed2c64491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _onClientWhenPositionChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3669229857475198066}
+        m_TargetAssemblyTypeName: CellPlaceholder_React, magiclanjello
+        m_MethodName: PositionChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &523334687624487888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -931,13 +962,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _oscilationScale: 1.1
   _onStartMoveScaleFlash: 1.3
-  _unityMaterials:
-  - {fileID: 2100000, guid: 11335d86c51371147b598c3645c360f5, type: 2}
-  - {fileID: 2100000, guid: 96e98418fe888054ba3b61ae5f773266, type: 2}
-  - {fileID: 2100000, guid: 9a0d1a9bc302d8a4b9d41d6169d5f736, type: 2}
-  - {fileID: 2100000, guid: c71397e9c7a383446a1d0687da148c45, type: 2}
-  - {fileID: 2100000, guid: 6b838c0d011ea3548a71670c990e926c, type: 2}
-  - {fileID: 2100000, guid: 3a69c2f16d238bf4b86e42dcfa1d1ac0, type: 2}
   pos: {x: 0, y: 0, z: 0}
 --- !u!114 &9134463226602852584
 MonoBehaviour:
