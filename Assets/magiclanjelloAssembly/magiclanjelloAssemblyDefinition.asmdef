@@ -6,7 +6,8 @@
         "UKnackProConcrete",
         "UKnackCinemachine",
         "UKnackForMirror",
-        "uCommonAssetsScripts"
+        "uCommonAssetsScripts",
+        "Mirror"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
