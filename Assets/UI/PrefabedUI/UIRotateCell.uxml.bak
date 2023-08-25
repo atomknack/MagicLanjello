@@ -1,0 +1,30 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <ui:VisualElement name="SizeElement" style="width: 220px; right: 0; position: absolute; top: 4px;">
+        <ui:VisualElement>
+            <ui:Label text="Rotate" display-tooltip-when-elided="true" name="Rotate" class="MenuLabel" style="font-size: 28px; -unity-text-align: middle-center; min-height: 44px; max-height: 44px;" />
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Button text="X" display-tooltip-when-elided="true" name="RotateAroundX" class="buttonColored x Rotate" style="font-size: 28px; top: 0; justify-content: center; -unity-text-align: middle-left;">
+                    <ui:Label text="R" display-tooltip-when-elided="true" class="buttonArrow red redText" style="left: 44%; top: 0;" />
+                </ui:Button>
+                <ui:Button text="Y" display-tooltip-when-elided="true" name="RotateAroundY" class="buttonColored y Rotate" style="font-size: 28px; justify-content: center; -unity-text-align: middle-left;">
+                    <ui:Label text="S" display-tooltip-when-elided="true" class="buttonArrow green greenText" style="top: 0; left: 44%;" />
+                </ui:Button>
+                <ui:Button text="Z" display-tooltip-when-elided="true" name="RotateAroundZ" class="buttonColored z Rotate" style="font-size: 28px; justify-content: center; -unity-text-align: middle-left;">
+                    <ui:Label text="O" display-tooltip-when-elided="true" class="buttonArrow blue blueText" style="top: 0; left: 44%;" />
+                </ui:Button>
+            </ui:VisualElement>
+            <ui:Label text="Invert" display-tooltip-when-elided="true" name="Invert" class="MenuLabel" style="font-size: 28px; -unity-text-align: middle-center; min-height: 44px; max-height: 44px;" />
+            <ui:VisualElement style="flex-direction: row;">
+                <ui:Button text="X" display-tooltip-when-elided="true" name="InvertXAxis" class="buttonColored x" style="font-size: 28px; justify-content: center; -unity-text-align: middle-left;">
+                    <ui:Label text="§" display-tooltip-when-elided="true" class="buttonArrow red redText" style="left: 44%; top: 0;" />
+                </ui:Button>
+                <ui:Button text="Y" display-tooltip-when-elided="true" name="InvertYAxis" class="buttonColored y" style="font-size: 28px; justify-content: center; -unity-text-align: middle-left;">
+                    <ui:Label text="¦" display-tooltip-when-elided="true" class="buttonArrow green greenText" style="left: 44%; top: 0;" />
+                </ui:Button>
+                <ui:Button text="Z" display-tooltip-when-elided="true" name="InvertZAxis" class="buttonColored z" style="-unity-font: url(&apos;project://database/Assets/Fonts/OFLFonts/Iceberg/Iceberg-Regular.ttf?fileID=12800000&amp;guid=54547ea7d9b94404b9126c7937dc963e&amp;type=3#Iceberg-Regular&apos;); font-size: 28px; justify-content: center; -unity-text-align: middle-left;">
+                    <ui:Label text="\u00A2" display-tooltip-when-elided="true" class="buttonArrow blue blueText" style="left: 44%; top: 0;" />
+                </ui:Button>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

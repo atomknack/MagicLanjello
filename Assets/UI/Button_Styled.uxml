@@ -1,0 +1,4 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/CommonUnityScripts_Symlink/UI/pLowPolyStyle01.uss?fileID=7433441132597879392&amp;guid=2052692fba1fa9542b8f262033f552c2&amp;type=3#pLowPolyStyle01" />
+    <ui:Button text="Menu" tabindex="-1"  class="buttonColored" />
+</ui:UXML>

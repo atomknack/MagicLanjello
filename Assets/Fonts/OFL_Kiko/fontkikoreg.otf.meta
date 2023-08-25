@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: aae68b16322c1564ea7bf8677ada1735
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - font kiko
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 94ff784ba845432498798ff9a2546aea, type: 3}
+  - {fileID: 12800000, guid: f498d2f17c5b4684eb1cfa7daa5a15e1, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

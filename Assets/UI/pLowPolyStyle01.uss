@@ -1,0 +1,119 @@
+.buttonColored {
+    background-image: url('project://database/Assets/Textures/UI/bgPolyBg01_L1.png?fileID=2800000&guid=dc00083fd2c626b428a16bbed6aaf073&type=3#bgPolyBg01_L1');
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    -unity-background-scale-mode: scale-and-crop;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-color: rgb(164, 174, 217);
+    border-right-color: rgb(151, 148, 197);
+    border-top-color: rgb(214, 212, 241);
+    border-bottom-color: rgb(147, 137, 185);
+    border-bottom-left-radius: 1px;
+    border-top-right-radius: 1px;
+    background-color: rgb(255, 255, 255);
+    -unity-slice-right: 0;
+    -unity-font-style: normal;
+    font-size: 22px;
+    transition-property: all;
+    transition-duration: 0s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    letter-spacing: 4px;
+    max-height: 54px;
+    -unity-text-align: upper-left;
+    min-height: 54px;
+    -unity-font-definition: url('project://database/Assets/Fonts/OFL_Iceberg/Iceberg-Regular.ttf?fileID=12800000&guid=54547ea7d9b94404b9126c7937dc963e&type=3#Iceberg-Regular');
+}
+
+.buttonColored:hover {
+    transition-duration: 100ms;
+    -unity-background-image-tint-color: rgb(217, 193, 169);
+    transition-property: -unity-background-image-tint-color;
+    transition-timing-function: ease-in;
+    transition-delay: 0s;
+}
+
+.buttonColored:active {
+    -unity-background-image-tint-color: rgb(117, 104, 135);
+    color: rgb(226, 212, 212);
+    border-left-color: rgb(121, 123, 200);
+    border-right-color: rgb(129, 81, 173);
+    border-top-color: rgb(126, 135, 192);
+    border-bottom-color: rgb(112, 74, 125);
+}
+
+.Rotate {
+    font-size: 20px;
+}
+
+.y {
+    -unity-background-image-tint-color: rgb(158, 231, 158);
+}
+
+.z {
+    -unity-background-image-tint-color: rgb(198, 204, 255);
+}
+
+.x {
+    -unity-background-image-tint-color: rgb(255, 162, 162);
+}
+
+.buttonArrow {
+    height: 25px;
+    width: 25px;
+    justify-content: space-around;
+    align-items: auto;
+    position: relative;
+    left: 88%;
+    font-size: 25px;
+    -unity-text-align: middle-center;
+    top: -5px;
+    -unity-font-definition: url('project://database/Assets/Fonts/OFL_hussar-motorway/HussarMotorway.otf?fileID=12800000&guid=860ab004042d831489bbe16d67f0221c&type=3#HussarMotorway');
+}
+
+.redText {
+    color: rgb(159, 13, 13);
+}
+
+.greenText {
+    color: rgb(9, 113, 1);
+}
+
+.blueText {
+    color: rgb(19, 49, 212);
+}
+
+.MenuLabel {
+    background-image: url('project://database/Assets/Textures/UI/bgPolyBg01_L1.png?fileID=2800000&guid=dc00083fd2c626b428a16bbed6aaf073&type=3#bgPolyBg01_L1');
+    -unity-background-image-tint-color: rgb(217, 217, 217);
+    -unity-background-scale-mode: scale-and-crop;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-color: rgb(164, 174, 217);
+    border-right-color: rgb(151, 148, 197);
+    border-top-color: rgb(214, 212, 241);
+    border-bottom-color: rgb(147, 137, 185);
+    border-bottom-left-radius: 1px;
+    border-top-right-radius: 1px;
+    background-color: rgb(255, 255, 255);
+    -unity-slice-right: 0;
+    -unity-font-style: normal;
+    font-size: 22px;
+    transition-property: all;
+    transition-duration: 0s;
+    transition-timing-function: ease;
+    transition-delay: 0s;
+    letter-spacing: 4px;
+    max-height: 54px;
+    -unity-text-align: upper-left;
+    min-height: 54px;
+    -unity-font-definition: url('project://database/Assets/Fonts/OFL_Iceberg/Iceberg-Regular.ttf?fileID=12800000&guid=54547ea7d9b94404b9126c7937dc963e&type=3#Iceberg-Regular');
+}
