@@ -751,6 +751,91 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1027779759
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1027779762}
+  - component: {fileID: 1027779761}
+  - component: {fileID: 1027779760}
+  m_Layer: 0
+  m_Name: MirrorAxis2Mat
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!23 &1027779760
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027779759}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1027779761
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027779759}
+  m_Mesh: {fileID: 4300000, guid: c1e0f22534e1941448c592fc12283c2e, type: 2}
+--- !u!4 &1027779762
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1027779759}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1220008929
 GameObject:
   m_ObjectHideFlags: 0
@@ -1253,6 +1338,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1389756270}
   - component: {fileID: 1389756269}
+  - component: {fileID: 1389756271}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -1291,6 +1377,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1363302952}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1389756271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389756268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dcea750191fe264c8b5ace7002a54cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _document: {fileID: 0}
+  _items:
+  - visualElementId: RotateX90
+    iPublisherBool: {fileID: 11400000, guid: f22e173fa0cf59c4e8a48a8a1891bbb8, type: 2}
+    inverse: 0
+  - visualElementId: RotateY90
+    iPublisherBool: {fileID: 11400000, guid: 27963a9e9963b314eaf56f0ec1379161, type: 2}
+    inverse: 0
+  - visualElementId: RotateZ90
+    iPublisherBool: {fileID: 11400000, guid: 66dc38c9496a1e946a199d448c6215c9, type: 2}
+    inverse: 0
+  - visualElementId: MirrorXAxis
+    iPublisherBool: {fileID: 11400000, guid: 79c78156943e4884387b26b04aa06cc7, type: 2}
+    inverse: 0
+  - visualElementId: MirrorYAxis
+    iPublisherBool: {fileID: 11400000, guid: 684000f108bd3b54ba92e70c96c8892b, type: 2}
+    inverse: 0
+  - visualElementId: MirrorZAxis
+    iPublisherBool: {fileID: 11400000, guid: 5f78c599ada19c249af0b9034d3f8c9a, type: 2}
+    inverse: 0
 --- !u!1 &1450795102
 GameObject:
   m_ObjectHideFlags: 0
@@ -1751,3 +1869,4 @@ SceneRoots:
   - {fileID: 1821102477}
   - {fileID: 29207415}
   - {fileID: 1313623220}
+  - {fileID: 1027779762}
