@@ -150,15 +150,37 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "",
-                    "id": "436dd9e9-f988-4054-8e41-665748060871",
+                    "name": "One Modifier",
+                    "id": "9f996e07-585d-499b-b42f-fc18e9e9e584",
+                    "path": "OneModifier",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamera",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier",
+                    "id": "c898038f-8928-40d5-8b25-ca7c12a62600",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RotateCamera",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "af5bca8f-4c0c-457f-a08e-d9ec940e0d9d",
                     "path": "<Mouse>/delta",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
                     "action": "RotateCamera",
                     "isComposite": false,
-                    "isPartOfComposite": false
+                    "isPartOfComposite": true
                 },
                 {
                     "name": "1D Axis",
