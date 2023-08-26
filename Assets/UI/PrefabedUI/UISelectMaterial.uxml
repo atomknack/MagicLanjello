@@ -1,5 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
-    <Style src="project://database/Assets/Scenes/GridChunkedWithShaders/UIMaterialSelectors.uss?fileID=7433441132597879392&amp;guid=0e20e81c6f99b2a45b67609ddb8b83b2&amp;type=3#UIMaterialSelectors" />
+    <Style src="project://database/Assets/UI/PrefabedUI/UIMaterialSelectors.uss?fileID=7433441132597879392&amp;guid=d884e96dfeee55f4caa2c41939e519cc&amp;type=3#UIMaterialSelectors" />
     <ui:VisualElement style="position: absolute; left: 0; bottom: 0;">
         <ui:Button display-tooltip-when-elided="true" name="Material_0" class="MateriaSelector" />
         <ui:Button display-tooltip-when-elided="true" name="Material_1" class="MateriaSelector" />
