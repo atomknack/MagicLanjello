@@ -9,8 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75c3fe73ad6e86a45a4b56a0fb515ab9, type: 3}
-  m_Name: InvertX_Publisher
+  m_Script: {fileID: 11500000, guid: a5db0502968cee949a06f97528697b10, type: 3}
+  m_Name: MirrorXAxis
   m_EditorClassIdentifier: 
-  where: {fileID: 11400000, guid: 4d87eb3afbf8bf2478e424c457a81ccb, type: 2}
-  publishWhenTrue: {fileID: 11400000, guid: 11c8b440501356341a695265bc322621, type: 2}
+  _beforeSubscribers:
+    m_PersistentCalls:
+      m_Calls: []
+  _afterSubscribers:
+    m_PersistentCalls:
+      m_Calls: []

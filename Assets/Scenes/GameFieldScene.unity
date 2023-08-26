@@ -1354,6 +1354,7 @@ GameObject:
   - component: {fileID: 1389756270}
   - component: {fileID: 1389756269}
   - component: {fileID: 1389756271}
+  - component: {fileID: 1389756272}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -1424,6 +1425,32 @@ MonoBehaviour:
   - visualElementId: MirrorZAxis
     iPublisherBool: {fileID: 11400000, guid: 5f78c599ada19c249af0b9034d3f8c9a, type: 2}
     inverse: 0
+--- !u!114 &1389756272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1389756268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e358451d39213cc40ad44b96d075b148, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _document: {fileID: 0}
+  _items:
+  - buttonElementId: RotateX90
+    iPublisher: {fileID: 11400000, guid: 5caa41c8969434d4099041f344cbd743, type: 2}
+  - buttonElementId: RotateY90
+    iPublisher: {fileID: 11400000, guid: 8930d59ca41d9fe4bbb6de1efaa7570a, type: 2}
+  - buttonElementId: RotateZ90
+    iPublisher: {fileID: 11400000, guid: 941be34ccc5c14a4b9109968ee325d90, type: 2}
+  - buttonElementId: MirrorXAxis
+    iPublisher: {fileID: 11400000, guid: 21d6dae33573e984ca8f150f1e5bc5a1, type: 2}
+  - buttonElementId: MirrorYAxis
+    iPublisher: {fileID: 11400000, guid: 575ac15e5d1e2fc41aca007a066e56ca, type: 2}
+  - buttonElementId: MirrorZAxis
+    iPublisher: {fileID: 11400000, guid: b9384be5fda5dab4b8d83172aab32aae, type: 2}
 --- !u!1 &1450795102
 GameObject:
   m_ObjectHideFlags: 0
@@ -2292,7 +2319,7 @@ GameObject:
   - component: {fileID: 8359405890509608146}
   - component: {fileID: 8359405890509608147}
   m_Layer: 0
-  m_Name: Gizmos
+  m_Name: PlaceholderBeautification
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
