@@ -3,7 +3,10 @@ using DoubleEngine;
 using DoubleEngine.Atom;
 using DoubleEngine.UHelpers;
 using MagicLanjello.CellPlaceholder;
-
+using UKnack.Values;
+using System;
+using UnityEngine.Events;
+using UKnack.Events;
 
 [RequireComponent (typeof(MeshFilter))]
 [RequireComponent (typeof(OscilateScaleFromTo))]
@@ -17,7 +20,7 @@ public class CellPlaceholder_React : MonoBehaviour
     [SerializeField]
     private float _onStartMoveScaleFlash = 1.3f;
 
-    public Vector3Int pos = Vector3Int.zero;
+    private Vector3Int _cellPos = Vector3Int.zero;
     private CellPlaceholderStruct _current = CellPlaceholderStruct.DefaultPlaceholder;
     private CellPlaceholderStruct Current { 
         get => _current; 
@@ -45,8 +48,8 @@ public class CellPlaceholder_React : MonoBehaviour
 
     public void PositionChanged(Vector3Int newPos)
     {
-        pos = newPos;
-        transform.position = pos;
+        _cellPos = newPos;
+        transform.position = _cellPos;
     }
     public void PlaceholderChanged(CellPlaceholderStruct to)
     {
@@ -125,5 +128,4 @@ public class CellPlaceholder_React : MonoBehaviour
         _oscilateScale.enabled = false;
         transform.localScale = OrientationToScale();
     }
-
 }

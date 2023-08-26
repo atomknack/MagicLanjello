@@ -1,16 +1,25 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Mirror;
+using UKnack.Attributes;
+using UnityEngine.Serialization;
 
 namespace MagicLanjello.Player
 {
     public class DiscretePositionEvent : NetworkBehaviour
     {
         [SerializeField]
-        UnityEvent<Vector3Int> _onClientWhenPositionChanged;
+        [ValidReference]
+        private Transform _observedTarget;
 
         [SerializeField]
-        UnityEvent<Vector3> _onPlayerOnlyWhenPositionChanged;
+        UnityEvent<Vector3Int> _onClientsWhenChanged;
+
+        [SerializeField]
+        UnityEvent<Vector3> _onPlayerWhenChanged;
+
+        [SerializeField]
+        UnityEvent<Vector3Int> _onServerWhenChanged;
 
         [SyncVar(hook = nameof(OnClientPosChanged))]
         private Vector3Int _syncVarPosition = Vector3Int.zero;
@@ -23,7 +32,10 @@ namespace MagicLanjello.Player
 
         public override void OnStartServer()
         {
-            _syncVarPosition = _discretePosition = PositionToDiscrete(transform.position);
+            if (_observedTarget == null)
+                throw new System.ArgumentNullException(nameof(_observedTarget));
+
+            _syncVarPosition = _discretePosition = PositionToDiscrete(_observedTarget.position);
         }
 
         private void Update()
@@ -31,12 +43,13 @@ namespace MagicLanjello.Player
             if (isServer ==false)
                 return;
 
-            var _newDiscrete = PositionToDiscrete(transform.position);
+            var _newDiscrete = PositionToDiscrete(_observedTarget.position);
             if (_newDiscrete == _discretePosition)
                 return;
 
             //Debug.Log($"Position changed from {_discretePosition} to {_newDiscrete}, parent: {transform.parent.name}");
             _syncVarPosition = _discretePosition = _newDiscrete;
+            _onServerWhenChanged?.Invoke(_discretePosition);
         }
 
         private void OnClientPosChanged(Vector3Int oldPos, Vector3Int newPos) 
@@ -48,9 +61,9 @@ namespace MagicLanjello.Player
                 return;
             }
 
-            _onClientWhenPositionChanged?.Invoke(newPos);
+            _onClientsWhenChanged?.Invoke(newPos);
             if (isLocalPlayer)
-                _onPlayerOnlyWhenPositionChanged?.Invoke(newPos);
+                _onPlayerWhenChanged?.Invoke(newPos);
         }
     }
 

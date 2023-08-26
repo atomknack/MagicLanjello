@@ -12,18 +12,24 @@ namespace MagicLanjello.Player
     public class ClientCellPlaceholderToAll : NetworkBehaviour
     {
         [SerializeField]
-        [FormerlySerializedAs("_onAllClients")]
         private UnityEvent<CellPlaceholderStruct> _varHookOnAllClients;
 
         [SyncVar(hook = nameof(HookOnAllClients))]
         private CellPlaceholderStruct _cellPlaceholder;
 
+        [SerializeField]
+        private UnityEvent<CellPlaceholderStruct> _onServerWhenChanged;
+
         public void OnClientAskToChangeOrientation(CellPlaceholderStruct cell) =>
             CommandClientAskToChangeOrientation(cell);
 
         [Command]
-        private void CommandClientAskToChangeOrientation(CellPlaceholderStruct cell) =>
+        private void CommandClientAskToChangeOrientation(CellPlaceholderStruct cell)
+        {
             _cellPlaceholder = cell;
+            _onServerWhenChanged?.Invoke(cell);
+        }
+
 
         private void HookOnAllClients(CellPlaceholderStruct oldCell, CellPlaceholderStruct newCell)
         {

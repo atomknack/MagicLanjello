@@ -491,6 +491,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7558653761802941210}
   - component: {fileID: 6326392195546683305}
+  - component: {fileID: 3010263358288280462}
   - component: {fileID: 6953662597314537047}
   m_Layer: 0
   m_Name: NetworkEvents
@@ -544,6 +545,84 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  _onServerWhenChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+--- !u!114 &3010263358288280462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7308091412984755453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c327de9442180e34dbee2e8ed2c64491, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _observedTarget: {fileID: 8688854024254290367}
+  _onClientsWhenChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3669229857475198066}
+        m_TargetAssemblyTypeName: CellPlaceholder_React, magiclanjello
+        m_MethodName: PositionChanged
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _onPlayerWhenChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 56d62b40942bd5347877c241a682bcec, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Values.SOValueMutable`1[[UnityEngine.Vector3,
+          UnityEngine
+        m_MethodName: SetValue
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _onServerWhenChanged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 0
+  _discretePosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6953662597314537047
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -586,18 +665,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 1
-      - m_Target: {fileID: 3581643972914950555}
-        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
-        m_MethodName: SetActive
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 1
       - m_Target: {fileID: 4784183269061981596}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -610,6 +677,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 0
+      - m_Target: {fileID: 3581643972914950555}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
       - m_Target: {fileID: 11400000, guid: 17b81f29a05c5e24c9d169b300134c1e, type: 2}
         m_TargetAssemblyTypeName: UKnack.Values.SOValueMutable`1[[System.Boolean,
           mscorlib
@@ -917,7 +996,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8688854024254290367}
-  - component: {fileID: 4039917341452422526}
   - component: {fileID: 523334687624487888}
   m_Layer: 0
   m_Name: RealPlayerPosition
@@ -942,53 +1020,6 @@ Transform:
   - {fileID: 3702664037080843224}
   m_Father: {fileID: 868909905782338476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4039917341452422526
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8607427694892055235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c327de9442180e34dbee2e8ed2c64491, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  _onClientWhenPositionChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3669229857475198066}
-        m_TargetAssemblyTypeName: CellPlaceholder_React, magiclanjello
-        m_MethodName: PositionChanged
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-  _onPlayerOnlyWhenPositionChanged:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 11400000, guid: 56d62b40942bd5347877c241a682bcec, type: 2}
-        m_TargetAssemblyTypeName: UKnack.Values.SOValueMutable`1[[UnityEngine.Vector3,
-          UnityEngine
-        m_MethodName: SetValue
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-  _discretePosition: {x: 0, y: 0, z: 0}
 --- !u!114 &523334687624487888
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1123,7 +1154,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _oscilationScale: 1.1
   _onStartMoveScaleFlash: 1.3
-  pos: {x: 0, y: 0, z: 0}
 --- !u!114 &9134463226602852584
 MonoBehaviour:
   m_ObjectHideFlags: 0
