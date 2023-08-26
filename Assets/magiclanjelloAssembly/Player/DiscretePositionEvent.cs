@@ -9,6 +9,9 @@ namespace MagicLanjello.Player
         [SerializeField]
         UnityEvent<Vector3Int> _onClientWhenPositionChanged;
 
+        [SerializeField]
+        UnityEvent<Vector3> _onPlayerOnlyWhenPositionChanged;
+
         [SyncVar(hook = nameof(OnClientPosChanged))]
         private Vector3Int _syncVarPosition = Vector3Int.zero;
 
@@ -46,6 +49,8 @@ namespace MagicLanjello.Player
             }
 
             _onClientWhenPositionChanged?.Invoke(newPos);
+            if (isLocalPlayer)
+                _onPlayerOnlyWhenPositionChanged?.Invoke(newPos);
         }
     }
 
