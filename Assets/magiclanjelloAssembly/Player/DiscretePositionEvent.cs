@@ -54,7 +54,7 @@ namespace MagicLanjello.Player
 
         private void OnClientPosChanged(Vector3Int oldPos, Vector3Int newPos) 
         {
-            Debug.Log($"OnClientPosChanged. old: {oldPos}, new: {newPos}");
+            //Debug.Log($"OnClientPosChanged. old: {oldPos}, new: {newPos}");
             if (oldPos == newPos)
             {
                 Debug.Log($"This should not happen {oldPos} equal to {newPos}");

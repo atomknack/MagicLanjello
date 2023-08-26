@@ -1,4 +1,5 @@
 using DoubleEngine.Atom;
+using DoubleEngine.UHelpers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ namespace MagicLanjello.CellPlaceholder.SOValues
         private bool _subscribedToDependency = false;
 
         [NonSerialized]
-        private byte _material = DEMaterials.DefaultMaterial.id;
+        private byte _material = CellPlaceholderStruct.DefaultPlaceholder.material;
 
         public override byte GetValue() => _material;
 

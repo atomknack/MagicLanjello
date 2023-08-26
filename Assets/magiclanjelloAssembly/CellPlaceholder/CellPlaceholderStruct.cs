@@ -1,17 +1,22 @@
 using DoubleEngine.Atom;
+using DoubleEngine.UHelpers;
 using System;
 
 namespace MagicLanjello.CellPlaceholder
 {
     [System.Serializable]
-    public struct CellPlaceholderStruct : IEquatable<CellPlaceholderStruct>
+    public readonly struct CellPlaceholderStruct : IEquatable<CellPlaceholderStruct>
     {
         public static CellPlaceholderStruct DefaultPlaceholder =>
-            new CellPlaceholderStruct { orientation = 0, cellMesh = 1, material = DEMaterials.DefaultMaterial.id };
+            //UnityException: Load is not allowed to be called from a ScriptableObject constructor (or instance field initializer), call it in OnEnable instead. Called from ScriptableObject 'SOValueCellPlaceholder_Material'.
+            //new CellPlaceholderStruct (Grid6SidesCached.Default._orientation.index, 1, UMaterials.Default );
+            new CellPlaceholderStruct(0, 1, 0);
 
-        public int orientation;
-        public short cellMesh;
-        public byte material;
+
+
+        public readonly int orientation;
+        public readonly short cellMesh;
+        public readonly byte material;
 
         public CellPlaceholderStruct(int orientation, short cellMesh, byte material)
         {
