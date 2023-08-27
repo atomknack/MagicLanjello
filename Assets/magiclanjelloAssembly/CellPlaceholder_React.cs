@@ -7,6 +7,7 @@ using UKnack.Values;
 using System;
 using UnityEngine.Events;
 using UKnack.Events;
+using UKnack.Attributes;
 
 [RequireComponent (typeof(MeshFilter))]
 [RequireComponent (typeof(OscilateScaleFromTo))]
@@ -19,6 +20,10 @@ public class CellPlaceholder_React : MonoBehaviour
     private float _oscilationScale = 1.1f;
     [SerializeField]
     private float _onStartMoveScaleFlash = 1.3f;
+
+    [SerializeField]
+    [ValidReference]
+    Mesh _meshForEmptyPlaceholder;
 
     private Vector3Int _cellPos = Vector3Int.zero;
     private CellPlaceholderStruct _current = CellPlaceholderStruct.DefaultPlaceholder;
@@ -59,6 +64,8 @@ public class CellPlaceholder_React : MonoBehaviour
     }
     void OnEnable()
     {
+        if (_meshForEmptyPlaceholder == null)
+            throw new System.ArgumentNullException(nameof(_meshForEmptyPlaceholder));
         _oscilateScale = GetComponent<OscilateScaleFromTo>();
         //if (gridMesh == null)
         //    gridMesh = FindObjectOfType<AbstractGridMeshGenerator>();
@@ -93,7 +100,7 @@ public class CellPlaceholder_React : MonoBehaviour
         void ChangeMeshIndex(short newIndex)
         {
             if (newIndex == 0)
-                _meshFilter.sharedMesh = null;
+                _meshFilter.sharedMesh = _meshForEmptyPlaceholder;//null;
             else
                 _meshFilter.sharedMesh = UThreeDimensionalCellMeshes.GetUnityMesh((short)newIndex);
         }

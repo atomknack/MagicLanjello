@@ -1154,6 +1154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _oscilationScale: 1.1
   _onStartMoveScaleFlash: 1.3
+  _meshForEmptyPlaceholder: {fileID: 4300000, guid: 50aa1625b524c194aaabe9e0402ba4cb, type: 2}
 --- !u!114 &9134463226602852584
 MonoBehaviour:
   m_ObjectHideFlags: 0
