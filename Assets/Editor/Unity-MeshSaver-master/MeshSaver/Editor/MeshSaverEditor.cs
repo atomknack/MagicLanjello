@@ -35,30 +35,43 @@ public static class MeshSaverEditor {
 		m.vertices = vertices;
         SaveMesh(m, m.name, true, true);
     }
+    ///<summary>
+    /// P: My Modification3 // Works for Multi material Made my Pavel, drops material info and mesh becomes single material:
+    /// No vertice velding done on single material mesh
+    /// Better to apply 2 times if Transform has non defaut TRS
+    /// </summary>
+    /// <param name="menuCommand"></param>
+    [MenuItem("CONTEXT/MeshFilter/Save SingleMat Transformed Mesh As New Instance...")]
+    public static void SaveTransformedMeshNewInstanceSingleMaterial(MenuCommand menuCommand)
+    {
+        MeshFilter mf = menuCommand.context as MeshFilter;
+        Mesh m = CloneMesh(mf.sharedMesh, false);
+        var vertices = m.vertices;
+        mf.transform.TransformPoints(vertices);
+        m.vertices = vertices;
+        SaveMesh(m, m.name, true, true);
+    }
 
-	private static Mesh CloneMesh(Mesh mesh)
+    private static Mesh CloneMesh(Mesh mesh, bool cloneSubmeshInfo = true)
 	{
 		var newMesh = new Mesh();
-        /*{
-            vertices = mesh.vertices,
-            triangles = mesh.triangles,
-            normals = mesh.normals,
-            tangents = mesh.tangents,
-            bounds = mesh.bounds,
-            uv = mesh.uv
-        };*/
 		newMesh.vertices = mesh.vertices;
         newMesh.triangles = mesh.triangles;
         newMesh.normals = mesh.normals;
 		newMesh.colors = mesh.colors;
 		newMesh.tangents = mesh.tangents;
 		newMesh.uv = mesh.uv;
-		int subMeshCount = mesh.subMeshCount;
-		newMesh.subMeshCount = subMeshCount;
-		for (int i = 0;i<subMeshCount; i++)
+
+		if (cloneSubmeshInfo)
 		{
-            newMesh.SetSubMesh(i,mesh.GetSubMesh(i));
+            int subMeshCount = mesh.subMeshCount;
+            newMesh.subMeshCount = subMeshCount;
+            for (int i = 0; i < subMeshCount; i++)
+            {
+                newMesh.SetSubMesh(i, mesh.GetSubMesh(i));
+            }
         }
+
         newMesh.RecalculateBounds();
 
 		return newMesh;
