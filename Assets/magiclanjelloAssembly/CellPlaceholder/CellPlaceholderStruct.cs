@@ -1,4 +1,5 @@
 using DoubleEngine.Atom;
+using DoubleEngine.Network;
 using DoubleEngine.UHelpers;
 using System;
 
@@ -7,31 +8,25 @@ namespace MagicLanjello.CellPlaceholder
     [System.Serializable]
     public readonly struct CellPlaceholderStruct : IEquatable<CellPlaceholderStruct>
     {
-        public static CellPlaceholderStruct DefaultPlaceholder =>
-            //UnityException: Load is not allowed to be called from a ScriptableObject constructor (or instance field initializer), call it in OnEnable instead. Called from ScriptableObject 'SOValueCellPlaceholder_Material'.
-            //new CellPlaceholderStruct (Grid6SidesCached.Default._orientation.index, 1, UMaterials.Default );
-            new CellPlaceholderStruct(0, 1, 0);
+        //[System.NonSerialized]
+        //private static readonly CellPlaceholderStruct _empty = (CellPlaceholderStruct)NetGridCell.Empty;
+        public static CellPlaceholderStruct DefaultPlaceholder => (CellPlaceholderStruct)NetGridCell.Empty; //_empty;
+        //UnityException: Load is not allowed to be called from a ScriptableObject constructor (or instance field initializer), call it in OnEnable instead. Called from ScriptableObject 'SOValueCellPlaceholder_Material'.
+        //new CellPlaceholderStruct (0 ,Grid6SidesCached.Default._orientation.index, UMaterials.Default );
 
-
-
-        public readonly int orientation;
         public readonly short cellMesh;
+        public readonly int orientation;
         public readonly byte material;
+
+        public static explicit operator CellPlaceholderStruct(NetGridCell netCell) =>
+            new CellPlaceholderStruct(netCell.cellMesh, netCell.orientation, netCell.material);
 
         public CellPlaceholderStruct(short cellMesh, int orientation, byte material)
         {
-            ValidateParameters(cellMesh, orientation, material);
+            //NetGridCell.ValidateParameters(cellMesh, orientation, material);
             this.orientation = orientation;
             this.cellMesh = cellMesh;
             this.material = material;
-        }
-
-        public static void ValidateParameters(short cellMesh, int orientation, byte material)
-        {
-            if (!ScaleInversionPerpendicularRotation3.IsValid(orientation))
-                throw new Exception($"orientation {orientation} is not valid");
-            ThreeDimensionalCellMeshes.ValidateMeshId(cellMesh);
-            DEMaterials.ValidateMaterial(material);
         }
 
         public bool Equals(CellPlaceholderStruct other) =>

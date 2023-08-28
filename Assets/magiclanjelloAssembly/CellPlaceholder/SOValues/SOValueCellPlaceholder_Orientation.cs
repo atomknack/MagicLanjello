@@ -24,7 +24,8 @@ namespace MagicLanjello.CellPlaceholder.SOValues
         private bool _subscribedToDependency = false;
 
         [NonSerialized]
-        private Grid6SidesCached _orientation = Grid6SidesCached.Default;
+        private Grid6SidesCached _orientation = Grid6SidesCached.FromRotationAndScale(ScaleInversionPerpendicularRotation3.FromInt(
+            CellPlaceholderStruct.DefaultPlaceholder.orientation));
 
         private void SetOrientationWithInvokeSubscribers(Grid6SidesCached value)
         {

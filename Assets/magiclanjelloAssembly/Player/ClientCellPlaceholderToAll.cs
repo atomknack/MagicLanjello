@@ -15,7 +15,7 @@ namespace MagicLanjello.Player
         private UnityEvent<CellPlaceholderStruct> _varHookOnAllClients;
 
         [SyncVar(hook = nameof(HookOnAllClients))]
-        private CellPlaceholderStruct _cellPlaceholder;
+        private CellPlaceholderStruct _cellPlaceholder = CellPlaceholderStruct.DefaultPlaceholder;
 
         [SerializeField]
         private UnityEvent<CellPlaceholderStruct> _onServerWhenChanged;

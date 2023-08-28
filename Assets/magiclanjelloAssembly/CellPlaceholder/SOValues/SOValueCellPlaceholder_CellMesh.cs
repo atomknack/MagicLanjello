@@ -18,7 +18,7 @@ namespace MagicLanjello.CellPlaceholder.SOValues
         private bool _subscribedToDependency = false;
 
         [System.NonSerialized]
-        private short _cellMesh = ThreeDimensionalCellMeshes.FullCubeId;
+        private short _cellMesh = CellPlaceholderStruct.DefaultPlaceholder.cellMesh;
 
         public override short GetValue() => _cellMesh;
 
