@@ -18,15 +18,15 @@ namespace MagicLanjello.CellPlaceholder
         public readonly short cellMesh;
         public readonly byte material;
 
-        public CellPlaceholderStruct(int orientation, short cellMesh, byte material)
+        public CellPlaceholderStruct(short cellMesh, int orientation, byte material)
         {
-            ValidateParameters(orientation, cellMesh, material);
+            ValidateParameters(cellMesh, orientation, material);
             this.orientation = orientation;
             this.cellMesh = cellMesh;
             this.material = material;
         }
 
-        public static void ValidateParameters(int orientation, short cellMesh, byte material)
+        public static void ValidateParameters(short cellMesh, int orientation, byte material)
         {
             if (!ScaleInversionPerpendicularRotation3.IsValid(orientation))
                 throw new Exception($"orientation {orientation} is not valid");

@@ -13,11 +13,11 @@ namespace MagicLanjello.CellPlaceholder.SOValues
     {
         [SerializeField]
         [ValidReference]
-        private SOValue<int> _orientation;
+        private SOValue<short> _cellMesh;
 
         [SerializeField]
         [ValidReference]
-        private SOValue<short> _cellMesh;
+        private SOValue<int> _orientation;
 
         [SerializeField]
         [ValidReference]
@@ -27,7 +27,7 @@ namespace MagicLanjello.CellPlaceholder.SOValues
         private bool _subscribedToDependency = false;
 
         public override CellPlaceholderStruct GetValue() =>
-            new CellPlaceholderStruct(_orientation.GetValue(), _cellMesh.GetValue(), _material.GetValue());
+            new CellPlaceholderStruct(_cellMesh.GetValue(), _orientation.GetValue(), _material.GetValue());
 
 
         protected override void AfterUnsubscribing()
