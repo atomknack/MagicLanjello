@@ -33,6 +33,8 @@ public class CellPlaceholder_React : MonoBehaviour
         {
             var prev = _current;
             _current = value;
+            if (_initialized == false)
+                return;
             UpdateGameObjectToPlaceholder();
             if (prev.orientation != _current.orientation ||
                 prev.material != _current.material ||
@@ -40,6 +42,8 @@ public class CellPlaceholder_React : MonoBehaviour
                 StartScaleFlash();
         }
     }
+
+    private bool _initialized = false;
 
     private void UpdateGameObjectToPlaceholder()
     {
@@ -62,24 +66,18 @@ public class CellPlaceholder_React : MonoBehaviour
             return;
         Current = to;
     }
-    void OnEnable()
+
+    private void Awake()
     {
         if (_meshForEmptyPlaceholder == null)
             throw new System.ArgumentNullException(nameof(_meshForEmptyPlaceholder));
         _oscilateScale = GetComponent<OscilateScaleFromTo>();
-        //if (gridMesh == null)
-        //    gridMesh = FindObjectOfType<AbstractGridMeshGenerator>();
         _meshFilter = GetComponent<MeshFilter>();
-        //meshFilterDefaultCube = meshFilter.sharedMesh;
+        _initialized = true;
+    }
 
-
-        //meshIndex = 1;
-        //materialIndex = DEMaterials.DefaultMaterial.id;
-        //orientation = Grid6SidesCached.Default;
-
-        //pos = Vector3Int.zero;
-        //Current = CellPlaceholderStruct.DefaultPlaceholder;
-
+    void OnEnable()
+    {
         UpdateGameObjectToPlaceholder();
         SetOscilationEnabled();
 
