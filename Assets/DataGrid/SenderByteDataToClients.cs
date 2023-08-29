@@ -7,9 +7,9 @@ using UnityEngine;
 
 public partial class SenderByteDataToClients : NetworkBehaviour
 {
-    private byte[] _data = new byte[1000];
+    private byte[] _data = new byte[100_000_000];
     private uint _dataCount = 0;
-    private int _maxArraySegmentSize = 10;
+    private int _maxArraySegmentSize = 100;
 
     protected Dictionary<int, uint> _clientsRecievedDataCount = new Dictionary<int, uint>();
 
