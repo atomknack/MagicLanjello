@@ -1,15 +1,11 @@
-using Mirror;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UKnack.Mirror;
 using UnityEngine;
 using UnityEngine.Events;
+using Mirror;
 
 public partial class SenderByteDataToClients : NetworkBehaviour
 {
     [SerializeField]
-    private UnityEvent<ArraySegment<byte>> _onClientDataRecieved;
+    private UnityEvent<System.ArraySegment<byte>> _onClientDataRecieved;
 
     private byte[] _data = new byte[100_000_000];
     private int _dataCount = 0;
@@ -20,7 +16,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     protected void ClientDataRecievedEvent()
     {
         //Debug.Log(_dataCount);
-        _onClientDataRecieved?.Invoke(new ArraySegment<byte>(_data, 0, _dataCount));
+        _onClientDataRecieved?.Invoke(new System.ArraySegment<byte>(_data, 0, _dataCount));
     }
 
 
@@ -29,7 +25,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         _innerServer.Command_ClientRecievedTotal(clientDataCount, sender);
 
     [TargetRpc]
-    protected void TargetSendedDataToClient(NetworkConnectionToClient target, ArraySegment<byte> transfer, int currentClientCountShouldBe) =>
+    protected void TargetSendedDataToClient(NetworkConnectionToClient target, System.ArraySegment<byte> transfer, int currentClientCountShouldBe) =>
         _innerClient.TargetSendedDataToClient(target, transfer, currentClientCountShouldBe);
 
 
@@ -37,8 +33,6 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     public override void OnStartServer()
     {
         _innerServer = new ServerSide(this);
-        NetworkManagerCallbacks.OnServerWhenClientConnect += _innerServer.OnServerWhenClientConnect;
-        NetworkManagerCallbacks.OnServerWhenClientDisconnect += _innerServer.OnServerWhenClientDisconnect;
 
         //_serverRunning = true;
 
@@ -65,7 +59,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
             {
                 string message = $"at {i} of {_dataCount}, {_data[i]} not equal to {(byte)i}";
                 Debug.LogError("logged Error:" + message);
-                throw new Exception(message);
+                throw new System.Exception(message);
             }
         }
         Debug.Log($"Checked {_dataCount}");
@@ -73,8 +67,6 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     public override void OnStopServer()
     {
-        NetworkManagerCallbacks.OnServerWhenClientConnect -= _innerServer.OnServerWhenClientConnect;
-        NetworkManagerCallbacks.OnServerWhenClientDisconnect -= _innerServer.OnServerWhenClientDisconnect;
     }
 
 
