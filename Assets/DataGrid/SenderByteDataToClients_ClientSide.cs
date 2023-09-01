@@ -4,11 +4,11 @@ using System;
 
 public partial class SenderByteDataToClients
 {
-    private class InnerClient
+    private class ClientSide
     {
         SenderByteDataToClients _outer;
 
-        public void TargetSendedDataToClient(NetworkConnectionToClient target, ArraySegment<byte> transfer, uint currentClientCountShouldBe)
+        public void TargetSendedDataToClient(NetworkConnectionToClient target, ArraySegment<byte> transfer, int currentClientCountShouldBe)
         {
             Debug.Log($"RpcSendedDataToClient called id null: {target == null}, arraysegment null: {transfer == null}");
             //Debug.Log($"RpcSendedDataToClient called from {target}");
@@ -18,17 +18,20 @@ public partial class SenderByteDataToClients
 
             if (currentClientCountShouldBe != _outer._dataCount)
                 throw new System.Exception($"client have {_outer._dataCount}, and server expecting it to have {currentClientCountShouldBe}, there is tear somewhere");
-            int start = (int)_outer._dataCount;
+            int start = _outer._dataCount;
             for (int i = 0; i < transfer.Count; ++i)
             {
                 int dataIndex = start + i;
                 _outer._data[dataIndex] = transfer[i];
             }
-            _outer._dataCount = (uint)(start + transfer.Count);
+            _outer._dataCount = start + transfer.Count;
+
+            _outer._onClientDataRecieved?.Invoke(_outer._data);
+
             _outer.CmdClientRecievedTotal(_outer._dataCount);
         }
 
-        public InnerClient(SenderByteDataToClients outer)
+        public ClientSide(SenderByteDataToClients outer)
         {
             _outer = outer;
         }
