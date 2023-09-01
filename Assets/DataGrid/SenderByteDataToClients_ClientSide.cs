@@ -28,7 +28,6 @@ public partial class SenderByteDataToClients
             _outer._dataCount = start + transfer.Count;
 
             _outer.ClientDataRecievedEvent();
-
             _outer.CmdClientRecievedTotal(_outer._dataCount);
         }
 
@@ -45,6 +44,8 @@ public partial class SenderByteDataToClients
             
             _outer._dataVersion = notHostClientDataVersionToChange;
             _outer._dataCount = 0;
+
+            _outer.ClientDataRecievedEvent();
             _outer.CmdClientChangedDataVersion(_outer._dataVersion);
         }
 

@@ -1837,6 +1837,23 @@ MonoBehaviour:
         m_CallState: 1
     m_ActionId: ada9b156-3c49-4c76-a9e7-88895c2801d9
     m_ActionName: 'Building/AskToPutCell[/Keyboard/space]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1760058482}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: 0b58aef7-bdd6-438c-a09c-9944a80ea6bd
+    m_ActionName: 'Building/OnServerUpDataVersion[/Keyboard/tab]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Building
@@ -1861,6 +1878,7 @@ Transform:
   - {fileID: 878829854}
   - {fileID: 390879290}
   - {fileID: 529199192}
+  - {fileID: 1760058481}
   m_Father: {fileID: 2142405912}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1510193214
@@ -2051,6 +2069,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _axis: {x: 0, y: 1, z: 0}
   _rotationDegreesPerSecond: -90
+--- !u!1 &1760058480
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1760058481}
+  - component: {fileID: 1760058482}
+  m_Layer: 0
+  m_Name: OnServerUpDataVersion
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1760058481
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760058480}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1450795104}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1760058482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1760058480}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41084eadcab6f4d479f8c6be89545fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _0_disabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _1_waiting:
+    m_PersistentCalls:
+      m_Calls: []
+  _2_started:
+    m_PersistentCalls:
+      m_Calls: []
+  _3_performed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 929c2514a59ef104e8ab6ed2e749f642, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOPublisher_Concrete_nongeneric,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _4_canceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1760231612
 GameObject:
   m_ObjectHideFlags: 3
@@ -2158,6 +2248,7 @@ GameObject:
   - component: {fileID: 1813888842}
   - component: {fileID: 1813888840}
   - component: {fileID: 1813888843}
+  - component: {fileID: 1813888844}
   m_Layer: 0
   m_Name: SendByteArray
   m_TagString: Untagged
@@ -2186,6 +2277,21 @@ MonoBehaviour:
       - m_Target: {fileID: 566957105}
         m_TargetAssemblyTypeName: DebugLogByteArray, Assembly-CSharp
         m_MethodName: LogSegment
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _onNotHostClientBeforeDataVersionChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1813888844}
+        m_TargetAssemblyTypeName: NotHostClientDataVersionUpdate_Stub, Assembly-CSharp
+        m_MethodName: DoSomethingWithData
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2249,6 +2355,52 @@ MonoBehaviour:
       - m_Target: {fileID: 1813888840}
         m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
         m_MethodName: OutsideCalledAddToData
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+--- !u!114 &1813888844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1813888839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 693ab74935f9a744b963bdf1dcd576d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _onServerUpDataVersion: {fileID: 11400000, guid: d91a2df0dd0471844913d7a7719b63d5, type: 2}
+  _onServerUpDataVersionPressed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1813888840}
+        m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
+        m_MethodName: OutsideServerUpDataVersion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  notHostClientAfterDoneWithData:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1813888840}
+        m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
+        m_MethodName: OutsideClientReadyToChangeDataVersion
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

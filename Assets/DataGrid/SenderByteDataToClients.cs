@@ -24,6 +24,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         if (isServer == false)
             throw new System.InvalidOperationException("This method could be called only on server");
         _dataVersion = unchecked((short)(_dataVersion + 1));
+        _dataCount = 0;
         _innerServer.UpdateClients();
     }
 
@@ -70,7 +71,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     [TargetRpc]
     protected void TargetChangeDataVersion(NetworkConnectionToClient target, short dataVersion)
     {
-        if (ServerSide.IsConnectionFromHost(target))
+        if (isServer)
         {
             CmdClientChangedDataVersion(_dataVersion);
             return;
@@ -91,7 +92,10 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     public override void OnStartServer()
     {
+        if (_dataVersion < 0)
+            _dataVersion = 0;
         _innerServer = new ServerSide(this);
+
 
         //_serverRunning = true;
 
@@ -122,6 +126,10 @@ public partial class SenderByteDataToClients : NetworkBehaviour
             }
         }
         Debug.Log($"Checked {_dataCount}");
+        if (isServer == false)
+        {
+            _dataVersion = -1;
+        }
     }
 
     public override void OnStopServer()
