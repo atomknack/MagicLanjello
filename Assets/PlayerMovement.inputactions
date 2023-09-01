@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "AskToPutCell",
+                    "type": "Button",
+                    "id": "ada9b156-3c49-4c76-a9e7-88895c2801d9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -234,6 +243,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "NextCellMesh",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bfd0b17b-472a-45bc-8235-095fd1d3ffeb",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "AskToPutCell",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

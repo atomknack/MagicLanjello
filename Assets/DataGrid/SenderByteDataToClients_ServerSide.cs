@@ -13,6 +13,14 @@ public partial class SenderByteDataToClients
 
         private Dictionary<int, ClientType> _clients = new Dictionary<int, ClientType>();
 
+        public void UpdateClients()
+        {
+            foreach(var client in _clients.Values)
+            {
+                client.SendDataToClient();
+            }
+        }
+
         public void OnServerWhenClientConnect(NetworkConnectionToClient conn)
         {
             GetOrAddClient(conn);

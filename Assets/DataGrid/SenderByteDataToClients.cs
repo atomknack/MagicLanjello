@@ -13,6 +13,23 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     ServerSide _innerServer;
     ClientSide _innerClient;
 
+    public void OutsideCalledAddToData()
+    {
+        if (isServer == false)
+            throw new System.Exception("This method can only be called from server");
+
+        int numberToAdd = Random.Range(100, 2000);
+        int newLength = _dataCount + numberToAdd;
+        for (int i = _dataCount; i < _dataCount+numberToAdd; i++)
+        {
+            _data[i] = (byte)i;
+        }
+        _dataCount = newLength;
+
+
+        _innerServer.UpdateClients();
+    } 
+
     protected void ClientDataRecievedEvent()
     {
         //Debug.Log(_dataCount);
@@ -36,7 +53,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
         //_serverRunning = true;
 
-        FillDataArray();
+        //FillDataArray();
     }
 
     public override void OnStartClient()
