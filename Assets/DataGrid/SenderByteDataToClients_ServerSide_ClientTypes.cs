@@ -86,13 +86,23 @@ public partial class SenderByteDataToClients
 
         private sealed class ClientIsHostItself : ClientType
         {
-
+            int recievedBytesCount = 0;
 
             public override void SendDataToClient() =>
                 _outer.ClientDataRecievedEvent();
 
-            public override void ClientRecievedTotalBytes(int recievedBytesCount) 
+            public override void ClientRecievedTotalBytes(int clientDataCount) 
             {
+
+                if (clientDataCount != _outer._dataCount)
+                    throw new System.Exception($"On ClientIsHostItself {clientDataCount} should always be same as {_outer._dataCount}");
+
+                if (recievedBytesCount == clientDataCount)
+                    return;
+
+
+                recievedBytesCount = clientDataCount;
+                SendDataToClient();
             }
 
             public ClientIsHostItself(SenderByteDataToClients outer, NetworkConnectionToClient connection) : base(outer, connection)

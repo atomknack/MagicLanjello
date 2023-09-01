@@ -10,11 +10,11 @@ public partial class SenderByteDataToClients
 
         public void TargetSendedDataToClient(NetworkConnectionToClient target, ArraySegment<byte> transfer, int currentClientCountShouldBe)
         {
-            Debug.Log($"RpcSendedDataToClient called id null: {target == null}, arraysegment null: {transfer == null}");
-            //Debug.Log($"RpcSendedDataToClient called from {target}");
-            //Debug.Log($"RpcSendedDataToClient called from id {target.connectionId}, with {transfer}");
-            Debug.Log($"RpcSendedDataToClient {_outer._dataCount} and new transfer is: {transfer.Count}, checker: {currentClientCountShouldBe}");
-            Debug.Log($"{transfer[0]} {transfer.Count} {transfer.Array.Length}");
+            //Debug.Log($"RpcSendedDataToClient called id null: {target == null}, arraysegment null: {transfer == null}");
+            ////Debug.Log($"RpcSendedDataToClient called from {target}");
+            ////Debug.Log($"RpcSendedDataToClient called from id {target.connectionId}, with {transfer}");
+            //Debug.Log($"RpcSendedDataToClient {_outer._dataCount} and new transfer is: {transfer.Count}, checker: {currentClientCountShouldBe}");
+            //Debug.Log($"{transfer[0]} {transfer.Count} {transfer.Array.Length}");
 
             if (currentClientCountShouldBe != _outer._dataCount)
                 throw new System.Exception($"client have {_outer._dataCount}, and server expecting it to have {currentClientCountShouldBe}, there is tear somewhere");
@@ -26,7 +26,7 @@ public partial class SenderByteDataToClients
             }
             _outer._dataCount = start + transfer.Count;
 
-            _outer._onClientDataRecieved?.Invoke(_outer._data);
+            _outer.ClientDataRecievedEvent();
 
             _outer.CmdClientRecievedTotal(_outer._dataCount);
         }

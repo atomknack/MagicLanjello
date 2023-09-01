@@ -8,7 +8,26 @@ public class DebugLogByteArray : MonoBehaviour
     Label _bytesArrayLog;
     Label _numberOfBytes;
 
+    ArraySegment<byte> _segment = ArraySegment<byte>.Empty;
+
+    private const int everyNFrames = 100;
+    private int frameCounter = 0;
+
     public void LogSegment(ArraySegment<byte> segment)
+    {
+        _segment = segment;
+    }
+
+    private void Update()
+    {
+        frameCounter++;
+        if (frameCounter < everyNFrames)
+            return;
+        frameCounter = 0;
+        LogSegment();
+    }
+
+    private void LogSegment()
     {
         if (_bytesArrayLog == null || _numberOfBytes == null)
         {
@@ -16,9 +35,18 @@ public class DebugLogByteArray : MonoBehaviour
             return;
         }
 
+        _numberOfBytes.text = _segment.Count.ToString();
 
-        _bytesArrayLog.text = String.Join(',',segment.Array);
-        _numberOfBytes.text = segment.Count.ToString();
+        
+        var temp = _segment;
+
+        if (temp.Count > 30)
+            temp = temp.Slice(temp.Count - 20);
+
+        var tempArr = temp.ToArray();
+
+        _bytesArrayLog.text = String.Join(',', tempArr);
+        
     }
 
     private void OnEnable()

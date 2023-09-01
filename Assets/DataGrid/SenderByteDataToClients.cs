@@ -17,8 +17,12 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     ServerSide _innerServer;
     ClientSide _innerClient;
 
-    protected void ClientDataRecievedEvent() => 
+    protected void ClientDataRecievedEvent()
+    {
+        //Debug.Log(_dataCount);
         _onClientDataRecieved?.Invoke(new ArraySegment<byte>(_data, 0, _dataCount));
+    }
+
 
     [Command(requiresAuthority = false)]
     protected void CmdClientRecievedTotal(int clientDataCount, NetworkConnectionToClient sender = null) =>
@@ -48,8 +52,9 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         if (isServer == false)
         {
             _dataCount = 0;
-            CmdClientRecievedTotal(_dataCount);
         }
+
+        CmdClientRecievedTotal(_dataCount);
     }
 
     public override void OnStopClient()
