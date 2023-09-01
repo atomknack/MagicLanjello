@@ -7,6 +7,7 @@ public partial class SenderByteDataToClients
     private class ClientSide
     {
         SenderByteDataToClients _outer;
+        short notHostClientDataVersionToChange = 0;
 
         public void TargetSendedDataToClient(NetworkConnectionToClient target, ArraySegment<byte> transfer, int currentClientCountShouldBe)
         {
@@ -29,6 +30,22 @@ public partial class SenderByteDataToClients
             _outer.ClientDataRecievedEvent();
 
             _outer.CmdClientRecievedTotal(_outer._dataCount);
+        }
+
+        internal void TargetChangeDataVersion(NetworkConnectionToClient target, short dataVersion)
+        {
+            notHostClientDataVersionToChange = dataVersion;
+            _outer.ClientThatNotHostDataChangeEvent();
+        }
+
+        internal void ReadyToChangeDataVersion()
+        {
+            if (_outer._dataVersion == notHostClientDataVersionToChange)
+                throw new System.InvalidOperationException($"No need to change version {notHostClientDataVersionToChange} on client side, maybe you dont need to call this method, or need to ask to version update from server");
+            
+            _outer._dataVersion = notHostClientDataVersionToChange;
+            _outer._dataCount = 0;
+            _outer.CmdClientChangedDataVersion(_outer._dataVersion);
         }
 
         public ClientSide(SenderByteDataToClients outer)

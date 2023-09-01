@@ -10,8 +10,30 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     private byte[] _data = new byte[100_000_000];
     private int _dataCount = 0;
 
+    private short _dataVersion = 0;
+
+    [SerializeField]
+    private UnityEvent<System.ArraySegment<byte>> _onNotHostClientBeforeDataVersionChange;
+
     ServerSide _innerServer;
     ClientSide _innerClient;
+
+    //called on server
+    public void OutsideServerUpDataVersion()
+    {
+        if (isServer == false)
+            throw new System.InvalidOperationException("This method could be called only on server");
+        _dataVersion = unchecked((short)(_dataVersion + 1));
+        _innerServer.UpdateClients();
+    }
+
+    //when server updated version and client was notified, client won't get any new data from server until it confirm new data version
+    public void OutsideClientReadyToChangeDataVersion()
+    {
+        if (isClient == false)
+            throw new System.InvalidOperationException("This method could be called only on client");
+        _innerClient.ReadyToChangeDataVersion();
+    }
 
     public void OutsideCalledAddToData()
     {
@@ -34,6 +56,26 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     {
         //Debug.Log(_dataCount);
         _onClientDataRecieved?.Invoke(new System.ArraySegment<byte>(_data, 0, _dataCount));
+    }
+    protected void ClientThatNotHostDataChangeEvent()
+    {
+        //Debug.Log(_dataCount);
+        _onNotHostClientBeforeDataVersionChange?.Invoke(new System.ArraySegment<byte>(_data, 0, _dataCount));
+    }
+
+    [Command(requiresAuthority = false)]
+    protected void CmdClientChangedDataVersion(short dataVersion, NetworkConnectionToClient sender = null) =>
+        _innerServer.Command_ClientChangedDataVersion(dataVersion, sender);
+
+    [TargetRpc]
+    protected void TargetChangeDataVersion(NetworkConnectionToClient target, short dataVersion)
+    {
+        if (ServerSide.IsConnectionFromHost(target))
+        {
+            CmdClientChangedDataVersion(_dataVersion);
+            return;
+        }
+        _innerClient.TargetChangeDataVersion(target, dataVersion);
     }
 
 

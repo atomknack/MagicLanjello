@@ -13,6 +13,11 @@ public partial class SenderByteDataToClients
 
         private Dictionary<int, ClientType> _clients = new Dictionary<int, ClientType>();
 
+        internal void Command_ClientChangedDataVersion(short clientVersion, NetworkConnectionToClient sender)
+        {
+            _clients[sender.connectionId].ClientChangedDataVersion(clientVersion);
+        }
+
         public void UpdateClients()
         {
             foreach(var client in _clients.Values)
@@ -74,7 +79,7 @@ public partial class SenderByteDataToClients
         private int GetMaxArraySegmentSize() =>
             Math.Max(100, NetworkManager.singleton.transport.GetMaxPacketSize() - 64);
 
-        private bool IsConnectionFromHost(NetworkConnectionToClient conn)
+        public static bool IsConnectionFromHost(NetworkConnectionToClient conn)
         {
             if (conn == null)
                 throw new System.ArgumentNullException($"are you trying to check that null connection is local? Why?");

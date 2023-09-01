@@ -7,6 +7,8 @@ public partial class SenderByteDataToClients
 {
     private partial class ServerSide
     {
+
+
         public abstract class ClientType
         {
             protected SenderByteDataToClients _outer;
@@ -20,16 +22,33 @@ public partial class SenderByteDataToClients
             public abstract void SendDataToClient();
             public abstract void ClientRecievedTotalBytes(int clientDataCount);
 
+            public abstract void ClientChangedDataVersion(short clientDataVersion);
+
         }
 
         private sealed class ClientIsClient : ClientType
         {
             private int _recievedConfirmedDataCount;
             private int _sendedDataCount;
+            private short _clientDataVersion;
+            private bool _updatingDataVersion;
 
+            public override void ClientChangedDataVersion(short clientDataVersion)
+            {
+                _clientDataVersion = clientDataVersion;
+                _recievedConfirmedDataCount = 0;
+                _sendedDataCount = 0;
+
+                _updatingDataVersion = false;
+
+                SendDataToClient();
+            }
 
             public override void ClientRecievedTotalBytes(int clientDataCount)
             {
+                if (TryDataVersionUpdate())
+                    return;
+
                 if (_sendedDataCount != clientDataCount)
                 {
                      throw new System.Exception($"Client should confirm {_sendedDataCount} but confirms: {clientDataCount}");
@@ -55,6 +74,9 @@ public partial class SenderByteDataToClients
 
             public override void SendDataToClient()
             {
+                if (TryDataVersionUpdate())
+                    return;
+
                 int maxSegmentSize = _outer._innerServer._maxArraySegmentSize;
                 //Debug.Log($"SendDataToClient called from {_connection.connectionId}, serverData {_outer._dataCount}, recieved {_recievedDataCount}, maxSegmentSize {maxSegmentSize}");
 
@@ -80,33 +102,80 @@ public partial class SenderByteDataToClients
 
             public ClientIsClient(SenderByteDataToClients outer, NetworkConnectionToClient connection) : base(outer, connection)
             {
+                _clientDataVersion = 0;
                 _recievedConfirmedDataCount = 0;
+                _updatingDataVersion = false;
+
+            }
+            private bool TryDataVersionUpdate()
+            {
+                if (_updatingDataVersion)
+                    return true;
+
+                if (_clientDataVersion != _outer._dataVersion)
+                {
+                    _outer.TargetChangeDataVersion(_connection, _outer._dataVersion);
+                    return true;
+                }
+                return false;
             }
         }
 
         private sealed class ClientIsHostItself : ClientType
         {
-            int recievedBytesCount = 0;
+            private int _recievedBytesCount = 0;
+            private short _clientDataVersion = 0;
 
-            public override void SendDataToClient() =>
+            public override void ClientChangedDataVersion(short _)
+            {
+                _clientDataVersion = _outer._dataVersion;
+                _recievedBytesCount = _outer._dataCount;
+                SendDataToClient();
+            }
+
+            public override void SendDataToClient()
+            {
+                if (TryDataVersionUpdate())
+                    return;
+
                 _outer.ClientDataRecievedEvent();
+            }
+
 
             public override void ClientRecievedTotalBytes(int clientDataCount) 
             {
+                if (TryDataVersionUpdate())
+                    return;
+
+                if (_clientDataVersion != _outer._dataVersion)
+                {
+                    _outer.TargetChangeDataVersion(_connection, _outer._dataVersion);
+                    return;
+                }
 
                 if (clientDataCount != _outer._dataCount)
                     throw new System.Exception($"On ClientIsHostItself {clientDataCount} should always be same as {_outer._dataCount}");
 
-                if (recievedBytesCount == clientDataCount)
+                if (_recievedBytesCount == clientDataCount)
                     return;
 
 
-                recievedBytesCount = clientDataCount;
+                _recievedBytesCount = clientDataCount;
                 SendDataToClient();
             }
 
             public ClientIsHostItself(SenderByteDataToClients outer, NetworkConnectionToClient connection) : base(outer, connection)
             {
+            }
+
+            private bool TryDataVersionUpdate()
+            {
+                if (_clientDataVersion != _outer._dataVersion)
+                {
+                    ClientChangedDataVersion(_outer._dataVersion);
+                    return true;
+                }
+                return false;
             }
         }
 
