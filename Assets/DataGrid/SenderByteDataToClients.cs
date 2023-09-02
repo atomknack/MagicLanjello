@@ -92,8 +92,8 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     public override void OnStartServer()
     {
-        if (_dataVersion < 0)
-            _dataVersion = 0;
+        //if (_dataVersion < 0)
+        //    _dataVersion = 0;
         _innerServer = new ServerSide(this);
 
 
@@ -104,12 +104,13 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     public override void OnStartClient()
     {
-        _innerClient = new ClientSide(this);
-
         if (isServer == false)
         {
+            _dataVersion = 0;
             _dataCount = 0;
         }
+
+        _innerClient = new ClientSide(this);
 
         CmdClientRecievedTotal(_dataCount);
     }
@@ -126,10 +127,6 @@ public partial class SenderByteDataToClients : NetworkBehaviour
             }
         }
         Debug.Log($"Checked {_dataCount}");
-        if (isServer == false)
-        {
-            _dataVersion = -1;
-        }
     }
 
     public override void OnStopServer()
