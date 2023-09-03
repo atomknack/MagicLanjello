@@ -6,7 +6,7 @@ using DoubleEngine.UHelpers;
 using DoubleEngine;
 using System.Runtime.InteropServices;
 
-public class DataBrush : MonoBehaviour
+internal class DataBrush
 {
     #pragma warning disable format
     enum Brush3BitCommand : int {
@@ -32,19 +32,18 @@ public class DataBrush : MonoBehaviour
         {}
     }
 
-    [SerializeField]
-    private UnityEvent<ArraySegment<byte>> _toBytes;
-
-    [SerializeField]
-    private UnityEvent<Vector3Int, CellPlaceholderStruct> _readOneFromBytesSucess;
-
     private Vector3Int _position;
     private CellPlaceholderStruct _placeholder;
 
     private byte[] _buffer = new byte[10000];
 
+    internal void Reset()
+    {
+        _position = Vector3Int.zero;
+        _placeholder = CellPlaceholderStruct.DefaultPlaceholder;
+    }
 
-    public void ToBytes(Vector3Int position, CellPlaceholderStruct placeholder)
+    internal void ToBytes(Vector3Int position, CellPlaceholderStruct placeholder, Action<ArraySegment<byte>> havingBytes)
     {
         var buffer = _buffer.AsSpan(_buffer.Length);
         if (position == _position && placeholder.Equals(_placeholder))
@@ -72,7 +71,8 @@ public class DataBrush : MonoBehaviour
         }
         
         totalBytesWritten += WriteToBufferAndAdvance<byte>(ref buffer, Brush3BitCommandAsByte(Brush3BitCommand.PutCell));
-        _toBytes.Invoke(new ArraySegment<byte>(_buffer, 0, totalBytesWritten));
+
+        havingBytes(new ArraySegment<byte>(_buffer, 0, totalBytesWritten));
 
 
         static byte AsByte(WholeByteCommand command) => (byte)command;
@@ -87,9 +87,7 @@ public class DataBrush : MonoBehaviour
         }
     }
 
-
-
-    public bool TryReadOneFromBytes(ReadOnlySpan<byte> bytes, ref int index)
+    internal bool TryReadOneFromBytes(ReadOnlySpan<byte> bytes, ref int index, Action<Vector3Int, CellPlaceholderStruct> onSuccess)
     {
         if (index >= bytes.Length)
             return false;
@@ -113,7 +111,7 @@ public class DataBrush : MonoBehaviour
             }
             try
             {
-                _readOneFromBytesSucess.Invoke(tempPosition, tempPlaceholder);
+                onSuccess(tempPosition, tempPlaceholder);
             }
             catch (Exception ex)
             {
@@ -136,7 +134,7 @@ public class DataBrush : MonoBehaviour
         }
     }
 
-    private int ReadWholeByteCommand(WholeByteCommand wholeByte, ReadOnlySpan<byte> slice, ref Vector3Int position, ref CellPlaceholderStruct placeholder)
+    private static int ReadWholeByteCommand(WholeByteCommand wholeByte, ReadOnlySpan<byte> slice, ref Vector3Int position, ref CellPlaceholderStruct placeholder)
     {
         switch (wholeByte)
         {
@@ -155,18 +153,6 @@ public class DataBrush : MonoBehaviour
         }
         throw new NotImplementedException();
     }
-
-    public void Reset()
-    {
-        _position = Vector3Int.zero;
-        _placeholder = CellPlaceholderStruct.DefaultPlaceholder;
-    }
-
-    private void Awake()
-    {
-        Reset();
-    }
-
 
     private static Brush3BitCommand Brush3BitCommand_Read(byte b) => (Brush3BitCommand)(b & 0b_0000_0_111);
     private static int Brush3BitCommand_SignBit(byte b) => ((b & 0b_0000_1_000) >> 3) * (-1);

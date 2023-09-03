@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Events;
 using Mirror;
+using System;
 
 public partial class SenderByteDataToClients : NetworkBehaviour
 {
@@ -18,6 +19,16 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     ServerSide _innerServer;
     ClientSide _innerClient;
 
+    public void OutsideCalledAddToData(ArraySegment<byte> data)
+    {
+        for (int i = 0; i < data.Count; i++)
+        {
+            _data[_dataCount + i] = data[i];
+        }
+        _dataCount = _dataCount + data.Count;
+
+        _innerServer.UpdateClients();
+    }
     //called on server
     public void OutsideServerUpDataVersion()
     {
