@@ -36,6 +36,7 @@ namespace MagicLanjello.Player
                 throw new System.ArgumentNullException(nameof(_observedTarget));
 
             _syncVarPosition = _discretePosition = PositionToDiscrete(_observedTarget.position);
+            _onServerWhenChanged?.Invoke(_discretePosition);
         }
 
         private void Update()

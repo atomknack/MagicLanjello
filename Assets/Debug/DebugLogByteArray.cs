@@ -1,14 +1,16 @@
 using System;
+using System.Text;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 [RequireComponent(typeof(UIDocument))]
 public class DebugLogByteArray : MonoBehaviour
 {
-    Label _bytesArrayLog;
+    TextField _bytesArrayLog;
     Label _numberOfBytes;
 
     ArraySegment<byte> _segment = ArraySegment<byte>.Empty;
+    StringBuilder sb = new StringBuilder();
 
     private const int everyNFrames = 100;
     private int frameCounter = 0;
@@ -40,12 +42,20 @@ public class DebugLogByteArray : MonoBehaviour
         
         var temp = _segment;
 
-        if (temp.Count > 30)
-            temp = temp.Slice(temp.Count - 20);
+        if (temp.Count > 121)
+            temp = temp.Slice(temp.Count - 120);
 
-        var tempArr = temp.ToArray();
+        sb.Clear();
+        for (int i = 0; i < temp.Count; i++)
+        {
+            sb.Append(temp[i]);
+            sb.Append(',');
+            if (i % 30 == 0 && i!=0)
+                sb.Append("\n");
 
-        _bytesArrayLog.text = String.Join(',', tempArr);
+        }
+
+        _bytesArrayLog.SetValueWithoutNotify(sb.ToString());
         
     }
 
@@ -56,7 +66,7 @@ public class DebugLogByteArray : MonoBehaviour
         _numberOfBytes = root.Q<Label>("NumberOfBytes");
         if (_numberOfBytes == null)
             throw new System.ArgumentNullException(nameof(_numberOfBytes));
-        _bytesArrayLog = root.Q<Label>("Bytes");
+        _bytesArrayLog = root.Q<TextField>("Bytes");
         if (_bytesArrayLog == null)
             throw new System.ArgumentNullException(nameof(_bytesArrayLog));
     }

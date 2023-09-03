@@ -45,13 +45,14 @@ internal class DataBrush
 
     internal void ToBytes(Vector3Int position, CellPlaceholderStruct placeholder, Action<ArraySegment<byte>> havingBytes)
     {
-        var buffer = _buffer.AsSpan(_buffer.Length);
+        var buffer = _buffer.AsSpan();
         if (position == _position && placeholder.Equals(_placeholder))
             return;
         int totalBytesWritten = 0;
         if (_position != position)
         {
             totalBytesWritten += WriteToBufferAndAdvance<byte>(ref buffer, AsByte(WholeByteCommand.MoveByVec3I));
+            Debug.Log($"spacer {position.ToVec3I()} {_position.ToVec3I()} {(position - _position).ToVec3I()}");
             totalBytesWritten += WriteToBufferAndAdvance<Vec3I>(ref buffer, (position - _position).ToVec3I());
         }
         if (_placeholder.cellMesh != placeholder.cellMesh)
@@ -72,6 +73,9 @@ internal class DataBrush
         
         totalBytesWritten += WriteToBufferAndAdvance<byte>(ref buffer, Brush3BitCommandAsByte(Brush3BitCommand.PutCell));
 
+        _position = position;
+        _placeholder = placeholder;
+
         havingBytes(new ArraySegment<byte>(_buffer, 0, totalBytesWritten));
 
 
@@ -81,7 +85,8 @@ internal class DataBrush
         static int WriteToBufferAndAdvance<T>(ref Span<byte> buffer, T value) where T : struct
         {
             MemoryMarshal.Write(buffer, ref value);
-            var bytesWritten = Marshal.SizeOf(typeof(Vec3I));
+            var bytesWritten = Marshal.SizeOf(typeof(T));
+            Debug.Log($"{buffer.Length} {bytesWritten} {String.Join(',', buffer.Slice(0, bytesWritten).ToArray())}");
             buffer = buffer.Slice(bytesWritten);
             return bytesWritten;
         }

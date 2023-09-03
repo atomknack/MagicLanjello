@@ -1,6 +1,6 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement style="flex-grow: 1; position: absolute; bottom: 40px; left: 20px;">
-        <ui:Label text="Label" name="Bytes" style="width: 400px; height: 80px;" />
+        <ui:TextField value="filler text" name="Bytes" multiline="true" vertical-scroller-visibility="Auto" readonly="true" hide-mobile-input="false" select-line-by-triple-click="false" select-word-by-double-click="false" select-all-on-focus="false" select-all-on-mouse-up="false" emoji-fallback-support="false" style="width: 600px; height: 120px;" />
         <ui:Label text="Label" name="NumberOfBytes" />
     </ui:VisualElement>
 </ui:UXML>
