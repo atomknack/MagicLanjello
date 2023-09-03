@@ -2,9 +2,9 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using MagicLanjello.CellPlaceholder;
-using System.Runtime.InteropServices;
 using DoubleEngine.UHelpers;
 using DoubleEngine;
+using System.Runtime.InteropServices;
 
 public class DataBrush : MonoBehaviour
 {
@@ -39,15 +39,55 @@ public class DataBrush : MonoBehaviour
     private UnityEvent<Vector3Int, CellPlaceholderStruct> _readOneFromBytesSucess;
 
     private Vector3Int _position;
-    private CellPlaceholderStruct _placeholderStruct;
+    private CellPlaceholderStruct _placeholder;
 
     private byte[] _buffer = new byte[10000];
 
 
-    public void ToBytes(Vector3Int position, CellPlaceholderStruct placeholderStruct)
+    public void ToBytes(Vector3Int position, CellPlaceholderStruct placeholder)
     {
+        var buffer = _buffer.AsSpan(_buffer.Length);
+        if (position == _position && placeholder.Equals(_placeholder))
+            return;
+        int totalBytesWritten = 0;
+        if (_position != position)
+        {
+            totalBytesWritten += WriteToBufferAndAdvance<byte>(ref buffer, AsByte(WholeByteCommand.MoveByVec3I));
+            totalBytesWritten += WriteToBufferAndAdvance<Vec3I>(ref buffer, (position - _position).ToVec3I());
+        }
+        if (_placeholder.cellMesh != placeholder.cellMesh)
+        {
+            totalBytesWritten += WriteToBufferAndAdvance<byte>(ref buffer, AsByte(WholeByteCommand.SetMeshFromShort));
+            totalBytesWritten += WriteToBufferAndAdvance<short>(ref buffer, placeholder.cellMesh);
+        }
+        if (_placeholder.orientation != placeholder.orientation)
+        {
+            totalBytesWritten += WriteToBufferAndAdvance<byte>(ref buffer, AsByte(WholeByteCommand.SetOrientationInt));
+            totalBytesWritten += WriteToBufferAndAdvance<int>(ref buffer, placeholder.orientation);
+        }
+        if (_placeholder.material != placeholder.material)
+        {
+            totalBytesWritten += WriteToBufferAndAdvance<byte>(ref buffer, AsByte(WholeByteCommand.SetMaterialByte));
+            totalBytesWritten += WriteToBufferAndAdvance<byte>(ref buffer, placeholder.material);
+        }
+        
+        totalBytesWritten += WriteToBufferAndAdvance<byte>(ref buffer, Brush3BitCommandAsByte(Brush3BitCommand.PutCell));
+        _toBytes.Invoke(new ArraySegment<byte>(_buffer, 0, totalBytesWritten));
 
+
+        static byte AsByte(WholeByteCommand command) => (byte)command;
+        static byte Brush3BitCommandAsByte(Brush3BitCommand command) => (byte)command;
+
+        static int WriteToBufferAndAdvance<T>(ref Span<byte> buffer, T value) where T : struct
+        {
+            MemoryMarshal.Write(buffer, ref value);
+            var bytesWritten = Marshal.SizeOf(typeof(Vec3I));
+            buffer = buffer.Slice(bytesWritten);
+            return bytesWritten;
+        }
     }
+
+
 
     public bool TryReadOneFromBytes(ReadOnlySpan<byte> bytes, ref int index)
     {
@@ -58,7 +98,7 @@ public class DataBrush : MonoBehaviour
         {
             int tempIndex = index;
             var tempPosition = _position;
-            var tempPlaceholder = _placeholderStruct;
+            var tempPlaceholder = _placeholder;
 
             Brush3BitCommand command;
             while ((command = Brush3BitCommand_Read(bytes[tempIndex])) != Brush3BitCommand.PutCell)
@@ -69,7 +109,7 @@ public class DataBrush : MonoBehaviour
 
                 tempIndex++;
 
-                tempIndex += ReadWholeByteCommand(wholeByte, bytes.Slice(tempIndex), ref _position, ref _placeholderStruct);
+                tempIndex += ReadWholeByteCommand(wholeByte, bytes.Slice(tempIndex), ref _position, ref _placeholder);
             }
             try
             {
@@ -77,11 +117,11 @@ public class DataBrush : MonoBehaviour
             }
             catch (Exception ex)
             {
-                throw new ErrorInUnityEvent($"Cannot invoke _readOneFromBytesSucess with ({tempPosition}, {tempPlaceholder}), previous values: ({_position}, {_placeholderStruct}). ", ex);
+                throw new ErrorInUnityEvent($"Cannot invoke _readOneFromBytesSucess with ({tempPosition}, {tempPlaceholder}), previous values: ({_position}, {_placeholder}). ", ex);
             }
 
             _position = tempPosition;
-            _placeholderStruct = tempPlaceholder;
+            _placeholder = tempPlaceholder;
             index = tempIndex;
             return true;
         }
@@ -119,7 +159,7 @@ public class DataBrush : MonoBehaviour
     public void Reset()
     {
         _position = Vector3Int.zero;
-        _placeholderStruct = CellPlaceholderStruct.DefaultPlaceholder;
+        _placeholder = CellPlaceholderStruct.DefaultPlaceholder;
     }
 
     private void Awake()
