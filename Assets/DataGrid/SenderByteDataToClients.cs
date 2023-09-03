@@ -100,7 +100,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     public override void OnStopClient()
     {
-        CheckStandardDataAddition();
+        //CheckStandardDataAddition();
     }
 
     public override void OnStopServer()
@@ -108,7 +108,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     }
 
 
-
+    /*
     private void FillDataArray()
     {
         for (int i = 0; i < _data.Length; i++)
@@ -148,5 +148,5 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         }
         Debug.Log($"Checked {_dataCount}");
     }
-
+    */
 }
