@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 2866631660533448707}
   - component: {fileID: 4279807268785499169}
   - component: {fileID: 6919790125894454696}
+  - component: {fileID: 4184681174122645644}
   m_Layer: 0
   m_Name: InputHandling
   m_TagString: Untagged
@@ -255,6 +256,34 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: ClientCellPlaceholderToAll, Assembly-CSharp
         m_MethodName: OnClientAskToChangeOrientation
         m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+--- !u!114 &4184681174122645644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3581643972914950555}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 55176bb4da83bb14c8c0dfffde75c336, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _subscribedTo: {fileID: 11400000, guid: 0c65aefc4d044514abfdb4c1b011527f, type: 2}
+  _unityEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4450913320688963579}
+        m_TargetAssemblyTypeName: AskToPutCell, Assembly-CSharp
+        m_MethodName: ClientAskToPutCell
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -490,6 +519,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7558653761802941210}
+  - component: {fileID: 4450913320688963579}
   - component: {fileID: 6326392195546683305}
   - component: {fileID: 3010263358288280462}
   - component: {fileID: 6953662597314537047}
@@ -515,6 +545,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 868909905782338476}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4450913320688963579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7308091412984755453}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32512b6dc1902054daef960903f0dbd3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncDirection: 0
+  syncMode: 0
+  syncInterval: 0
+  _onServerWhenClientAskedCorrectly: {fileID: 11400000, guid: 88f951a308637a34b891f1c7cb9447a9, type: 2}
 --- !u!114 &6326392195546683305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -548,18 +594,18 @@ MonoBehaviour:
   _onServerWhenChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4450913320688963579}
+        m_TargetAssemblyTypeName: AskToPutCell, Assembly-CSharp
+        m_MethodName: OnServerCellPlaceholderChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 1
 --- !u!114 &3010263358288280462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,18 +656,18 @@ MonoBehaviour:
   _onServerWhenChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
+      - m_Target: {fileID: 4450913320688963579}
+        m_TargetAssemblyTypeName: AskToPutCell, Assembly-CSharp
+        m_MethodName: OnServerPositionChanged
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 0
+        m_CallState: 1
   _discretePosition: {x: 0, y: 0, z: 0}
 --- !u!114 &6953662597314537047
 MonoBehaviour:

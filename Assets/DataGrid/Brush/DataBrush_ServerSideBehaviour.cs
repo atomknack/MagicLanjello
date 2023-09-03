@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UKnack.Attributes;
 using UKnack.Events;
 using UnityEngine;
-
+using UnityEngine.Events;
 
 [AddComponentMenu("MagicLanJello/DataBrush_ServerSideBehaviour")]
 
@@ -17,8 +17,7 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour
     SOEvent<Vector3Int, CellPlaceholderStruct, NetworkConnectionToClient> _putCellServerEvent;
 
     [SerializeField]
-    [ValidReference]
-    SOPublisher<ArraySegment<byte>> _haveBytes;
+    UnityEvent<ArraySegment<byte>> _haveBytesToSend;
 
     private DataBrush _outer;
     private void Awake()
@@ -27,15 +26,19 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour
         _outer.Reset();
     }
 
-    private void ToBytes(Vector3Int pos, CellPlaceholderStruct placeholder, NetworkConnectionToClient client) =>
-        _outer.ToBytes(pos, placeholder, _haveBytes.Publish);
+    private void ToBytes(Vector3Int pos, CellPlaceholderStruct placeholder, NetworkConnectionToClient client)
+    {
+        Debug.Log($"Got request to put cell on server {pos}, {placeholder}, {client.connectionId}");
+        _outer.ToBytes(pos, placeholder, _haveBytesToSend.Invoke);
+    }
+
 
     private void OnEnable()
     {
         if (_putCellServerEvent == null)
             throw new NullReferenceException(nameof(_putCellServerEvent));
-        if (_haveBytes == null)
-            throw new NullReferenceException(nameof(_haveBytes));
+        if (_haveBytesToSend == null)
+            throw new NullReferenceException(nameof(_haveBytesToSend));
         _putCellServerEvent.Subscribe(ToBytes);
     }
 
