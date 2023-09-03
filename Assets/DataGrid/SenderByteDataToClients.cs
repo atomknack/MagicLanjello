@@ -36,23 +36,6 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         _innerClient.ReadyToChangeDataVersion();
     }
 
-    public void OutsideCalledAddToData()
-    {
-        if (isServer == false)
-            throw new System.Exception("This method can only be called from server");
-
-        int numberToAdd = Random.Range(100, 2000);
-        int newLength = _dataCount + numberToAdd;
-        for (int i = _dataCount; i < _dataCount+numberToAdd; i++)
-        {
-            _data[i] = (byte)i;
-        }
-        _dataCount = newLength;
-
-
-        _innerServer.UpdateClients();
-    } 
-
     protected void ClientDataRecievedEvent()
     {
         //Debug.Log(_dataCount);
@@ -117,16 +100,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     public override void OnStopClient()
     {
-        for (int i = 0; i < _dataCount; ++i)
-        {
-            if (_data[i] != (byte)i)
-            {
-                string message = $"at {i} of {_dataCount}, {_data[i]} not equal to {(byte)i}";
-                Debug.LogError("logged Error:" + message);
-                throw new System.Exception(message);
-            }
-        }
-        Debug.Log($"Checked {_dataCount}");
+        CheckStandardDataAddition();
     }
 
     public override void OnStopServer()
@@ -142,6 +116,37 @@ public partial class SenderByteDataToClients : NetworkBehaviour
             _data[i] = (byte)i;
         }
         _dataCount = _data.Length;
+    }
+
+    public void OutsideCalledAddToData()
+    {
+        if (isServer == false)
+            throw new System.Exception("This method can only be called from server");
+
+        int numberToAdd = Random.Range(100, 2000);
+        int newLength = _dataCount + numberToAdd;
+        for (int i = _dataCount; i < _dataCount + numberToAdd; i++)
+        {
+            _data[i] = (byte)i;
+        }
+        _dataCount = newLength;
+
+
+        _innerServer.UpdateClients();
+    }
+
+    private void CheckStandardDataAddition()
+    {
+        for (int i = 0; i < _dataCount; ++i)
+        {
+            if (_data[i] != (byte)i)
+            {
+                string message = $"at {i} of {_dataCount}, {_data[i]} not equal to {(byte)i}";
+                Debug.LogError("logged Error:" + message);
+                throw new System.Exception(message);
+            }
+        }
+        Debug.Log($"Checked {_dataCount}");
     }
 
 }
