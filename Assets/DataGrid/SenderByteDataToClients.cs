@@ -107,6 +107,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     {
     }
 
+}
 
     /*
     private void FillDataArray()
@@ -149,4 +150,3 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         Debug.Log($"Checked {_dataCount}");
     }
     */
-}
