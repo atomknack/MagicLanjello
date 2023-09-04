@@ -12,6 +12,8 @@
       "source": "local",
       "dependencies": {
         "com.unity.inputsystem": "1.5.1",
+        "com.atomknack.doubleengine": "1.0.0",
+        "com.atomknack.mirrortemppackage": "81.0.3",
         "com.atomknack.uknackbasis": "2.5.0",
         "com.atomknack.uknackpro": "1.15.0"
       }
