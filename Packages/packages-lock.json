@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "com.atomknack.doubleengine": {
+      "version": "file:C:/Projects/DoubleEngine/OutUnityPackage",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.atomknack.magiclanjellopackage": {
       "version": "file:C:/GitFlic/magiclanjellopackage",
       "depth": 0,
