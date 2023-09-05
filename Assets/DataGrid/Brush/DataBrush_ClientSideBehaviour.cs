@@ -33,6 +33,7 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour
         int prevIndex = _bytesIndex;
         while (TryReadOneFromBytes(span, ref _bytesIndex))
         {
+            //Debug.Log(prevIndex);
             if (_bytesIndex == prevIndex)
                 throw new System.Exception($"there no advance on {prevIndex}, of Segment byte {bytes[prevIndex]} of total number of bytes {bytes.Count}");
             prevIndex = _bytesIndex;

@@ -112,7 +112,7 @@ internal class DataBrush
 
                 tempIndex++;
 
-                tempIndex += ReadWholeByteCommand(wholeByte, bytes.Slice(tempIndex), ref _position, ref _placeholder);
+                tempIndex += ReadWholeByteCommand(wholeByte, bytes.Slice(tempIndex), ref tempPosition, ref tempPlaceholder);
             }
             try
             {
@@ -122,7 +122,7 @@ internal class DataBrush
             {
                 throw new ErrorInUnityEvent($"Cannot invoke _readOneFromBytesSucess with ({tempPosition}, {tempPlaceholder}), previous values: ({_position}, {_placeholder}). ", ex);
             }
-
+            tempIndex++;
             _position = tempPosition;
             _placeholder = tempPlaceholder;
             index = tempIndex;
