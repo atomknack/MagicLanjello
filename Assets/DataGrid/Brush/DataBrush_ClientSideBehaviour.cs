@@ -1,12 +1,7 @@
-using MagicLanjello.CellPlaceholder;
-using Mirror;
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UKnack.Attributes;
-using UKnack.Events;
 using UnityEngine;
 using UnityEngine.Events;
+using MagicLanjello.CellPlaceholder;
+using System;
 
 [AddComponentMenu("MagicLanJello/DataBrush_ClientSideBehaviour")]
 internal class DataBrush_ClientSideBehaviour : MonoBehaviour
@@ -15,13 +10,32 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour
     private UnityEvent<Vector3Int, CellPlaceholderStruct> _gotNewCell;
 
     private DataBrush _outer;
+
+    private int _bytesIndex;
     private void Awake()
     {
         _outer = new DataBrush();
+        Reset();
+    }
+
+    public void Reset()
+    {
+        _bytesIndex = 0;
         _outer.Reset();
     }
 
-    public bool TryReadOneFromBytes(ReadOnlySpan<byte> bytes, ref int index) =>
+
+    public void GotBytes(System.ArraySegment<byte> bytes)
+    {
+        if (bytes.Count < _bytesIndex)
+            throw new System.ArgumentException("Did you forget to Reset() this after resetting level?");
+        var span = bytes.AsSpan();
+        while (TryReadOneFromBytes(span, ref _bytesIndex))
+        {
+        }
+    }
+
+    private bool TryReadOneFromBytes(System.ReadOnlySpan<byte> bytes, ref int index) =>
         _outer.TryReadOneFromBytes(bytes, ref index, _gotNewCell.Invoke);
 
 }

@@ -495,8 +495,10 @@ GameObject:
   m_Component:
   - component: {fileID: 344859883}
   - component: {fileID: 344859884}
+  - component: {fileID: 344859886}
+  - component: {fileID: 344859885}
   m_Layer: 0
-  m_Name: ServerSideBrush
+  m_Name: DataBrush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -536,6 +538,61 @@ MonoBehaviour:
       - m_Target: {fileID: 1813888840}
         m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
         m_MethodName: OutsideCalledAddToData
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+--- !u!114 &344859885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344859881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f01b22ae79b6af349b1fc852dddf73b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _converted:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 376160079}
+        m_TargetAssemblyTypeName: MagicLanJello.GridChunkedGenerator, magiclanjelloPackageAssembly
+        m_MethodName: Put
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+--- !u!114 &344859886
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 344859881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b6a68bde81d9f347b66731481eacb2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gotNewCell:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 344859885}
+        m_TargetAssemblyTypeName: PutCellConverterTo_x_y_z_ThreeDimensionalCell,
+          Assembly-CSharp
+        m_MethodName: Convert
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
