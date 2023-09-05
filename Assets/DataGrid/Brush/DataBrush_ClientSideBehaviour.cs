@@ -30,8 +30,12 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour
         if (bytes.Count < _bytesIndex)
             throw new System.ArgumentException("Did you forget to Reset() this after resetting level?");
         var span = bytes.AsSpan();
+        int prevIndex = _bytesIndex;
         while (TryReadOneFromBytes(span, ref _bytesIndex))
         {
+            if (_bytesIndex == prevIndex)
+                throw new System.Exception($"there no advance on {prevIndex}, of Segment byte {bytes[prevIndex]} of total number of bytes {bytes.Count}");
+            prevIndex = _bytesIndex;
         }
     }
 
