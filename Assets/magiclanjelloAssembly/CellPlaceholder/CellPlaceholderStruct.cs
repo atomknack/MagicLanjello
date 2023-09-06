@@ -33,6 +33,11 @@ namespace MagicLanjello.CellPlaceholder
             orientation == other.orientation &&
             cellMesh == other.cellMesh &&
             material == other.material;
+
+        public override string ToString()
+        {
+            return $"CPH(O:{orientation},Mh:{cellMesh},Mat:{material})";
+        }
     }
 }
 
