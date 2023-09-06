@@ -69,7 +69,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     {
         if (isServer)
         {
-            _onHostClientDataVersionGonnaChange.Invoke();
+            //_onHostClientDataVersionGonnaChange.Invoke();
             CmdClientChangedDataVersion(_dataVersion);
             return;
         }
