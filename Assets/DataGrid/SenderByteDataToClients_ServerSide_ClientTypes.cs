@@ -128,6 +128,7 @@ public partial class SenderByteDataToClients
 
             public override void ClientChangedDataVersion(short _)
             {
+                _outer._onHostClientDataVersionGonnaChange.Invoke();
                 _clientDataVersion = _outer._dataVersion;
                 _recievedBytesCount = _outer._dataCount;
                 SendDataToClient();

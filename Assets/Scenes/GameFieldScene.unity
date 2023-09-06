@@ -2521,8 +2521,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1813888844}
-        m_TargetAssemblyTypeName: NotHostClientDataVersionUpdate_Stub, Assembly-CSharp
-        m_MethodName: DoSomethingWithData
+        m_TargetAssemblyTypeName: DataVersionUpdate_Stub, Assembly-CSharp
+        m_MethodName: DoSomethingWithDataBeforeDataChange
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2532,6 +2532,45 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 344859884}
+        m_TargetAssemblyTypeName: DataBrush_ServerSideBehaviour, Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _onHostClientDataVersionGonnaChange:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 344859886}
+        m_TargetAssemblyTypeName: DataBrush_ClientSideBehaviour, Assembly-CSharp
+        m_MethodName: Reset
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 376160079}
+        m_TargetAssemblyTypeName: MagicLanJello.GridChunkedGenerator, magiclanjelloPackageAssembly
+        m_MethodName: Clear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!4 &1813888841
 Transform:
   m_ObjectHideFlags: 0
@@ -2598,9 +2637,9 @@ MonoBehaviour:
   notHostClientAfterDoneWithData:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1813888840}
-        m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
-        m_MethodName: OutsideClientReadyToChangeDataVersion
+      - m_Target: {fileID: 344859886}
+        m_TargetAssemblyTypeName: DataBrush_ClientSideBehaviour, Assembly-CSharp
+        m_MethodName: Reset
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2610,6 +2649,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 376160079}
+        m_TargetAssemblyTypeName: MagicLanJello.GridChunkedGenerator, magiclanjelloPackageAssembly
+        m_MethodName: Clear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1821102476
 GameObject:
   m_ObjectHideFlags: 0

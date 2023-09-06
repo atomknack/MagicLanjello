@@ -19,7 +19,7 @@ public class DataVersionUpdate_Stub : NetworkBehaviour
     [SerializeField]
     private UnityEvent notHostClientAfterDoneWithData;
 
-    public void DoSomethingWithData(ArraySegment<byte> data)
+    public void DoSomethingWithDataBeforeDataChange(ArraySegment<byte> data)
     {
         Debug.Log($"did something with data {data.Count}");
         notHostClientAfterDoneWithData.Invoke();

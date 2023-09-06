@@ -15,6 +15,8 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     [SerializeField]
     private UnityEvent<System.ArraySegment<byte>> _onNotHostClientBeforeDataVersionChange;
+    [SerializeField]
+    private UnityEvent _onHostClientDataVersionGonnaChange;
 
     ServerSide _innerServer;
     ClientSide _innerClient;
@@ -67,6 +69,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     {
         if (isServer)
         {
+            _onHostClientDataVersionGonnaChange.Invoke();
             CmdClientChangedDataVersion(_dataVersion);
             return;
         }

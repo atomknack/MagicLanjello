@@ -20,6 +20,7 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour
 
     public void Reset()
     {
+        Debug.Log("Reset called");
         _bytesIndex = 0;
         _outer.Reset();
     }

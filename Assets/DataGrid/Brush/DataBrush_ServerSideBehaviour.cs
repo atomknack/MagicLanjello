@@ -20,6 +20,13 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour
     UnityEvent<ArraySegment<byte>> _haveBytesToSend;
 
     private DataBrush _outer;
+
+    public void Reset()
+    {
+        Debug.Log("Reset for server side called");
+        _outer.Reset();
+    }
+
     private void Awake()
     {
         _outer = new DataBrush();
