@@ -675,6 +675,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  _afterClearIsCalled:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 376160079}
+        m_TargetAssemblyTypeName: MagicLanJello.GridChunkedGenerator, magiclanjelloPackageAssembly
+        m_MethodName: Clear
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &375593613
 GameObject:
   m_ObjectHideFlags: 0
@@ -760,7 +775,7 @@ GameObject:
   - component: {fileID: 376160079}
   - component: {fileID: 376160081}
   m_Layer: 0
-  m_Name: 50GridGenerator
+  m_Name: 60GridGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -775,7 +790,7 @@ Transform:
   m_GameObject: {fileID: 376160077}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.618299, y: -8.952607, z: -12.608121}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1233,6 +1248,9 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  _afterClearIsCalled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &878829853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1900,7 +1918,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384125091}
   m_Layer: 0
-  m_Name: 60GridChunksPlacholder
+  m_Name: GridGenerator_Chunks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1915,11 +1933,11 @@ Transform:
   m_GameObject: {fileID: 1384125090}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -12.618299, y: -8.952607, z: -12.608121}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1963564335}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389756268
 GameObject:
@@ -2676,33 +2694,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-  _onHostClientDataVersionGonnaChange:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 344859886}
-        m_TargetAssemblyTypeName: DataBrush_ClientSideBehaviour, Assembly-CSharp
-        m_MethodName: Reset
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 376160079}
-        m_TargetAssemblyTypeName: MagicLanJello.GridChunkedGenerator, magiclanjelloPackageAssembly
-        m_MethodName: Clear
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+  _clientBrush: {fileID: 344859886}
 --- !u!4 &1813888841
 Transform:
   m_ObjectHideFlags: 0
@@ -2803,7 +2795,6 @@ Transform:
   - {fileID: 1813888841}
   - {fileID: 344859883}
   - {fileID: 376160078}
-  - {fileID: 1384125091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2142405911
@@ -3501,3 +3492,4 @@ SceneRoots:
   - {fileID: 1043854281}
   - {fileID: 566957104}
   - {fileID: 1963564335}
+  - {fileID: 1384125091}

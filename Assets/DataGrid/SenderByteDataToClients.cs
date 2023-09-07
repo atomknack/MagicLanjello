@@ -16,8 +16,6 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     [SerializeField]
     private UnityEvent<System.ArraySegment<byte>> _onNotHostClientBeforeDataVersionChange;
-    [SerializeField]
-    private UnityEvent _onHostClientDataVersionGonnaChange;
 
     [SerializeField]
     [ValidReference]
