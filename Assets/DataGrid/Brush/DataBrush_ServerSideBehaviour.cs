@@ -19,18 +19,28 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour
     [SerializeField]
     UnityEvent<ArraySegment<byte>> _haveBytesToSend;
 
+    [SerializeField]
+    private UnityEvent _afterClearIsCalled;
+
     private DataBrush _outer;
 
-    public void Reset()
+
+    public void Clear()
     {
-        Debug.Log("Reset for server side called");
+        Debug.Log("Server side brush Clear called");
+        ClearWithoutNotify();
+        _afterClearIsCalled.Invoke();
+    }
+
+    private void ClearWithoutNotify()
+    {
         _outer.Reset();
     }
 
     private void Awake()
     {
         _outer = new DataBrush();
-        _outer.Reset();
+        ClearWithoutNotify();
     }
 
     private void ToBytes(Vector3Int pos, CellPlaceholderStruct placeholder, NetworkConnectionToClient client)

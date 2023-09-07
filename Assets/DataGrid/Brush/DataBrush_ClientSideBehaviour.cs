@@ -9,22 +9,31 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour
     [SerializeField]
     private UnityEvent<Vector3Int, CellPlaceholderStruct> _gotNewCell;
 
+    [SerializeField]
+    private UnityEvent _afterClearIsCalled;
+
     private DataBrush _outer;
 
     private int _bytesIndex;
     private void Awake()
     {
         _outer = new DataBrush();
-        Reset();
+        ClearWithoutNotify();
     }
 
-    public void Reset()
+    public void Clear()
     {
-        Debug.Log("Reset called");
+        Debug.Log("Client side brush Clear called");
+        ClearWithoutNotify();
+        _afterClearIsCalled.Invoke();
+    }
+
+    private void ClearWithoutNotify()
+    {
+
         _bytesIndex = 0;
         _outer.Reset();
     }
-
 
     public void GotBytes(System.ArraySegment<byte> bytes)
     {

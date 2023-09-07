@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using Mirror;
 using System;
+using UKnack.Attributes;
 
 public partial class SenderByteDataToClients : NetworkBehaviour
 {
@@ -17,6 +18,10 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     private UnityEvent<System.ArraySegment<byte>> _onNotHostClientBeforeDataVersionChange;
     [SerializeField]
     private UnityEvent _onHostClientDataVersionGonnaChange;
+
+    [SerializeField]
+    [ValidReference]
+    private DataBrush_ClientSideBehaviour _clientBrush;
 
     ServerSide _innerServer;
     ClientSide _innerClient;
