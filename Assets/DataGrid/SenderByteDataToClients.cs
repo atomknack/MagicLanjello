@@ -3,6 +3,7 @@ using UnityEngine.Events;
 using Mirror;
 using System;
 using UKnack.Attributes;
+using UKnack.Events;
 
 public partial class SenderByteDataToClients : NetworkBehaviour
 {
@@ -16,6 +17,15 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     [SerializeField]
     private UnityEvent<System.ArraySegment<byte>> _onNotHostClientBeforeDataVersionChange;
+    //[SerializeField]
+    //private UnityEvent _onHostClientDataVersionGonnaChange;
+
+    [SerializeField]
+    [ValidReference]
+    private SOPublisher _notHostClient_RequiestToVersionChange;
+    [SerializeField]
+    [ValidReference]
+    private SOEvent _notHosClient_AnswerReadyToVersionChange;
 
     [SerializeField]
     [ValidReference]
@@ -44,23 +54,10 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         _innerServer.UpdateClients();
     }
 
-    //when server updated version and client was notified, client won't get any new data from server until it confirm new data version
-    public void OutsideClientReadyToChangeDataVersion()
-    {
-        if (isClient == false)
-            throw new System.InvalidOperationException("This method could be called only on client");
-        _innerClient.ReadyToChangeDataVersion();
-    }
-
     protected void ClientDataRecievedEvent()
     {
         //Debug.Log(_dataCount);
         _onClientDataRecieved?.Invoke(new System.ArraySegment<byte>(_data, 0, _dataCount));
-    }
-    protected void ClientThatNotHostDataChangeEvent()
-    {
-        //Debug.Log(_dataCount);
-        _onNotHostClientBeforeDataVersionChange?.Invoke(new System.ArraySegment<byte>(_data, 0, _dataCount));
     }
 
     [Command(requiresAuthority = false)]
@@ -106,18 +103,33 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     {
         if (isServer)
         {
-            // todo: make ClientClass for host
+            StartHostClient();
         }
         else
         {
             _innerClient = new ClientSideIsClient(this);
         }
         CmdClientRecievedTotal(_dataCount);
+
+
+        void StartHostClient()
+        {
+            _innerClient = new ClientSideIsHost(this);
+            _notHosClient_AnswerReadyToVersionChange.Subscribe(_innerClient.ReadyToChangeDataVersion);
+        }
     }
 
     public override void OnStopClient()
     {
+        if (isServer)
+        {
+            StopHostClient();
+        }
         //CheckStandardDataAddition();
+
+
+        void StopHostClient() =>
+            _notHosClient_AnswerReadyToVersionChange.UnsubscribeNullSafe(_innerClient.ReadyToChangeDataVersion);
     }
 
     public override void OnStopServer()

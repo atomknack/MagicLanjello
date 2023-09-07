@@ -4,14 +4,14 @@ using System;
 
 public partial class SenderByteDataToClients
 {
-    protected interface ClientSide 
+    protected interface ClientSide
     {
         public void TargetSendedDataToClient(NetworkConnectionToClient target, ArraySegment<byte> transfer, int currentClientCountShouldBe);
         public void TargetChangeDataVersion(NetworkConnectionToClient target, short dataVersion);
         public void ReadyToChangeDataVersion();
     }
 
-    protected class ClientSideIsClient: ClientSide
+    protected class ClientSideIsClient : ClientSide
     {
         SenderByteDataToClients _outer;
         short notHostClientDataVersionToChange = 0;
@@ -41,14 +41,14 @@ public partial class SenderByteDataToClients
         public void TargetChangeDataVersion(NetworkConnectionToClient target, short dataVersion)
         {
             notHostClientDataVersionToChange = dataVersion;
-            _outer.ClientThatNotHostDataChangeEvent();
+            _outer._notHostClient_RequiestToVersionChange.Publish();
         }
 
         public void ReadyToChangeDataVersion()
         {
             if (_outer._dataVersion == notHostClientDataVersionToChange)
                 throw new System.InvalidOperationException($"No need to change version {notHostClientDataVersionToChange} on client side, maybe you dont need to call this method, or need to ask to version update from server");
-            
+
             _outer._dataVersion = notHostClientDataVersionToChange;
             _outer._dataCount = 0;
             _outer._clientBrush.Clear();
@@ -61,6 +61,31 @@ public partial class SenderByteDataToClients
         {
             _outer = outer;
             _outer.Clear();
+        }
+    }
+
+    protected class ClientSideIsHost : ClientSide
+    {
+        private SenderByteDataToClients _senderByteDataToClients;
+
+        public ClientSideIsHost(SenderByteDataToClients senderByteDataToClients)
+        {
+            this._senderByteDataToClients = senderByteDataToClients;
+        }
+
+        public void ReadyToChangeDataVersion()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TargetChangeDataVersion(NetworkConnectionToClient target, short dataVersion)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void TargetSendedDataToClient(NetworkConnectionToClient target, ArraySegment<byte> transfer, int currentClientCountShouldBe)
+        {
+            throw new NotImplementedException();
         }
     }
 }
