@@ -401,7 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 287907365}
-  - component: {fileID: 287907366}
+  - component: {fileID: 287907367}
   m_Layer: 0
   m_Name: 10ServerDataVersionChange
   m_TagString: Untagged
@@ -424,7 +424,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1963564335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &287907366
+--- !u!114 &287907367
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -433,57 +433,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 287907364}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 693ab74935f9a744b963bdf1dcd576d3, type: 3}
+  m_Script: {fileID: 11500000, guid: 55176bb4da83bb14c8c0dfffde75c336, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncDirection: 0
-  syncMode: 0
-  syncInterval: 0
-  _onServerUpDataVersion: {fileID: 11400000, guid: d91a2df0dd0471844913d7a7719b63d5, type: 2}
-  _onServerUpDataVersionPressed:
+  _subscribedTo: {fileID: 11400000, guid: d91a2df0dd0471844913d7a7719b63d5, type: 2}
+  _unityEvent:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1813888840}
-        m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
-        m_MethodName: OutsideServerUpDataVersion
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
       - m_Target: {fileID: 609100712}
         m_TargetAssemblyTypeName: DataBrush_ServerSideBehaviour, Assembly-CSharp
-        m_MethodName: Reset
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-  notHostClientAfterDoneWithData:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 344859886}
-        m_TargetAssemblyTypeName: DataBrush_ClientSideBehaviour, Assembly-CSharp
-        m_MethodName: Reset
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-      - m_Target: {fileID: 376160079}
-        m_TargetAssemblyTypeName: MagicLanJello.GridChunkedGenerator, magiclanjelloPackageAssembly
         m_MethodName: Clear
         m_Mode: 1
         m_Arguments:
@@ -1238,7 +1196,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1813888840}
         m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
-        m_MethodName: OutsideCalledAddToData
+        m_MethodName: AddToData
         m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1250,7 +1208,19 @@ MonoBehaviour:
         m_CallState: 1
   _afterClearIsCalled:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1813888840}
+        m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
+        m_MethodName: UpDataVersion
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &878829853
 GameObject:
   m_ObjectHideFlags: 0
@@ -2670,7 +2640,7 @@ MonoBehaviour:
   _onNotHostClientBeforeDataVersionChange:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 287907366}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DataVersionUpdate_Stub, Assembly-CSharp
         m_MethodName: DoSomethingWithDataBeforeDataChange
         m_Mode: 0
@@ -2694,6 +2664,8 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+  _notHostClient_RequiestToVersionChange: {fileID: 0}
+  _notHosClient_AnswerReadyToVersionChange: {fileID: 0}
   _clientBrush: {fileID: 344859886}
 --- !u!4 &1813888841
 Transform:

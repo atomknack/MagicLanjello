@@ -34,8 +34,10 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     ServerSide _innerServer;
     ClientSide _innerClient;
 
-    public void OutsideCalledAddToData(ArraySegment<byte> data)
+    public void AddToData(ArraySegment<byte> data)
     {
+        if (isServer == false)
+            throw new System.InvalidOperationException("This method could be called only on server");
         for (int i = 0; i < data.Count; i++)
         {
             _data[_dataCount + i] = data[i];
@@ -45,7 +47,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         _innerServer.UpdateClients();
     }
     //called on server
-    public void OutsideServerUpDataVersion()
+    public void UpDataVersion()
     {
         if (isServer == false)
             throw new System.InvalidOperationException("This method could be called only on server");
