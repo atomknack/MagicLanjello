@@ -7,18 +7,10 @@ using UKnack.Events;
 
 public partial class SenderByteDataToClients : NetworkBehaviour
 {
-    [SerializeField]
-    private UnityEvent<System.ArraySegment<byte>> _onClientDataRecieved;
-
     private byte[] _data = new byte[100_000_000];
     private int _dataCount = 0;
 
     private short _dataVersion = 0;
-
-    [SerializeField]
-    private UnityEvent<System.ArraySegment<byte>> _onNotHostClientBeforeDataVersionChange;
-    //[SerializeField]
-    //private UnityEvent _onHostClientDataVersionGonnaChange;
 
     [SerializeField]
     [ValidReference]
@@ -30,6 +22,9 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     [SerializeField]
     [ValidReference]
     private DataBrush_ClientSideBehaviour _clientBrush;
+
+    [SerializeField]
+    private UnityEvent<System.ArraySegment<byte>> _logClientDataRecieved;
 
     ServerSide _innerServer;
     ClientSide _innerClient;
@@ -59,7 +54,9 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     protected void ClientDataRecievedEvent()
     {
         //Debug.Log(_dataCount);
-        _onClientDataRecieved?.Invoke(new System.ArraySegment<byte>(_data, 0, _dataCount));
+        var segment = new System.ArraySegment<byte>(_data, 0, _dataCount);
+        _logClientDataRecieved?.Invoke(segment);
+        _clientBrush.GotBytes(segment);
     }
 
     [Command(requiresAuthority = false)]
