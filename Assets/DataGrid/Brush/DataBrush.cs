@@ -45,6 +45,8 @@ internal class DataBrush
 
     internal void ToBytes(Vector3Int position, CellPlaceholderStruct placeholder, Action<ArraySegment<byte>> havingBytes)
     {
+        LogState();
+
         var buffer = _buffer.AsSpan();
         if (position == _position && placeholder.Equals(_placeholder))
             return;
@@ -157,6 +159,11 @@ internal class DataBrush
                 return sizeof(byte);
         }
         throw new NotImplementedException();
+    }
+
+    private void LogState()
+    {
+        Debug.Log($"DataBrush state: {_position}, {_placeholder}");
     }
 
     private static Brush3BitCommand Brush3BitCommand_Read(byte b) => (Brush3BitCommand)(b & 0b_0000_0_111);

@@ -101,14 +101,14 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     public override void OnStartClient()
     {
-        if (isServer == false)
+        if (isServer)
         {
-            _dataVersion = 0;
-            _dataCount = 0;
+            // todo: make ClientClass for host
         }
-
-        _innerClient = new ClientSide(this);
-
+        else
+        {
+            _innerClient = new ClientSideIsClient(this);
+        }
         CmdClientRecievedTotal(_dataCount);
     }
 
@@ -119,6 +119,12 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     public override void OnStopServer()
     {
+    }
+
+    private void Clear()
+    {
+        _dataVersion = 0;
+        _dataCount = 0;
     }
 
 }

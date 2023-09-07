@@ -4,7 +4,14 @@ using System;
 
 public partial class SenderByteDataToClients
 {
-    private class ClientSide
+    protected interface ClientSide 
+    {
+        public void TargetSendedDataToClient(NetworkConnectionToClient target, ArraySegment<byte> transfer, int currentClientCountShouldBe);
+        public void TargetChangeDataVersion(NetworkConnectionToClient target, short dataVersion);
+        public void ReadyToChangeDataVersion();
+    }
+
+    protected class ClientSideIsClient: ClientSide
     {
         SenderByteDataToClients _outer;
         short notHostClientDataVersionToChange = 0;
@@ -31,13 +38,13 @@ public partial class SenderByteDataToClients
             _outer.CmdClientRecievedTotal(_outer._dataCount);
         }
 
-        internal void TargetChangeDataVersion(NetworkConnectionToClient target, short dataVersion)
+        public void TargetChangeDataVersion(NetworkConnectionToClient target, short dataVersion)
         {
             notHostClientDataVersionToChange = dataVersion;
             _outer.ClientThatNotHostDataChangeEvent();
         }
 
-        internal void ReadyToChangeDataVersion()
+        public void ReadyToChangeDataVersion()
         {
             if (_outer._dataVersion == notHostClientDataVersionToChange)
                 throw new System.InvalidOperationException($"No need to change version {notHostClientDataVersionToChange} on client side, maybe you dont need to call this method, or need to ask to version update from server");
@@ -49,9 +56,10 @@ public partial class SenderByteDataToClients
             _outer.CmdClientChangedDataVersion(_outer._dataVersion);
         }
 
-        public ClientSide(SenderByteDataToClients outer)
+        public ClientSideIsClient(SenderByteDataToClients outer)
         {
             _outer = outer;
+            _outer.Clear();
         }
     }
 }

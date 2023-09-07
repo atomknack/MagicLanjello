@@ -494,11 +494,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 344859883}
-  - component: {fileID: 344859884}
   - component: {fileID: 344859886}
   - component: {fileID: 344859885}
   m_Layer: 0
-  m_Name: DataBrush
+  m_Name: 30ClientDataBrush
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -512,41 +511,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 344859881}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.618299, y: 8.952607, z: 12.608121}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1963564335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &344859884
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344859881}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3624ef47707aac5429676c27db44a3b0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _putCellServerEvent: {fileID: 11400000, guid: 5a852e7bced8bb3408c8375dc1ff253b, type: 2}
-  _haveBytesToSend:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1813888840}
-        m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
-        m_MethodName: OutsideCalledAddToData
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
 --- !u!114 &344859885
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -687,7 +658,7 @@ GameObject:
   - component: {fileID: 376160079}
   - component: {fileID: 376160081}
   m_Layer: 0
-  m_Name: GridGenerator
+  m_Name: 40GridGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -701,12 +672,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 376160077}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.618299, y: -8.952607, z: -12.608121}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1963564335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &376160079
 MonoBehaviour:
@@ -1100,6 +1071,66 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56b71b64fb20323478836ed527af4e72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &609100710
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 609100711}
+  - component: {fileID: 609100712}
+  m_Layer: 0
+  m_Name: 10ServerDataBrush
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &609100711
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609100710}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1963564335}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &609100712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 609100710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3624ef47707aac5429676c27db44a3b0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _putCellServerEvent: {fileID: 11400000, guid: 5a852e7bced8bb3408c8375dc1ff253b, type: 2}
+  _haveBytesToSend:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1813888840}
+        m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
+        m_MethodName: OutsideCalledAddToData
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!1 &878829853
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,7 +1798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384125091}
   m_Layer: 0
-  m_Name: GridChunksPlacholder
+  m_Name: 50GridChunksPlacholder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1781,12 +1812,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1384125090}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -12.618299, y: -8.952607, z: -12.608121}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1963564335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1389756268
 GameObject:
@@ -2469,7 +2500,7 @@ GameObject:
   - component: {fileID: 1813888840}
   - component: {fileID: 1813888844}
   m_Layer: 0
-  m_Name: SendByteArray
+  m_Name: 20SendByteArray
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2532,7 +2563,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
-      - m_Target: {fileID: 344859884}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: DataBrush_ServerSideBehaviour, Assembly-CSharp
         m_MethodName: Reset
         m_Mode: 1
@@ -2579,12 +2610,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1813888839}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12.618299, y: 8.952607, z: 12.608121}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1963564335}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1813888842
 MonoBehaviour:
@@ -2693,6 +2724,42 @@ Transform:
   - {fileID: 1237871509}
   - {fileID: 455484836}
   - {fileID: 948553447}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1963564334
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1963564335}
+  m_Layer: 0
+  m_Name: GridGenerator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1963564335
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963564334}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 12.618299, y: 8.952607, z: 12.608121}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 609100711}
+  - {fileID: 1813888841}
+  - {fileID: 344859883}
+  - {fileID: 376160078}
+  - {fileID: 1384125091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2142405911
@@ -3389,7 +3456,4 @@ SceneRoots:
   - {fileID: 6610454960956563290}
   - {fileID: 1043854281}
   - {fileID: 566957104}
-  - {fileID: 1813888841}
-  - {fileID: 344859883}
-  - {fileID: 376160078}
-  - {fileID: 1384125091}
+  - {fileID: 1963564335}
