@@ -1888,7 +1888,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1384125091}
   m_Layer: 0
-  m_Name: GridGenerator_Chunks
+  m_Name: GridGenerator_ChunksOutput
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
