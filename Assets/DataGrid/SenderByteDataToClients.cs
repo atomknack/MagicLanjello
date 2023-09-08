@@ -106,33 +106,27 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     {
         if (isServer)
         {
-            StartHostClient();
+            //StartHostClient();
+            _innerClient = new ClientSideIsHost(this);
         }
         else
         {
             _innerClient = new ClientSideIsClient(this);
-        }
-        CmdClientRecievedTotal(_dataCount);
-
-
-        void StartHostClient()
-        {
-            _innerClient = new ClientSideIsHost(this);
             _notHosClient_AnswerReadyToVersionChange.Subscribe(_innerClient.ReadyToChangeDataVersion);
         }
+        CmdClientRecievedTotal(_dataCount);
     }
 
     public override void OnStopClient()
     {
         if (isServer)
         {
-            StopHostClient();
+            //StopHostClient();
         }
-        //CheckStandardDataAddition();
-
-
-        void StopHostClient() =>
+        else
+        {
             _notHosClient_AnswerReadyToVersionChange.UnsubscribeNullSafe(_innerClient.ReadyToChangeDataVersion);
+        }
     }
 
     public override void OnStopServer()
