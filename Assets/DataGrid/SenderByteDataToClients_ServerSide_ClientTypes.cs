@@ -58,8 +58,8 @@ public partial class SenderByteDataToClients
                 }
 
 
-                if (_recievedConfirmedDataCount == clientDataCount)
-                    return;
+                //if (_recievedConfirmedDataCount == clientDataCount)
+                //    return;
 
                 UpdateRecievedBytes(clientDataCount);
             }
@@ -181,6 +181,7 @@ public partial class SenderByteDataToClients
             {
                 base.UpdateClientDataVersionInfo(clientDataVersion);
                 _outer.ClientDataUpdater.Reset();
+                _outer.ClientDataRecievedEvent();
             }
 
             protected override void ActuallySendDataToClient()
@@ -193,7 +194,8 @@ public partial class SenderByteDataToClients
 
             protected override void UpdateRecievedBytes(int clientDataCount) 
             {
-                throw new System.NotImplementedException();
+                return;
+                //throw new System.NotImplementedException();
 
                 if (_clientDataVersion != _outer._dataVersion)
                 {

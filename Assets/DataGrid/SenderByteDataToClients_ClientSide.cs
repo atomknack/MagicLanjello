@@ -46,12 +46,14 @@ public partial class SenderByteDataToClients
 
         public void ReadyToChangeDataVersion()
         {
+            Debug.Log($"Client ready to Change version from {_outer._dataVersion} to {notHostClientDataVersionToChange}");
             if (_outer._dataVersion == notHostClientDataVersionToChange)
                 throw new System.InvalidOperationException($"No need to change version {notHostClientDataVersionToChange} on client side, maybe you dont need to call this method, or need to ask to version update from server");
 
             _outer._dataVersion = notHostClientDataVersionToChange;
             _outer._dataCount = 0;
             _outer.ClientDataUpdater.Reset();
+            
             _outer.CmdClientChangedDataVersion(_outer._dataVersion);
         }
 
