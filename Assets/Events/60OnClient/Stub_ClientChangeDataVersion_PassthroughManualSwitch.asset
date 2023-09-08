@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e89078945aaf9564da67ac873da00ff3, type: 3}
-  m_Name: Stub_RequiestToChangeDataVersion_Publisher
+  m_Script: {fileID: 11500000, guid: efb1ceacb3919e848aaccfa690e221ff, type: 3}
+  m_Name: Stub_ClientChangeDataVersion_PassthroughManualSwitch
   m_EditorClassIdentifier: 
-  where: {fileID: 11400000, guid: be8bc08e2891f034fab36dbf8277d5fa, type: 2}
+  _output: {fileID: 11400000, guid: e4367aa4d560a0840a55091f2c2cc588, type: 2}
+  _isPassthrough: 1
