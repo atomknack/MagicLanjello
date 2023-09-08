@@ -2610,9 +2610,9 @@ MonoBehaviour:
   syncDirection: 0
   syncMode: 0
   syncInterval: 0
-  _notHostClient_RequiestToVersionChange: {fileID: 0}
-  _notHosClient_AnswerReadyToVersionChange: {fileID: 0}
-  _clientBrush: {fileID: 344859886}
+  _notHostClient_RequiestToVersionChange: {fileID: 11400000, guid: f367d8965ce054b4d9c7af0985eb46d5, type: 2}
+  _notHosClient_AnswerReadyToVersionChange: {fileID: 11400000, guid: e4367aa4d560a0840a55091f2c2cc588, type: 2}
+  _clientDataUpdater: {fileID: 344859886}
   _logClientDataRecieved:
     m_PersistentCalls:
       m_Calls:

@@ -22,15 +22,8 @@ public partial class SenderByteDataToClients
         {
             foreach(var client in _clients.Values)
             {
-                client.SendDataToClient();
+                client.AttemptToSendDataToClient();
             }
-        }
-
-        public void OnServerWhenClientConnect(NetworkConnectionToClient conn)
-        {
-            GetOrAddClient(conn);
-
-            //SendDataToClient(conn);
         }
 
         private ClientType GetOrAddClient(NetworkConnectionToClient conn)
@@ -52,10 +45,7 @@ public partial class SenderByteDataToClients
             return _clients[id];
         }
 
-        public void OnServerWhenClientDisconnect(NetworkConnectionToClient conn)
-        {
-            _clients.Remove(conn.connectionId);
-        }
+
 
         public void Command_ClientRecievedTotal(int clientDataCount, NetworkConnectionToClient sender)
         {
