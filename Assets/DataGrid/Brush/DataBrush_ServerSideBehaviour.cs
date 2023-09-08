@@ -10,7 +10,7 @@ using UnityEngine.Events;
 
 [AddComponentMenu("MagicLanJello/DataBrush_ServerSideBehaviour")]
 
-internal class DataBrush_ServerSideBehaviour : MonoBehaviour
+internal class DataBrush_ServerSideBehaviour : MonoBehaviour, IDataBrush
 {
     [SerializeField]
     [ValidReference]
@@ -22,8 +22,7 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour
     [SerializeField]
     private UnityEvent _afterClearIsCalled;
 
-    private DataBrush _outer;
-
+    private DataBrush _brush;
 
     public void Clear()
     {
@@ -34,19 +33,19 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour
 
     private void ClearWithoutNotify()
     {
-        _outer.Reset();
+        _brush.Reset();
     }
 
     private void Awake()
     {
-        _outer = new DataBrush();
+        _brush = new DataBrush();
         ClearWithoutNotify();
     }
 
     private void ToBytes(Vector3Int pos, CellPlaceholderStruct placeholder, NetworkConnectionToClient client)
     {
         Debug.Log($"Got request to put cell on server {pos}, {placeholder}, {client.connectionId}");
-        _outer.ToBytes(pos, placeholder, _haveBytesToSend.Invoke);
+        _brush.ToBytes(pos, placeholder, _haveBytesToSend.Invoke);
     }
 
 
@@ -63,4 +62,7 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour
     {
         _putCellServerEvent.UnsubscribeNullSafe(ToBytes);
     }
+
+    void IDataBrush.SetState(Vector3Int position, CellPlaceholderStruct placeholder) => _brush.SetState(position, placeholder);
+    (Vector3Int position, CellPlaceholderStruct placeholder) IDataBrush.GetState() => _brush.GetState();
 }

@@ -5,8 +5,15 @@ using MagicLanjello.CellPlaceholder;
 using DoubleEngine.UHelpers;
 using DoubleEngine;
 using System.Runtime.InteropServices;
+using UnityEngine.UIElements;
 
-internal class DataBrush
+interface IDataBrush
+{
+    internal void SetState(Vector3Int position, CellPlaceholderStruct placeholder);
+    internal (Vector3Int position, CellPlaceholderStruct placeholder) GetState();
+}
+
+internal class DataBrush: IDataBrush
 {
     #pragma warning disable format
     enum Brush3BitCommand : int {
@@ -36,6 +43,14 @@ internal class DataBrush
     private CellPlaceholderStruct _placeholder;
 
     private byte[] _buffer = new byte[10000];
+
+    internal void SetState(Vector3Int position, CellPlaceholderStruct placeholder)
+    {
+        _position = position;
+        _placeholder = placeholder;
+    }
+    internal (Vector3Int position, CellPlaceholderStruct placeholder) GetState() => 
+        (_position, _placeholder);
 
     internal void Reset()
     {
@@ -170,4 +185,7 @@ internal class DataBrush
     private static int Brush3BitCommand_SignBit(byte b) => ((b & 0b_0000_1_000) >> 3) * (-1);
     private int Brush3BitCommand_high4Bits(byte b) => b >> 4;
 
+    void IDataBrush.SetState(Vector3Int position, CellPlaceholderStruct placeholder) => SetState(position, placeholder);
+
+    (Vector3Int position, CellPlaceholderStruct placeholder) IDataBrush.GetState() => GetState();
 }

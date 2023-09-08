@@ -11,7 +11,7 @@ internal interface IDataUpdater<T>
 }
 
 [AddComponentMenu("MagicLanJello/DataBrush_ClientSideBehaviour")]
-internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<ArraySegment<byte>>
+internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<ArraySegment<byte>>, IDataBrush
 {
     [SerializeField]
     private UnityEvent<Vector3Int, CellPlaceholderStruct> _gotNewCell;
@@ -19,12 +19,13 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<Array
     [SerializeField]
     private UnityEvent _afterClearIsCalled;
 
-    private DataBrush _outer;
+    private DataBrush _brush;
 
     private int _bytesIndex;
+
     private void Awake()
     {
-        _outer = new DataBrush();
+        _brush = new DataBrush();
         ClearWithoutNotify();
     }
 
@@ -39,7 +40,7 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<Array
     {
 
         _bytesIndex = 0;
-        _outer.Reset();
+        _brush.Reset();
     }
 
     public void UpdateData(ArraySegment<byte> bytes)
@@ -58,5 +59,9 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<Array
     }
 
     private bool TryReadOneFromBytes(System.ReadOnlySpan<byte> bytes, ref int index) =>
-        _outer.TryReadOneFromBytes(bytes, ref index, _gotNewCell.Invoke);
+        _brush.TryReadOneFromBytes(bytes, ref index, _gotNewCell.Invoke);
+
+
+    void IDataBrush.SetState(Vector3Int position, CellPlaceholderStruct placeholder) => _brush.SetState(position, placeholder);
+    (Vector3Int position, CellPlaceholderStruct placeholder) IDataBrush.GetState() => _brush.GetState();
 }
