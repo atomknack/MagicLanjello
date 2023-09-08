@@ -51,7 +51,7 @@ public partial class SenderByteDataToClients
 
             _outer._dataVersion = notHostClientDataVersionToChange;
             _outer._dataCount = 0;
-            _outer._clientBrush.Clear();
+            _outer.ClientDataUpdater.Reset();
 
             _outer.ClientDataRecievedEvent();
             _outer.CmdClientChangedDataVersion(_outer._dataVersion);
@@ -60,7 +60,7 @@ public partial class SenderByteDataToClients
         public ClientSideIsClient(SenderByteDataToClients outer)
         {
             _outer = outer;
-            _outer.Clear();
+            _outer.Reset();
         }
     }
 

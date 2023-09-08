@@ -20,8 +20,12 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     private SOEvent _notHosClient_AnswerReadyToVersionChange;
 
     [SerializeField]
-    [ValidReference]
-    private DataBrush_ClientSideBehaviour _clientBrush;
+    [ValidReference(
+        typeof(IDataUpdater<ArraySegment<byte>>), nameof(IDataUpdater<ArraySegment<byte>>.Cast), typeof(IDataUpdater<ArraySegment<byte>>))]
+    private UnityEngine.Object _clientDataUpdater;
+
+    private IDataUpdater<ArraySegment<byte>> ClientDataUpdater => (IDataUpdater<ArraySegment<byte>>)_clientDataUpdater;
+
 
     [SerializeField]
     private UnityEvent<System.ArraySegment<byte>> _logClientDataRecieved;
@@ -56,7 +60,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         //Debug.Log(_dataCount);
         var segment = new System.ArraySegment<byte>(_data, 0, _dataCount);
         _logClientDataRecieved?.Invoke(segment);
-        _clientBrush.GotBytes(segment);
+        ClientDataUpdater.UpdateData(segment);
     }
 
     [Command(requiresAuthority = false)]
@@ -135,7 +139,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     {
     }
 
-    private void Clear()
+    private void Reset()
     {
         _dataVersion = 0;
         _dataCount = 0;

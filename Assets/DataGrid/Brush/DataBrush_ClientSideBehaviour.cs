@@ -3,8 +3,15 @@ using UnityEngine.Events;
 using MagicLanjello.CellPlaceholder;
 using System;
 
+internal interface IDataUpdater<T>
+{
+    public void UpdateData(T data);
+    public void Reset();
+    public static IDataUpdater<T> Cast(System.Object data) => (IDataUpdater<T>)data;
+}
+
 [AddComponentMenu("MagicLanJello/DataBrush_ClientSideBehaviour")]
-internal class DataBrush_ClientSideBehaviour : MonoBehaviour
+internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<ArraySegment<byte>>
 {
     [SerializeField]
     private UnityEvent<Vector3Int, CellPlaceholderStruct> _gotNewCell;
@@ -21,7 +28,7 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour
         ClearWithoutNotify();
     }
 
-    public void Clear()
+    public void Reset()
     {
         Debug.Log("Client side brush Clear called");
         ClearWithoutNotify();
@@ -35,7 +42,7 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour
         _outer.Reset();
     }
 
-    public void GotBytes(System.ArraySegment<byte> bytes)
+    public void UpdateData(ArraySegment<byte> bytes)
     {
         if (bytes.Count < _bytesIndex)
             throw new System.ArgumentException("Did you forget to Reset() this after resetting level?");
@@ -52,5 +59,4 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour
 
     private bool TryReadOneFromBytes(System.ReadOnlySpan<byte> bytes, ref int index) =>
         _outer.TryReadOneFromBytes(bytes, ref index, _gotNewCell.Invoke);
-
 }
