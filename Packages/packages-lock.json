@@ -32,7 +32,8 @@
       "dependencies": {
         "com.unity.inputsystem": "1.5.1",
         "com.atomknack.uknackbasis": "2.5.0",
-        "com.atomknack.uknackpro": "1.15.0"
+        "com.atomknack.uknackpro": "1.15.0",
+        "com.yasirkula.simplefilebrowser": "1.6.1"
       }
     },
     "com.atomknack.uknackbasis": {
@@ -207,6 +208,13 @@
         "com.unity.modules.jsonserialize": "1.0.0"
       },
       "url": "https://packages.unity.com"
+    },
+    "com.yasirkula.simplefilebrowser": {
+      "version": "https://github.com/atomknack/UnitySimpleFileBrowser.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "95a17c7efde46ed0395d22e33279beb9996bf844"
     },
     "com.unity.modules.ai": {
       "version": "1.0.0",
