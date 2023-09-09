@@ -5,7 +5,7 @@ using DoubleEngine.Atom;
 using UKnack.Events;
 using MagicLanjello.CellPlaceholder;
 
-public class LoaderOfIGridToSOEvents : IThreeDimensionalGrid
+public class LoaderOfIGridToSOEvents : MonoBehaviour, IThreeDimensionalGrid
 {
     [SerializeField]
     private SOPublisher<Vector3Int, CellPlaceholderStruct, NetworkConnectionToClient> _onUpdateCell;
