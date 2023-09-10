@@ -44,7 +44,8 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour, IDataBrush
 
     private void ToBytes(Vector3Int pos, CellPlaceholderStruct placeholder, NetworkConnectionToClient client)
     {
-        Debug.Log($"Got request to put cell on server {pos}, {placeholder}, {client.connectionId}");
+        string id = client == null ? "null" : client.connectionId.ToString();
+        Debug.Log($"Got request to put cell on server {pos}, {placeholder}, {id}");
         _brush.ToBytes(pos, placeholder, _haveBytesToSend.Invoke);
     }
 

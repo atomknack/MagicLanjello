@@ -4,8 +4,9 @@ using DoubleEngine;
 using DoubleEngine.Atom;
 using UKnack.Events;
 using MagicLanjello.CellPlaceholder;
+using System.Collections.Generic;
 
-public class LoaderOfIGridToSOEvents : MonoBehaviour, IThreeDimensionalGrid
+public class LoaderOfIGridToSOEvents : MonoBehaviour, IThreeDimensionalGridElementsProvider
 {
     [SerializeField]
     private SOPublisher<Vector3Int, CellPlaceholderStruct, NetworkConnectionToClient> _onUpdateCell;
@@ -18,24 +19,13 @@ public class LoaderOfIGridToSOEvents : MonoBehaviour, IThreeDimensionalGrid
         GridLoaders.LoadGrid(this, gridFile);
     }
 
-    void IThreeDimensionalGrid.UpdateCell(int x, int y, int z, ThreeDimensionalCell cell)
-    {
+    void IThreeDimensionalGridElementsProvider.UpdateCell(int x, int y, int z, ThreeDimensionalCell cell) =>
         _onUpdateCell.Publish(new Vector3Int(x, y, z), (CellPlaceholderStruct)cell.ToNetGridCell(), null);
-    }
-    void IThreeDimensionalGrid.Clear() 
-    { 
+    void IThreeDimensionalGridElementsProvider.Clear() =>
         _onClear.Publish();
-    }
 
-    ThreeDimensionalCell IThreeDimensionalGrid.GetCell(int x, int y, int z)
+    IEnumerable<(Vec3I pos, ThreeDimensionalCell cell)> IThreeDimensionalGridElementsProvider.GetAllMeaningfullCells()
     {
         throw new System.NotImplementedException();
     }
-
-    Vec3I IThreeDimensionalGrid.GetDimensions()
-    {
-        throw new System.NotImplementedException();
-    }
-
-
 }
