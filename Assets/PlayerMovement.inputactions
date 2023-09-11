@@ -67,15 +67,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "OnServerUpDataVersion",
-                    "type": "Button",
-                    "id": "0b58aef7-bdd6-438c-a09c-9944a80ea6bd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -263,17 +254,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "AskToPutCell",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f97ed04e-3b10-4147-aa17-de524ed88665",
-                    "path": "<Keyboard>/tab",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "OnServerUpDataVersion",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
