@@ -180,7 +180,7 @@ public partial class SenderByteDataToClients
             protected override void UpdateClientDataVersionInfo(short clientDataVersion)
             {
                 base.UpdateClientDataVersionInfo(clientDataVersion);
-                _outer.ClientDataUpdater.Reset();
+                _outer.ClientDataUpdater.ResetData();
                 _outer.ClientDataRecievedEvent();
             }
 

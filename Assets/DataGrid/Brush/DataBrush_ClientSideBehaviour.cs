@@ -6,7 +6,7 @@ using System;
 internal interface IDataUpdater<T>
 {
     public void UpdateData(T data);
-    public void Reset();
+    public void ResetData();
     public static IDataUpdater<T> Cast(System.Object data) => (IDataUpdater<T>)data;
 }
 
@@ -29,7 +29,7 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<Array
         ClearWithoutNotify();
     }
 
-    public void Reset()
+    public void ResetData()
     {
         Debug.Log("Client side brush Clear called");
         ClearWithoutNotify();

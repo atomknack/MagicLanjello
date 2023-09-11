@@ -4,6 +4,7 @@ using Mirror;
 using System;
 using UKnack.Attributes;
 using UKnack.Events;
+using Unity.VisualScripting;
 
 public partial class SenderByteDataToClients : NetworkBehaviour
 {
@@ -35,7 +36,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     public void AddToData(ArraySegment<byte> data)
     {
-        if (isServer == false)
+        if (TryIsClientButNotServer)
             throw new System.InvalidOperationException("This method could be called only on server");
         for (int i = 0; i < data.Count; i++)
         {
@@ -43,16 +44,23 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         }
         _dataCount = _dataCount + data.Count;
 
-        _innerServer.UpdateClients();
+        if (TryIsServer)
+            _innerServer.UpdateClients();
+        else
+            ClientDataUpdater.UpdateData(new ArraySegment<byte>(_data, 0, _dataCount));
     }
+
     //called on server
     public void UpDataVersion()
     {
-        if (isServer == false)
+        if (TryIsClientButNotServer)
             throw new System.InvalidOperationException("This method could be called only on server");
         _dataVersion = unchecked((short)(_dataVersion + 1));
         _dataCount = 0;
-        _innerServer.UpdateClients();
+        if (TryIsServer)
+            _innerServer.UpdateClients();
+        else
+            ClientDataUpdater.ResetData();
     }
 
     protected void ClientDataRecievedEvent()
@@ -133,10 +141,39 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     {
     }
 
-    private void Reset()
+    private void ResetData()
     {
         _dataVersion = 0;
         _dataCount = 0;
+    }
+
+    private bool TryIsServer
+    {
+        get
+        {
+            try
+            {
+                return isServer;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+    }
+    private bool TryIsClientButNotServer
+    {
+        get
+        {
+            try
+            {
+                return isServer == false && isClient == true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
     }
 
 }
