@@ -357,7 +357,19 @@ MonoBehaviour:
       m_Calls: []
   _onStartClient:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 863697320}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
   _onStartHostClient:
     m_PersistentCalls:
       m_Calls: []
@@ -378,7 +390,19 @@ MonoBehaviour:
         m_CallState: 1
   _onStopClient:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 863697320}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 1
   _onStopHostClient:
     m_PersistentCalls:
       m_Calls: []
@@ -1426,6 +1450,80 @@ MonoBehaviour:
         m_TargetAssemblyTypeName: SenderByteDataToClients, Assembly-CSharp
         m_MethodName: UpDataVersion
         m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+--- !u!1 &863697320
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 863697321}
+  - component: {fileID: 863697322}
+  m_Layer: 0
+  m_Name: ExportObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &863697321
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863697320}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2075305917}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &863697322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863697320}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9c71c9c1dc0a4d4d9bcd5431df45874, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _document: {fileID: 0}
+  _visualElementName: FileSaveLoadMenu
+  _buttonVisualAsset: {fileID: 9197481963319205126, guid: 4f39bf086b093f941a9b77806d115ff0, type: 3}
+  _neighbourOrderPreference: 0
+  _buttonText: Export obj
+  _dialogTitle: Export as obj
+  _extensions:
+  - .obj
+  _informDialogOpened:
+    m_PersistentCalls:
+      m_Calls: []
+  _informWhenAborted:
+    m_PersistentCalls:
+      m_Calls: []
+  _informWhenPathConfirmed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: ccf183a13d555ef42b5159a013c8eefc, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOPublisher_Concrete_string,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -3320,6 +3418,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1029155743}
+  - {fileID: 863697321}
   - {fileID: 570383086}
   m_Father: {fileID: 1387233474}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3373,7 +3472,8 @@ MonoBehaviour:
   _saveGrid: {fileID: 11400000, guid: e064eb541c656b046a8f7b38bb104737, type: 2}
   _exportUnDecimatedMesh3D: {fileID: 0}
   _exportDecimatedMesh3D: {fileID: 0}
-  _exportObj: {fileID: 0}
+  _exportUnDecimatedObj: {fileID: 0}
+  _exportDecimatedObj: {fileID: 11400000, guid: e4d58005b1217be4b8e6819ef837959f, type: 2}
 --- !u!1 &2142405911
 GameObject:
   m_ObjectHideFlags: 0
