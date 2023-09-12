@@ -8293,11 +8293,11 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2005697391}
   - {fileID: 1730486524}
   - {fileID: 287907365}
   - {fileID: 609100711}
   - {fileID: 344859883}
+  - {fileID: 2005697391}
   - {fileID: 376160078}
   - {fileID: 2076235331}
   m_Father: {fileID: 0}
@@ -8346,7 +8346,7 @@ GameObject:
   - component: {fileID: 2005697392}
   - component: {fileID: 2005697393}
   m_Layer: 0
-  m_Name: 10MirrorNetwork
+  m_Name: MirrorNetwork
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
