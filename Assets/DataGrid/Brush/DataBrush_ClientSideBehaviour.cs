@@ -31,7 +31,7 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<Array
 
     public void ResetData()
     {
-        Debug.Log("Client side brush Clear called");
+        //Debug.Log("Client side brush Clear called");
         ClearWithoutNotify();
         _afterClearIsCalled.Invoke();
     }

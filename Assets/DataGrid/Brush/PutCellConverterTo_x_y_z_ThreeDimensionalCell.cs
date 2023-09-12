@@ -16,7 +16,7 @@ public class PutCellConverterTo_x_y_z_ThreeDimensionalCell : MonoBehaviour
             Grid6SidesCached.FromRotationAndScale(ScaleInversionPerpendicularRotation3.FromInt(cellPlaceholder.orientation)).OrientationIndex(),
             cellPlaceholder.material);
 
-        Debug.Log($"Convert {pos}, {cellPlaceholder} {cell}");
+        //Debug.Log($"Convert {pos}, {cellPlaceholder} {cell}");
 
         _converted.Invoke(pos.x, pos.y, pos.z, cell);
 

@@ -60,7 +60,7 @@ internal class DataBrush: IDataBrush
 
     internal void ToBytes(Vector3Int position, CellPlaceholderStruct placeholder, Action<ArraySegment<byte>> havingBytes)
     {
-        LogState();
+        //LogState();
 
         var buffer = _buffer.AsSpan();
         if (position == _position && placeholder.Equals(_placeholder))
@@ -69,7 +69,7 @@ internal class DataBrush: IDataBrush
         if (_position != position)
         {
             totalBytesWritten += WriteToBufferAndAdvance<byte>(ref buffer, AsByte(WholeByteCommand.MoveByVec3I));
-            Debug.Log($"spacer {position.ToVec3I()} {_position.ToVec3I()} {(position - _position).ToVec3I()}");
+            //Debug.Log($"spacer {position.ToVec3I()} {_position.ToVec3I()} {(position - _position).ToVec3I()}");
             totalBytesWritten += WriteToBufferAndAdvance<Vec3I>(ref buffer, (position - _position).ToVec3I());
         }
         if (_placeholder.cellMesh != placeholder.cellMesh)
@@ -103,7 +103,7 @@ internal class DataBrush: IDataBrush
         {
             MemoryMarshal.Write(buffer, ref value);
             var bytesWritten = Marshal.SizeOf(typeof(T));
-            Debug.Log($"{buffer.Length} {bytesWritten} {String.Join(',', buffer.Slice(0, bytesWritten).ToArray())}");
+            //Debug.Log($"{buffer.Length} {bytesWritten} {String.Join(',', buffer.Slice(0, bytesWritten).ToArray())}");
             buffer = buffer.Slice(bytesWritten);
             return bytesWritten;
         }

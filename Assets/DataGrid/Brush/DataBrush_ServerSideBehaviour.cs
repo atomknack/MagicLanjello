@@ -26,7 +26,7 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour, IDataBrush
 
     public void Clear()
     {
-        Debug.Log("Server side brush Clear called");
+        //Debug.Log("Server side brush Clear called");
         ClearWithoutNotify();
         _afterClearIsCalled.Invoke();
     }
@@ -45,7 +45,7 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour, IDataBrush
     private void ToBytes(Vector3Int pos, CellPlaceholderStruct placeholder, NetworkConnectionToClient client)
     {
         string id = client == null ? "null" : client.connectionId.ToString();
-        Debug.Log($"Got request to put cell on server {pos}, {placeholder}, {id}");
+        //Debug.Log($"Got request to put cell on server {pos}, {placeholder}, {id}");
         _brush.ToBytes(pos, placeholder, _haveBytesToSend.Invoke);
     }
 
