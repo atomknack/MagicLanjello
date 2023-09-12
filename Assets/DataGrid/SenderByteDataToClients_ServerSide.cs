@@ -32,11 +32,10 @@ public partial class SenderByteDataToClients
             if (_clients.ContainsKey(id))
                 return _clients[id];
             
-            Debug.Log($"Client {id} is newly connected to server");
+            //Debug.Log($"Client {id} is newly connected to server");
             
             if (IsConnectionFromHost(conn))
             {
-                Debug.Log($"No need to send data to itself for {id}");
                 _clients.Add(id, new ClientIsHostItself(_outer, conn));
                 return _clients[id];
             }
