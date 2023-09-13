@@ -4,12 +4,12 @@ using Mirror;
 using System;
 using UKnack.Attributes;
 using UKnack.Events;
-using Unity.VisualScripting;
 
 public partial class SenderByteDataToClients : NetworkBehaviour
 {
     private byte[] _data = new byte[100_000_000];
     private int _dataCount = 0;
+    private ArraySegment<byte> DataSegment => new System.ArraySegment<byte>(_data, 0, _dataCount);
 
     private short _dataVersion = 0;
 
@@ -34,20 +34,21 @@ public partial class SenderByteDataToClients : NetworkBehaviour
     ServerSide _innerServer;
     ClientSide _innerClient;
 
-    public void AddToData(ArraySegment<byte> data)
+    public void AddToData(ArraySegment<byte> additional)
     {
         if (TryIsClientButNotServer)
             throw new System.InvalidOperationException("This method could be called only on server");
-        for (int i = 0; i < data.Count; i++)
+
+        for (int i = 0; i < additional.Count; i++)
         {
-            _data[_dataCount + i] = data[i];
+            _data[_dataCount + i] = additional[i];
         }
-        _dataCount = _dataCount + data.Count;
+        _dataCount = _dataCount + additional.Count;
 
         if (TryIsServer)
             _innerServer.UpdateClients();
         else
-            ClientDataUpdater.UpdateData(new ArraySegment<byte>(_data, 0, _dataCount));
+            ClientDataUpdater.UpdateData(DataSegment);
     }
 
     //called on server
@@ -65,11 +66,12 @@ public partial class SenderByteDataToClients : NetworkBehaviour
 
     protected void ClientDataRecievedEvent()
     {
-        //Debug.Log(_dataCount);
-        var segment = new System.ArraySegment<byte>(_data, 0, _dataCount);
-        _logClientDataRecieved?.Invoke(segment);
-        ClientDataUpdater.UpdateData(segment);
+        _logClientDataRecieved?.Invoke(DataSegment);
+        ClientDataUpdater.UpdateData(DataSegment);
     }
+
+
+    
 
     [Command(requiresAuthority = false)]
     protected void CmdClientChangedDataVersion(short dataVersion, NetworkConnectionToClient sender = null) =>
