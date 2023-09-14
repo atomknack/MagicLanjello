@@ -2,11 +2,12 @@ using UnityEngine;
 using UnityEngine.Events;
 using MagicLanjello.CellPlaceholder;
 using System;
+using UnityEngine.Serialization;
 
 internal interface IDataUpdater<T>
 {
     public void UpdateData(T data);
-    public void ResetData();
+    public void ClearBrush();
     public static IDataUpdater<T> Cast(System.Object data) => (IDataUpdater<T>)data;
 }
 
@@ -17,7 +18,8 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<Array
     private UnityEvent<Vector3Int, CellPlaceholderStruct> _gotNewCell;
 
     [SerializeField]
-    private UnityEvent _afterClearIsCalled;
+    [FormerlySerializedAs("_afterClearIsCalled")]
+    private UnityEvent _afterClearBrushIsCalled;
 
     private DataBrush _brush;
 
@@ -29,18 +31,18 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<Array
         ClearWithoutNotify();
     }
 
-    public void ResetData()
+    public void ClearBrush()
     {
         //Debug.Log("Client side brush Clear called");
         ClearWithoutNotify();
-        _afterClearIsCalled.Invoke();
+        _afterClearBrushIsCalled.Invoke();
     }
 
     private void ClearWithoutNotify()
     {
 
         _bytesIndex = 0;
-        _brush.Reset();
+        _brush.ClearBrush();
     }
 
     public void UpdateData(ArraySegment<byte> bytes)
@@ -64,4 +66,6 @@ internal class DataBrush_ClientSideBehaviour : MonoBehaviour, IDataUpdater<Array
 
     void IDataBrush.SetState(Vector3Int position, CellPlaceholderStruct placeholder) => _brush.SetState(position, placeholder);
     (Vector3Int position, CellPlaceholderStruct placeholder) IDataBrush.GetState() => _brush.GetState();
+
+    void IDataBrush.ClearBrush() => ClearBrush();
 }

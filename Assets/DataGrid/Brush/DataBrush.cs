@@ -11,6 +11,7 @@ interface IDataBrush
 {
     internal void SetState(Vector3Int position, CellPlaceholderStruct placeholder);
     internal (Vector3Int position, CellPlaceholderStruct placeholder) GetState();
+    internal void ClearBrush();
 }
 
 internal class DataBrush: IDataBrush
@@ -52,7 +53,7 @@ internal class DataBrush: IDataBrush
     internal (Vector3Int position, CellPlaceholderStruct placeholder) GetState() => 
         (_position, _placeholder);
 
-    internal void Reset()
+    internal void ClearBrush()
     {
         _position = Vector3Int.zero;
         _placeholder = CellPlaceholderStruct.DefaultPlaceholder;
@@ -188,4 +189,6 @@ internal class DataBrush: IDataBrush
     void IDataBrush.SetState(Vector3Int position, CellPlaceholderStruct placeholder) => SetState(position, placeholder);
 
     (Vector3Int position, CellPlaceholderStruct placeholder) IDataBrush.GetState() => GetState();
+
+    void IDataBrush.ClearBrush() => ClearBrush();
 }

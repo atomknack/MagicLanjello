@@ -52,7 +52,7 @@ public partial class SenderByteDataToClients
 
             _outer._dataVersion = notHostClientDataVersionToChange;
             _outer._dataCount = 0;
-            _outer.ClientDataUpdater.ResetData();
+            _outer.ClientDataUpdater.ClearBrush();
             
             _outer.CmdClientChangedDataVersion(_outer._dataVersion);
         }

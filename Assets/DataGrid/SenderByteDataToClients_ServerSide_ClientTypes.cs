@@ -2,7 +2,6 @@ using UnityEngine;
 using Mirror;
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 
 public partial class SenderByteDataToClients
 {
@@ -180,7 +179,7 @@ public partial class SenderByteDataToClients
             protected override void UpdateClientDataVersionInfo(short clientDataVersion)
             {
                 base.UpdateClientDataVersionInfo(clientDataVersion);
-                _outer.ClientDataUpdater.ResetData();
+                _outer.ClientDataUpdater.ClearBrush();
                 _outer.ClientDataRecievedEvent();
             }
 

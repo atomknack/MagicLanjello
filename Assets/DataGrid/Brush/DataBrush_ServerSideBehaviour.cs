@@ -7,6 +7,7 @@ using UKnack.Attributes;
 using UKnack.Events;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.Serialization;
 
 [AddComponentMenu("MagicLanJello/DataBrush_ServerSideBehaviour")]
 
@@ -20,20 +21,21 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour, IDataBrush
     UnityEvent<ArraySegment<byte>> _haveBytesToSend;
 
     [SerializeField]
-    private UnityEvent _afterClearIsCalled;
+    [FormerlySerializedAs("_afterClearIsCalled")]
+    private UnityEvent _afterClearBrushIsCalled;
 
     private DataBrush _brush;
 
-    public void Clear()
+    public void ClearBrush()
     {
         //Debug.Log("Server side brush Clear called");
         ClearWithoutNotify();
-        _afterClearIsCalled.Invoke();
+        _afterClearBrushIsCalled.Invoke();
     }
 
     private void ClearWithoutNotify()
     {
-        _brush.Reset();
+        _brush.ClearBrush();
     }
 
     private void Awake()
@@ -66,4 +68,6 @@ internal class DataBrush_ServerSideBehaviour : MonoBehaviour, IDataBrush
 
     void IDataBrush.SetState(Vector3Int position, CellPlaceholderStruct placeholder) => _brush.SetState(position, placeholder);
     (Vector3Int position, CellPlaceholderStruct placeholder) IDataBrush.GetState() => _brush.GetState();
+
+    void IDataBrush.ClearBrush() => ClearBrush();
 }

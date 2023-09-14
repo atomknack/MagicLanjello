@@ -5,7 +5,7 @@ using System;
 using UKnack.Attributes;
 using UKnack.Events;
 
-public partial class SenderByteDataToClients : NetworkBehaviour
+public partial class SenderByteDataToClients : NetworkBehaviour, IBytesSource
 {
     private byte[] _data = new byte[100_000_000];
     private int _dataCount = 0;
@@ -61,8 +61,10 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         if (TryIsServer)
             _innerServer.UpdateClients();
         else
-            ClientDataUpdater.ResetData();
+            ClientDataUpdater.ClearBrush();
     }
+
+    public ReadOnlySpan<byte> AsBytesReadOnlySpan => DataSegment;     //used to save(export) bytes state
 
     protected void ClientDataRecievedEvent()
     {
@@ -123,6 +125,7 @@ public partial class SenderByteDataToClients : NetworkBehaviour
         {
             _innerClient = new ClientSideIsClient(this);
             _notHosClient_AnswerReadyToVersionChange.Subscribe(_innerClient.ReadyToChangeDataVersion);
+            ClientDataUpdater.ClearBrush();
         }
         CmdClientRecievedTotal(_dataCount);
     }
