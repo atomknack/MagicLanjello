@@ -31,7 +31,7 @@ public static class MeshSaverEditor {
         MeshFilter mf = menuCommand.context as MeshFilter;
         Mesh m = CloneMesh(mf.sharedMesh);
 		var vertices = m.vertices;
-		mf.transform.TransformPoints(vertices);
+		TransformPoints(mf.transform, vertices);
 		m.vertices = vertices;
         SaveMesh(m, m.name, true, true);
     }
@@ -47,7 +47,7 @@ public static class MeshSaverEditor {
         MeshFilter mf = menuCommand.context as MeshFilter;
         Mesh m = CloneMesh(mf.sharedMesh, false);
         var vertices = m.vertices;
-        mf.transform.TransformPoints(vertices);
+        TransformPoints(mf.transform, vertices);
         m.vertices = vertices;
         SaveMesh(m, m.name, true, true);
     }
@@ -93,4 +93,12 @@ public static class MeshSaverEditor {
 		AssetDatabase.SaveAssets();
 	}
 	
+    public static void TransformPoints(Transform t, System.Span<Vector3> points)
+    {
+        for (int i = 0;i < points.Length; i++)
+        {
+            points[i] = t.TransformPoint(points[i]);
+        }
+    }
+
 }

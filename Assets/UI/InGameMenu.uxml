@@ -1,6 +1,5 @@
 <ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
     <ui:VisualElement name="InGameMenu" style="position: absolute; top: 200px;">
-        <ui:Label text="InGameMenu Label" />
         <ui:VisualElement style="width: 200px; top: 4px;">
             <ui:VisualElement name="FileSaveLoadMenu" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
             <ui:VisualElement name="AllOtherGoHere" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);" />
