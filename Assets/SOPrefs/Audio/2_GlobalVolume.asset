@@ -12,13 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf17d7b6264a5ea4ea954ef5efa4fa75, type: 3}
   m_Name: 2_GlobalVolume
   m_EditorClassIdentifier: 
-  _dependUpon: {fileID: 11400000}
+  _dependUpon: {fileID: 11400000, guid: 3436f84aeb84bea43a1379453bb4d67a, type: 2}
   _rawValue:
     _defaultValue: 0.5
     _prefsKeyName: AudioGlobalVolume
     _debugLastValueGet:
-      _value: 0
-      _timeStamp: 0
+      _value: 0.5
+      _timeStamp: 638326512122236564
     _debugLastValueSet:
       _value: 0
       _timeStamp: 0

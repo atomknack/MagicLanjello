@@ -153,7 +153,7 @@ Transform:
   m_Children:
   - {fileID: 595901232}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &61294559
 GameObject:
@@ -550,7 +550,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 6ec2b6b20d1e53047848ca88a845d205, type: 2}
+  - {fileID: 2100000, guid: 96e98418fe888054ba3b61ae5f773266, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -593,7 +593,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &287907364
 GameObject:
@@ -747,7 +747,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &330123411
 GameObject:
@@ -926,6 +926,78 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!1 &363113138
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 363113139}
+  - component: {fileID: 363113140}
+  m_Layer: 0
+  m_Name: NextMaterial
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &363113139
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363113138}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1789170538}
+  m_RootOrder: -2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &363113140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 363113138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41084eadcab6f4d479f8c6be89545fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _0_disabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _1_waiting:
+    m_PersistentCalls:
+      m_Calls: []
+  _2_started:
+    m_PersistentCalls:
+      m_Calls: []
+  _3_performed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 78a782b201e99224a88d64b130ccddd8, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOConditionalPublisher_Concrete_nongeneric,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _4_canceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &375593613
 GameObject:
   m_ObjectHideFlags: 0
@@ -1041,7 +1113,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 376160077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51f4e20f5d0ce3147ae4faa7c0bd9783, type: 3}
+  m_Script: {fileID: 11500000, guid: 37c58fa54f01e0043b8cf1dfa240dcdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   gridChunksPlaceholder: {fileID: 1384125091}
@@ -1058,7 +1130,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 376160077}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94dca341d06458642b3541b5d37317d1, type: 3}
+  m_Script: {fileID: 11500000, guid: fd96edaf7dcacc6449188cfb8fd3996a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 2353807257843468534, guid: e9da2c961b9088a42ad2bb9bb4e76529, type: 3}
@@ -1201,6 +1273,78 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _axis: {x: 0, y: 1, z: 0}
   _rotationDegreesPerSecond: -90
+--- !u!1 &434509756
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 434509757}
+  - component: {fileID: 434509758}
+  m_Layer: 0
+  m_Name: MirrorX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &434509757
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434509756}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1789170538}
+  m_RootOrder: -2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &434509758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 434509756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41084eadcab6f4d479f8c6be89545fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _0_disabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _1_waiting:
+    m_PersistentCalls:
+      m_Calls: []
+  _2_started:
+    m_PersistentCalls:
+      m_Calls: []
+  _3_performed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 21d6dae33573e984ca8f150f1e5bc5a1, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOConditionalPublisher_Concrete_nongeneric,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _4_canceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &455484835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1245,6 +1389,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41f84591ce72545258ea98cb7518d8b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &467343964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 467343965}
+  - component: {fileID: 467343966}
+  m_Layer: 0
+  m_Name: MirrorZ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &467343965
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467343964}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1789170538}
+  m_RootOrder: -2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &467343966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 467343964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41084eadcab6f4d479f8c6be89545fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _0_disabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _1_waiting:
+    m_PersistentCalls:
+      m_Calls: []
+  _2_started:
+    m_PersistentCalls:
+      m_Calls: []
+  _3_performed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: b9384be5fda5dab4b8d83172aab32aae, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOConditionalPublisher_Concrete_nongeneric,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _4_canceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &483069502
 GameObject:
   m_ObjectHideFlags: 0
@@ -1378,7 +1594,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
-        m_CallState: 2
+        m_CallState: 1
   _4_canceled:
     m_PersistentCalls:
       m_Calls: []
@@ -1429,7 +1645,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &566957105
 MonoBehaviour:
@@ -1663,6 +1879,150 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &707067858
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 707067859}
+  - component: {fileID: 707067860}
+  m_Layer: 0
+  m_Name: RotateY
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &707067859
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707067858}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1789170538}
+  m_RootOrder: -2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &707067860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707067858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41084eadcab6f4d479f8c6be89545fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _0_disabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _1_waiting:
+    m_PersistentCalls:
+      m_Calls: []
+  _2_started:
+    m_PersistentCalls:
+      m_Calls: []
+  _3_performed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 8930d59ca41d9fe4bbb6de1efaa7570a, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOConditionalPublisher_Concrete_nongeneric,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _4_canceled:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &856252647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 856252648}
+  - component: {fileID: 856252649}
+  m_Layer: 0
+  m_Name: NextCellMesh
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &856252648
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856252647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1789170538}
+  m_RootOrder: -2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &856252649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856252647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41084eadcab6f4d479f8c6be89545fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _0_disabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _1_waiting:
+    m_PersistentCalls:
+      m_Calls: []
+  _2_started:
+    m_PersistentCalls:
+      m_Calls: []
+  _3_performed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: a08b3f3d69afc2241b62316f9ddcf748, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOConditionalPublisher_Concrete_nongeneric,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _4_canceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &863697320
 GameObject:
   m_ObjectHideFlags: 0
@@ -1985,8 +2345,80 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &900437512
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 900437513}
+  - component: {fileID: 900437514}
+  m_Layer: 0
+  m_Name: MirrorY
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &900437513
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900437512}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1789170538}
+  m_RootOrder: -2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &900437514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 900437512}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41084eadcab6f4d479f8c6be89545fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _0_disabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _1_waiting:
+    m_PersistentCalls:
+      m_Calls: []
+  _2_started:
+    m_PersistentCalls:
+      m_Calls: []
+  _3_performed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 575ac15e5d1e2fc41aca007a066e56ca, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOConditionalPublisher_Concrete_nongeneric,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _4_canceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &912872260
 GameObject:
   m_ObjectHideFlags: 0
@@ -2224,6 +2656,78 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+--- !u!1 &1129723720
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1129723721}
+  - component: {fileID: 1129723722}
+  m_Layer: 0
+  m_Name: RotateX
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1129723721
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129723720}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1789170538}
+  m_RootOrder: -2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1129723722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1129723720}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41084eadcab6f4d479f8c6be89545fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _0_disabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _1_waiting:
+    m_PersistentCalls:
+      m_Calls: []
+  _2_started:
+    m_PersistentCalls:
+      m_Calls: []
+  _3_performed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 5caa41c8969434d4099041f344cbd743, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOConditionalPublisher_Concrete_nongeneric,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _4_canceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1220008929
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,6 +2774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pointerScale: {x: 0.2, y: 0.2}
   gamepadScale: {x: 1, y: 1}
+  _gamepadContinuouslyPublisWhilePressed: 0
   _iPublisher: {fileID: 11400000, guid: 53ef714ce1114544b8b2df98a8725270, type: 2}
 --- !u!1 &1237871508
 GameObject:
@@ -2453,7 +2958,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 28.665, y: 22.256, z: 0}
 --- !u!114 &1311999008
 MonoBehaviour:
@@ -2604,7 +3109,7 @@ Transform:
   - {fileID: 1387233474}
   - {fileID: 1363302952}
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1322605149
 GameObject:
@@ -2676,7 +3181,7 @@ Transform:
   m_Children:
   - {fileID: 1760231613}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1363302950
 GameObject:
@@ -2832,7 +3337,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1387233473
 GameObject:
@@ -3049,6 +3554,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 11400000, guid: cded33eb5e49ca642a81c1f80ad05df9, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Commmon.ScriptableLoggerDebugLogOnlyInEditor,
+          UKnackBasisConcrete
+        m_MethodName: LogValue
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: xz
+          m_BoolArgument: 0
+        m_CallState: 0
     m_ActionId: 3694a84e-46b6-4a36-a059-70cf5f13e163
     m_ActionName: Building/MoveXZ[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d]
   - m_PersistentCalls:
@@ -3083,8 +3601,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 1
+      - m_Target: {fileID: 11400000, guid: cded33eb5e49ca642a81c1f80ad05df9, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Commmon.ScriptableLoggerDebugLogOnlyInEditor,
+          UKnackBasisConcrete
+        m_MethodName: LogValue
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: dasdasd
+          m_BoolArgument: 0
+        m_CallState: 0
     m_ActionId: fc6f27b4-986c-490f-8d6a-a08e62b27d37
-    m_ActionName: Building/RotateCamera[/Mouse/delta]
+    m_ActionName: Building/RotateCamera[/Mouse/rightButton,/Mouse/delta]
   - m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 878829855}
@@ -3102,57 +3633,6 @@ MonoBehaviour:
         m_CallState: 1
     m_ActionId: 6f2e47ce-f666-45c9-8447-27e2326c2605
     m_ActionName: Building/ScrollCamera[/Mouse/scroll/down,/Mouse/scroll/up]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 63541660}
-        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
-          UKnackBasisConcrete
-        m_MethodName: Publish
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-    m_ActionId: 418c9cd6-f7ec-43fd-9530-2215b92b6937
-    m_ActionName: Building/NextCellMesh[/Keyboard/n]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 375593615}
-        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
-          UKnackBasisConcrete
-        m_MethodName: Publish
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-    m_ActionId: 427d729d-2f01-40b4-8297-be157312d3ea
-    m_ActionName: Building/NextMaterial[/Keyboard/m]
-  - m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 529199193}
-        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
-          UKnackBasisConcrete
-        m_MethodName: Publish
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 1
-    m_ActionId: ada9b156-3c49-4c76-a9e7-88895c2801d9
-    m_ActionName: Building/AskToPutCell[/Keyboard/space]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Building
@@ -3266,7 +3746,7 @@ Transform:
   m_Children:
   - {fileID: 61294561}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1510193219
 MonoBehaviour:
@@ -3521,6 +4001,302 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1768816985
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1768816986}
+  - component: {fileID: 1768816987}
+  m_Layer: 0
+  m_Name: RotateZ
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1768816986
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768816985}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1789170538}
+  m_RootOrder: -2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1768816987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1768816985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41084eadcab6f4d479f8c6be89545fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _0_disabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _1_waiting:
+    m_PersistentCalls:
+      m_Calls: []
+  _2_started:
+    m_PersistentCalls:
+      m_Calls: []
+  _3_performed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 941be34ccc5c14a4b9109968ee325d90, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOConditionalPublisher_Concrete_nongeneric,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _4_canceled:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!1 &1789170537
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1789170538}
+  - component: {fileID: 1789170539}
+  m_Layer: 0
+  m_Name: PlayerCell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1789170538
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789170537}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1129723721}
+  - {fileID: 707067859}
+  - {fileID: 1768816986}
+  - {fileID: 434509757}
+  - {fileID: 900437513}
+  - {fileID: 467343965}
+  - {fileID: 856252648}
+  - {fileID: 363113139}
+  - {fileID: 1838145125}
+  m_Father: {fileID: 2142405912}
+  m_RootOrder: -2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1789170539
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1789170537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: b8c8bd1dbd238674086d65eb95e8cc44, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1129723722}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: 63b55f0c-1cbb-4929-aa2c-47964c595ad8
+    m_ActionName: Building/RotateX
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 707067860}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: a6caada0-8a0f-4ba9-b112-531dd2cc6d9d
+    m_ActionName: Building/RotateY
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1768816987}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: b161fce5-025a-4f93-8434-a21be5d72f2e
+    m_ActionName: Building/RotateZ
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 434509758}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: cd9796b8-9c3e-4594-9887-b714d2dd82d2
+    m_ActionName: Building/MirrorX
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 900437514}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: 0790e9ef-65c5-4d37-b98b-952b1b323dee
+    m_ActionName: Building/MirrorY
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 467343966}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: b1ad6c1f-b332-4d7a-82e3-b45d80ae832c
+    m_ActionName: Building/MirrorZ
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 856252649}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: a328d6d9-3a4c-4e00-a3b5-e44aca0c40fe
+    m_ActionName: Building/NextCellMesh[/Keyboard/n]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 363113140}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: 9eacacd1-87fb-49b5-a955-9cc96e58e1b4
+    m_ActionName: Building/NextMaterial[/Keyboard/m]
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1838145126}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Input.CallbackContextPhaseDecomposerToUnityEvents,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+    m_ActionId: df9465c0-581c-4088-b2de-45f9c4e3d705
+    m_ActionName: Building/AskToPutCell[/Keyboard/space]
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Building
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &1813888839
 GameObject:
   m_ObjectHideFlags: 0
@@ -3618,8 +4394,80 @@ Transform:
   - {fileID: 455484836}
   - {fileID: 948553447}
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1838145124
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1838145125}
+  - component: {fileID: 1838145126}
+  m_Layer: 0
+  m_Name: AskToPutCell
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1838145125
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838145124}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1789170538}
+  m_RootOrder: -2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1838145126
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838145124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41084eadcab6f4d479f8c6be89545fc2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _0_disabled:
+    m_PersistentCalls:
+      m_Calls: []
+  _1_waiting:
+    m_PersistentCalls:
+      m_Calls: []
+  _2_started:
+    m_PersistentCalls:
+      m_Calls: []
+  _3_performed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 444eb8e5ba3b17344aa8368e3b7d37f5, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Concrete.Events.SOPublisher_Concrete_nongeneric,
+          UKnackBasisConcrete
+        m_MethodName: Publish
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+  _4_canceled:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &1892457501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3696,7 +4544,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 14
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1963564334
 GameObject:
@@ -3734,7 +4582,7 @@ Transform:
   - {fileID: 376160078}
   - {fileID: 2076235331}
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2005697390
 GameObject:
@@ -3932,14 +4780,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83160f93a58ca914eb91721b67568f25, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridMeshGenerator: {fileID: 376160079}
-  _loadGrid: {fileID: 0}
-  _loadGridAdditive: {fileID: 0}
-  _saveGrid: {fileID: 11400000, guid: e064eb541c656b046a8f7b38bb104737, type: 2}
-  _exportUnDecimatedMesh3D: {fileID: 0}
-  _exportDecimatedMesh3D: {fileID: 0}
-  _exportUnDecimatedObj: {fileID: 0}
-  _exportDecimatedObj: {fileID: 11400000, guid: e4d58005b1217be4b8e6819ef837959f, type: 2}
 --- !u!114 &2076235333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4001,8 +4841,9 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1450795104}
+  - {fileID: 1789170538}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &144694225582434197
 MeshFilter:
@@ -4442,7 +5283,7 @@ Transform:
   - {fileID: 413794761}
   - {fileID: 1559654110}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &7398333910173249079
 Transform:

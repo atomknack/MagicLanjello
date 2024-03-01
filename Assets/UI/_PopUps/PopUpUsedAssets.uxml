@@ -1,0 +1,34 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" MemoryProfiler="Unity.MemoryProfiler.Editor" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/SettingsMenu.uss?fileID=7433441132597879392&amp;guid=efed3eca3ea875545847001be4c6ff5a&amp;type=3#SettingsMenu" />
+    <ui:VisualElement name="Background" style="flex-grow: 1; background-color: rgba(42, 26, 51, 0.4); width: 100%; height: 100%;" />
+    <ui:VisualElement name="Window" class="borderPoly" style="flex-grow: 1; background-color: rgba(52, 113, 140, 0.9); position: absolute; left: 7.5%; top: 7.5%; width: 80%; height: 80%;">
+        <ui:VisualElement name="BorderSeparator" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); border-left-color: rgba(0, 0, 0, 0); border-right-color: rgba(0, 0, 0, 0); border-top-color: rgba(0, 0, 0, 0); border-bottom-color: rgba(0, 0, 0, 0); border-left-width: 8px; border-right-width: 8px; border-top-width: 8px; border-bottom-width: 8px;">
+            <ui:Label tabindex="-1" text="Additional used assets:" display-tooltip-when-elided="true" name="Header" style="font-size: 28px; -unity-font-style: bold;" />
+            <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1">
+                <ui:VisualElement name="Container" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                    <ui:VisualElement name="Fonts" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                        <ui:Label tabindex="-1" text="Fonts:" display-tooltip-when-elided="true" name="Fonts-Header" />
+                        <ui:Button tabindex="-1" text="Galindo" display-tooltip-when-elided="true" name="Galindo" />
+                        <ui:Button tabindex="-1" text="Geo" display-tooltip-when-elided="true" name="Geo" />
+                        <ui:Button tabindex="-1" text="Hussar Motorway" display-tooltip-when-elided="true" name="Hussar-Motorway" />
+                        <ui:Button tabindex="-1" text="Iceberg" display-tooltip-when-elided="true" name="Iceberg" />
+                        <ui:Button tabindex="-1" text="Kiko" display-tooltip-when-elided="true" name="Kiko" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Audio" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                        <ui:Label tabindex="-1" text="Audio:" display-tooltip-when-elided="true" name="Audio-Header" />
+                        <ui:Button tabindex="-1" text="Sounds under CC0 Linense" display-tooltip-when-elided="true" name="Sounds-CC0" />
+                        <ui:Button tabindex="-1" text="Sounds from Sonniss.com" display-tooltip-when-elided="true" name="Sounds-Sonniss" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="Scripting" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                        <ui:Label tabindex="-1" text="Scripts, code libraries and additional engines:" display-tooltip-when-elided="true" />
+                    </ui:VisualElement>
+                    <ui:VisualElement name="UnityPackages" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                        <ui:Label tabindex="-1" text="Package Manager in project packages:" display-tooltip-when-elided="true" />
+                    </ui:VisualElement>
+                </ui:VisualElement>
+            </ui:ScrollView>
+            <ui:VisualElement name="Separator" style="height: 30px;" />
+            <ui:Button tabindex="-1" text="Close" display-tooltip-when-elided="true" name="Close" class="borderPoly" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

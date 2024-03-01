@@ -1,0 +1,19 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/SettingsMenu.uss?fileID=7433441132597879392&amp;guid=efed3eca3ea875545847001be4c6ff5a&amp;type=3#SettingsMenu" />
+    <ui:VisualElement style="background-color: rgba(0, 0, 0, 0.4); width: 100%; height: 100px; flex-grow: 1;">
+        <ui:VisualElement class="borderPoly" style="background-color: rgb(159, 176, 152); width: 90%; height: 90%; left: 5%; top: 5%;">
+            <ui:VisualElement style="width: 80%; height: 90%; left: 10%; top: 5%;">
+                <ui:Button tabindex="-1" text="About used assets" display-tooltip-when-elided="true" name="Used-Assets" class="borderPoly" />
+                <ui:Label tabindex="-1" display-tooltip-when-elided="true" />
+                <ui:Label tabindex="-1" text="Settings" display-tooltip-when-elided="true" style="-unity-text-align: upper-center; font-size: 32px; -unity-font-style: bold;" />
+                <ui:Toggle label="Audio" name="Audio" class="my-toggle" style="-unity-text-align: upper-center;" />
+                <ui:Slider picking-mode="Ignore" label="All Sounds" value="0.9" high-value="1" show-input-field="false" direction="Horizontal" name="Sounds" style="-unity-text-align: upper-center;" />
+                <ui:Slider picking-mode="Ignore" label="SoundEffects" value="0.9" high-value="1" show-input-field="false" direction="Horizontal" name="SoundEffects" style="-unity-text-align: upper-center;" />
+                <ui:VisualElement style="background-color: rgba(0, 0, 0, 0); height: 40px;" />
+            </ui:VisualElement>
+            <ui:Button tabindex="-1" text="Close&#x9;" display-tooltip-when-elided="true" name="Close" enable-rich-text="false" class="borderPoly" style="width: 128px; position: absolute; right: 10px; bottom: 10px; height: 38px; border-left-color: rgb(89, 87, 76); border-right-color: rgb(103, 103, 101); border-top-color: rgb(89, 103, 105); border-bottom-color: rgb(36, 40, 31);">
+                <ui:Label tabindex="-1" text="X" display-tooltip-when-elided="true" style="-unity-font: url(&apos;project://database/Assets/Fonts/OFLFonts/Galindo/Galindo-Regular.ttf?fileID=12800000&amp;guid=5ef1ea8bdab6c3f4a8e21ffe848d4cbe&amp;type=3#Galindo-Regular&apos;); -unity-font-definition: none; position: absolute; right: -4px; top: -8px; left: 76px;" />
+            </ui:Button>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

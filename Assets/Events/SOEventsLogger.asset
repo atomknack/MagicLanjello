@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc887c4234676754593e34338db490d7, type: 3}
   m_Name: SOEventsLogger
   m_EditorClassIdentifier: 
-  loggerPrefix: 
+  loggerPrefix: sologger

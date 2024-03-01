@@ -1,22 +1,10 @@
 {
   "dependencies": {
     "com.atomknack.doubleengine": {
-      "version": "file:C:/Projects/DoubleEngine/OutUnityPackage",
+      "version": "file:C:/GitHub/DoubleEngine/OutUnityPackage",
       "depth": 0,
       "source": "local",
       "dependencies": {}
-    },
-    "com.atomknack.magiclanjellopackage": {
-      "version": "file:C:/GitFlic/magiclanjellopackage",
-      "depth": 0,
-      "source": "local",
-      "dependencies": {
-        "com.unity.inputsystem": "1.5.1",
-        "com.atomknack.doubleengine": "1.0.0",
-        "com.atomknack.mirrortemppackage": "81.0.3",
-        "com.atomknack.uknackbasis": "2.5.0",
-        "com.atomknack.uknackpro": "1.15.0"
-      }
     },
     "com.atomknack.mirrortemppackage": {
       "version": "https://github.com/atomknack/MirrorTempPackageUKnackEditon.git?path=/Packages/com.atomknack.mirrortemppackage",
@@ -45,15 +33,14 @@
       }
     },
     "com.atomknack.uknackforcinemachine": {
-      "version": "https://github.com/atomknack/UKnackExampleProjects.git?path=/Cinemachine/Packages/com.atomknack.uknackforcinemachine",
+      "version": "file:C:/GitHub/UKnackExampleProjects/Cinemachine/Packages/com.atomknack.uknackforcinemachine",
       "depth": 0,
-      "source": "git",
+      "source": "local",
       "dependencies": {
         "com.unity.inputsystem": "1.5.1",
         "com.unity.cinemachine": "2.7.1",
         "com.atomknack.uknackbasis": "2.0.0"
-      },
-      "hash": "8ee8574c52f816e819a4b164564b81c01c8a9e24"
+      }
     },
     "com.atomknack.uknackformirror": {
       "version": "https://github.com/atomknack/UKnackExampleProjects.git?path=/Mirror/Packages/com.atomknack.uknackformirror",
@@ -74,7 +61,7 @@
       }
     },
     "com.unity.ai.navigation": {
-      "version": "1.1.1",
+      "version": "1.1.4",
       "depth": 0,
       "source": "registry",
       "dependencies": {
@@ -123,6 +110,22 @@
       },
       "url": "https://packages.unity.com"
     },
+    "com.unity.sysroot": {
+      "version": "2.0.7",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {},
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.sysroot.linux-x86_64": {
+      "version": "2.0.6",
+      "depth": 1,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "2.0.7"
+      },
+      "url": "https://packages.unity.com"
+    },
     "com.unity.test-framework": {
       "version": "1.1.33",
       "depth": 2,
@@ -143,6 +146,16 @@
         "com.unity.modules.animation": "1.0.0",
         "com.unity.modules.audio": "1.0.0",
         "com.unity.modules.particlesystem": "1.0.0"
+      },
+      "url": "https://packages.unity.com"
+    },
+    "com.unity.toolchain.win-x86_64-linux-x86_64": {
+      "version": "2.0.6",
+      "depth": 0,
+      "source": "registry",
+      "dependencies": {
+        "com.unity.sysroot": "2.0.7",
+        "com.unity.sysroot.linux-x86_64": "2.0.6"
       },
       "url": "https://packages.unity.com"
     },

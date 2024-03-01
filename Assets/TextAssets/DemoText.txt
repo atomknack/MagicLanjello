@@ -1,0 +1,30 @@
+Copyright (c) Pavel Ivanov (a.k.a. atomknack)
+
+Demo version of Magiclanjello game! Version 0.02 (demo)
+
+By using this game you are agree release any model created in this application,
+  that contains less than 10000 pieces(cubes, spheres, or other 
+  game shapes counted combined) under public domain or creative common 0, 
+  or other absolutely free license of public domain kind. 
+
+ Of course you still can use it however you want, 
+  and exported and altered in external editor model can have other license. 
+ It is just a precaution for someone who will try to own something like default cube. 
+
+You cannot sell this game, but you could redistibute it for free, in it unchanged state. 
+When redistributing you should provide original sha256 that come with this demo, 
+so everyone could be sure that you did not altered it.
+If you or your company or a company you working for 
+made more than 25 million dollars revenue 
+in one of 3 last years then I forbid you from disassemling 
+this game in any way and poking in it internals(this is about my intellectual property)
+This game was made using Unity, please read their license agreement about what you can,
+and can't do with games made using their game editor.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

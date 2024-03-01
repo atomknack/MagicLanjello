@@ -1,0 +1,40 @@
+.my-toggle {
+}
+
+.my-toggle .unity-toggle__checkmark {
+    right: 5%;
+    position: absolute;
+}
+
+.unity-label {
+    -unity-font: url('project://database/Assets/Fonts/OFLFonts/Iceberg/Iceberg-Regular.ttf?fileID=12800000&guid=54547ea7d9b94404b9126c7937dc963e&type=3#Iceberg-Regular');
+    font-size: 22px;
+    -unity-font-definition: none;
+}
+
+.unity-button {
+    -unity-font: url('project://database/Assets/Fonts/OFLFonts/Iceberg/Iceberg-Regular.ttf?fileID=12800000&guid=54547ea7d9b94404b9126c7937dc963e&type=3#Iceberg-Regular');
+    -unity-font-definition: none;
+    font-size: 28px;
+    height: 40px;
+}
+
+.unity-slider {
+    font-size: 28%;
+    -unity-font: url('project://database/Assets/Fonts/OFLFonts/Iceberg/Iceberg-Regular.ttf?fileID=12800000&guid=54547ea7d9b94404b9126c7937dc963e&type=3#Iceberg-Regular');
+    -unity-font-definition: none;
+    height: 32px;
+}
+
+.borderPoly {
+    border-left-width: 5px;
+    border-right-width: 5px;
+    border-top-width: 5px;
+    border-bottom-width: 5px;
+    border-left-color: rgb(111, 108, 108);
+    border-right-color: rgb(140, 140, 140);
+    border-top-color: rgb(137, 147, 152);
+    border-bottom-color: rgb(67, 67, 67);
+    border-top-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}

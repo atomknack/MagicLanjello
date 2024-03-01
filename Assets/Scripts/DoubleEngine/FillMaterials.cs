@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class FillMaterials : MonoBehaviour
 {
-    private void Awake()
+    private void OnEnable()
     {
         Debug.Log($"before FillMaterials there is {DEMaterials.Count} materials");
         UMaterials.GetUnityMaterial(0);

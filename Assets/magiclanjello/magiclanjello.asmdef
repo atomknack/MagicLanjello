@@ -1,0 +1,35 @@
+{
+    "name": "magiclanjello",
+    "rootNamespace": "",
+    "references": [
+        "GUID:522e280601ce3314381d54176fec819d",
+        "GUID:5d240f5e433bcb84eb420b2e62d2ad10",
+        "GUID:f5984e2128d401048a56a139643b242d",
+        "GUID:1f90982b2a247d245a72709349522956",
+        "GUID:30817c1a0e6d646d99c048fc403f5979",
+        "GUID:35446ced8541ab74084cf15e432b8608"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": true,
+    "precompiledReferences": [
+        "nunit.framework.dll",
+        "Newtonsoft.Json.dll",
+        "Fastenshtein.dll",
+        "System.Collections.Immutable.dll",
+        "Collections.Pooled.dll",
+        "FluentAssertions.dll",
+        "lzma2201.dll",
+        "DoubleEngine.UVectorCore.dll",
+        "DoubleEngine.CommonHelpers.dll",
+        "DoubleEngine.UHelpers.dll",
+        "DoubleEngine.dll",
+        "UKnackBasis.dll",
+        "UKnackPro.dll"
+    ],
+    "autoReferenced": false,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

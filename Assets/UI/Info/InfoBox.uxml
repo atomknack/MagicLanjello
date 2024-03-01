@@ -1,0 +1,23 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" MemoryProfiler="Unity.MemoryProfiler.Editor" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/_PopUps/PopUpDemonstratingTextField.uss?fileID=7433441132597879392&amp;guid=e71505f448a860047b3911b78bdca4d4&amp;type=3#PopUpDemonstratingTextField" />
+    <Style src="project://database/Assets/UI/SettingsMenu.uss?fileID=7433441132597879392&amp;guid=efed3eca3ea875545847001be4c6ff5a&amp;type=3#SettingsMenu" />
+    <ui:VisualElement name="Container" class="borderPoly" style="flex-grow: 1; background-color: rgba(138, 214, 164, 0.44); position: absolute; left: 15%; top: 20%; width: 70%; height: 70%; min-width: 500px;">
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:Label tabindex="-1" text="Settings:" parse-escape-sequences="true" display-tooltip-when-elided="true" />
+            <ui:Slider picking-mode="Ignore" label="all audio:" value="42" high-value="1" name="AllAudio" />
+            <ui:Slider picking-mode="Ignore" label="sounds:" value="42" high-value="1" name="Sounds" />
+            <ui:Label tabindex="-1" text="Infodump:" display-tooltip-when-elided="true" name="PopUpHeader" />
+            <ui:VisualElement name="Separator" style="flex-grow: 1; min-height: 4px; background-color: rgba(154, 253, 170, 0.13);" />
+            <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" mode="VerticalAndHorizontal" style="height: 80%;">
+                <ui:TextField picking-mode="Ignore" readonly="true" name="PlaceholderForLongText" multiline="true" value="To start a game press &quot;Host&quot;&#10;to join a game press &quot;Client&quot;&#10;&#10;Movement - WSADQE&#10;Next Color - N&#10;Next Shape - M&#10;&#10;Camera - Right Mouse Button + Mouse movement&#10;Put cell - Space (it clears in case of empty shape)&#10;&#10;Orientation - Buttons on screen&#10;&#10;Gamepad - should work if has same buttons like XBox controller, &#10;I guess you can guess what button does what (some buttons are modifiers).&#10;&#10;FullScreen - F12(buggy, but allow to move game to other display)" class="TextPlaceholder" style="height: 100%; background-color: rgba(51, 200, 37, 0); -unity-background-image-tint-color: rgb(67, 47, 47);" />
+            </ui:ScrollView>
+            <ui:VisualElement name="Separator" style="flex-grow: 1; min-height: 4px; background-color: rgba(154, 253, 168, 0.12);" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row-reverse;">
+                <ui:VisualElement name="Separator" style="background-color: rgba(154, 253, 154, 0.4); width: 24px;" />
+                <ui:Button tabindex="-1" text="Close" display-tooltip-when-elided="true" name="Close" class="borderPoly" style="background-color: rgb(61, 164, 90); min-width: 200px; position: relative; max-width: 50%; visibility: visible;" />
+                <ui:VisualElement name="Separator" style="background-color: rgba(154, 253, 160, 0.16); width: 20px;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Separator" style="flex-grow: 1; min-height: 4px; background-color: rgba(154, 253, 161, 0.4);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

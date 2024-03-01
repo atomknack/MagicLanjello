@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 390104617, guid: dafb04f606d4329438debe490f91c078, type: 3}
+  m_Name: UIDialogBoxFromFileToUnityEvents
+  m_EditorClassIdentifier: 
+  _isSingleton: 1
+  _afterOpen:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4d198c3bd29d33147a516ee635bc2eb4, type: 2}
+        m_TargetAssemblyTypeName: UKnack.DebugScriptableLogger, UKnack
+        m_MethodName: LogString
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: AfterOpen
+          m_BoolArgument: 0
+        m_CallState: 0
+  _beforeClosed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4d198c3bd29d33147a516ee635bc2eb4, type: 2}
+        m_TargetAssemblyTypeName: UKnack.DebugScriptableLogger, UKnack
+        m_MethodName: LogString
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: BeforeClosed
+          m_BoolArgument: 0
+        m_CallState: 0
+  _instantiateUnder: UIPopUps
+  _defaultZInvertedOrder: 300000
+  _onTop: 1
+  _prefab: {fileID: 8414356083029593608, guid: 6deb20f97b7a46a429aceb8727dda220, type: 3}
+  _header: Dialog box
+  _textAsset: {fileID: 4900000, guid: 30f548640d412584a9e4372a9f5a2322, type: 3}
+  _exitedWithCancel:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4d198c3bd29d33147a516ee635bc2eb4, type: 2}
+        m_TargetAssemblyTypeName: UKnack.DebugScriptableLogger, UKnack
+        m_MethodName: LogString
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DialogBox Cancel selected
+          m_BoolArgument: 0
+        m_CallState: 0
+      - m_Target: {fileID: 11400000, guid: 7fd6d554be1888f4fb2ff6a5a52ee7c9, type: 2}
+        m_TargetAssemblyTypeName: UKnack.Commands.SOCommandQuitApplication, UKnack
+        m_MethodName: Execute
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DialogBox Cancel selected
+          m_BoolArgument: 0
+        m_CallState: 1
+      - m_Target: {fileID: 11400000}
+        m_TargetAssemblyTypeName: UKnack.UI.UIWindowAbstract, UKnack
+        m_MethodName: OpenNewModal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DialogBox Cancel selected
+          m_BoolArgument: 0
+        m_CallState: 1
+  _exitedWithOk:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 11400000, guid: 4d198c3bd29d33147a516ee635bc2eb4, type: 2}
+        m_TargetAssemblyTypeName: UKnack.DebugScriptableLogger, UKnack
+        m_MethodName: LogString
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: DialogBox Ok selected
+          m_BoolArgument: 0
+        m_CallState: 0

@@ -1,0 +1,376 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8414356083029593608
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8414356083029593614}
+  - component: {fileID: 8414356083029593615}
+  - component: {fileID: 8414356083029593612}
+  - component: {fileID: 3102138769385369358}
+  - component: {fileID: 8414356083029593613}
+  - component: {fileID: 7895364596506302387}
+  - component: {fileID: 3118693606382645409}
+  - component: {fileID: 6848151157903832847}
+  - component: {fileID: -3022257855878220340}
+  - component: {fileID: 2275450969826520466}
+  m_Layer: 5
+  m_Name: PopUpUsedAssets
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8414356083029593614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414356083029593608}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8414356083029593615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414356083029593608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 19102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_PanelSettings: {fileID: 11400000, guid: f851a88049be67248adf91ad6fb24c9e, type: 2}
+  m_ParentUI: {fileID: 0}
+  sourceAsset: {fileID: 9197481963319205126, guid: f836f8069bb646b4a9a92d012217b7be, type: 3}
+  m_SortingOrder: 0
+--- !u!114 &8414356083029593612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414356083029593608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 531709056, guid: dafb04f606d4329438debe490f91c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootVisible: 1
+--- !u!114 &3102138769385369358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414356083029593608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -983018990, guid: dafb04f606d4329438debe490f91c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layoutProvider: {fileID: 0}
+--- !u!114 &8414356083029593613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414356083029593608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -788906100, guid: dafb04f606d4329438debe490f91c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layoutProvider: {fileID: 0}
+  _buttonName: Close
+  _buttonClickEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3102138769385369358}
+        m_TargetAssemblyTypeName: UKnack.UI.UIWindowBehaviour, UKnack
+        m_MethodName: CloseWindow
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
+--- !u!114 &7895364596506302387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414356083029593608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -240862018, guid: dafb04f606d4329438debe490f91c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layoutProvider: {fileID: 0}
+  _buttonEventPairs:
+  - buttonName: Galindo
+    buttonClickEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: e7783f36eb631044ab6fa06965f142ac, type: 2}
+          m_TargetAssemblyTypeName: UKnack.UI.UIWindowAbstract, UKnack
+          m_MethodName: OpenNewModal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+  - buttonName: Geo
+    buttonClickEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 00addd1c0503132428a9eb61e541a457, type: 2}
+          m_TargetAssemblyTypeName: UKnack.UI.UIWindowAbstract, UKnack
+          m_MethodName: OpenNewModal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+  - buttonName: Hussar-Motorway
+    buttonClickEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 413b1fdb388d30e4a9177e385c19c468, type: 2}
+          m_TargetAssemblyTypeName: UKnack.UI.UIWindowAbstract, UKnack
+          m_MethodName: OpenNewModal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+  - buttonName: Iceberg
+    buttonClickEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 85a20172bb097224d8b532049e99b974, type: 2}
+          m_TargetAssemblyTypeName: UKnack.UI.UIWindowAbstract, UKnack
+          m_MethodName: OpenNewModal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+  - buttonName: Kiko
+    buttonClickEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: cc1a15e2f36ddc044bc737c4cb142bcf, type: 2}
+          m_TargetAssemblyTypeName: UKnack.UI.UIWindowAbstract, UKnack
+          m_MethodName: OpenNewModal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+--- !u!114 &3118693606382645409
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414356083029593608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -240862018, guid: dafb04f606d4329438debe490f91c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layoutProvider: {fileID: 0}
+  _buttonEventPairs:
+  - buttonName: Sounds-CC0
+    buttonClickEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: 8f13f301ac2ba9e4e9861f04a58702dc, type: 2}
+          m_TargetAssemblyTypeName: UKnack.UI.UIWindowAbstract, UKnack
+          m_MethodName: OpenNewModal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+  - buttonName: Sounds-Sonniss
+    buttonClickEvent:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 11400000, guid: e4f78f5af42ec0c46ac5cb1b84162162, type: 2}
+          m_TargetAssemblyTypeName: UKnack.UI.UIWindowAbstract, UKnack
+          m_MethodName: OpenNewModal
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 1
+--- !u!114 &6848151157903832847
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414356083029593608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -422717696, guid: dafb04f606d4329438debe490f91c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layoutProvider: {fileID: 0}
+  _idWhereToInsert: Scripting
+  _buttonVisualAsset: {fileID: 9197481963319205126, guid: de92253f2bd22194aaa1b6439271b50c, type: 3}
+  _buttons:
+  - name: Asset Usage Detector
+    window: {fileID: 11400000, guid: 719cfcd771a01fc4fb0bbfd16d880b6b, type: 2}
+    order: 500
+  - name: Catlikecoding
+    window: {fileID: 11400000, guid: e1c53326cb0186646843c5ba684d62d3, type: 2}
+    order: 1000
+  - name: Collections Pooled
+    window: {fileID: 11400000, guid: 2a71e7dfe39e00c45be1f762573f1e00, type: 2}
+    order: 2000
+  - name: JsonKnownTypes
+    window: {fileID: 11400000, guid: 9e661b82b58966741b2cfaa3dbc486ac, type: 2}
+    order: 3000
+  - name: LinqFaster
+    window: {fileID: 11400000, guid: f36af5e20bb9b6b4a90b900d5a90d97d, type: 2}
+    order: 4000
+  - name: LZMA SDK
+    window: {fileID: 11400000, guid: f8c86dfb336d3dd46b79a448c0d05cf6, type: 2}
+    order: 4500
+  - name: Newtonsoft Json
+    window: {fileID: 11400000, guid: 5753fd4f63fd9ed4e948e0d79838e410, type: 2}
+    order: 5000
+  - name: SimpleFileBrowser
+    window: {fileID: 11400000, guid: d3539e9eab9f81449ad13cf74bf24665, type: 2}
+    order: 6000
+  - name: System.Collections.Immutable
+    window: {fileID: 11400000, guid: 148b495bb3fd60c45bbe0cfab42ff1f0, type: 2}
+    order: 7000
+  - name: System.Runtime.CompilerServices.Unsafe
+    window: {fileID: 11400000, guid: 2a292887ccb7e8541b9bd3063fb51407, type: 2}
+    order: 8000
+  - name: UCompanion
+    window: {fileID: 11400000, guid: f4c21b299b32d53459e0b9530bb70f90, type: 2}
+    order: 9000
+--- !u!114 &-3022257855878220340
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414356083029593608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -422717696, guid: dafb04f606d4329438debe490f91c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _layoutProvider: {fileID: 0}
+  _idWhereToInsert: UnityPackages
+  _buttonVisualAsset: {fileID: 9197481963319205126, guid: de92253f2bd22194aaa1b6439271b50c, type: 3}
+  _buttons:
+  - name: Addressables
+    window: {fileID: 11400000, guid: 1098dae09778e344aa6b06fefc231314, type: 2}
+    order: 100
+  - name: Cinemachine
+    window: {fileID: 11400000, guid: db7d25320152ab144a1879d7ad11f4f7, type: 2}
+    order: 200
+  - name: Custom NUnit
+    window: {fileID: 11400000, guid: 56e44b80bdcacb84b8f47945839fa0ea, type: 2}
+    order: 300
+  - name: Editor Coroutines
+    window: {fileID: 11400000, guid: 9a53edb2f529089458edb924c3961a6f, type: 2}
+    order: 400
+  - name: Input System
+    window: {fileID: 11400000, guid: 975e9b988420a6742956f81425b83879, type: 2}
+    order: 500
+  - name: Memory Profiler
+    window: {fileID: 11400000, guid: c11cb1d369c853147a6e339e68016589, type: 2}
+    order: 600
+  - name: Newtonsoft Json
+    window: {fileID: 11400000, guid: 1ae9faa56fe8caa419a246c41fb834be, type: 2}
+    order: 700
+  - name: Post Processing
+    window: {fileID: 11400000, guid: 9a0ff7d949afee04da9460e2f80ae1e0, type: 2}
+    order: 800
+  - name: Scriptable Build Pipeline
+    window: {fileID: 11400000, guid: d4b90ea127162e1489841a722bf51038, type: 2}
+    order: 900
+  - name: Test Framework
+    window: {fileID: 11400000, guid: f5ab71adc625c2a47bc3c50a81a98b26, type: 2}
+    order: 1000
+  - name: TextMesh Pro
+    window: {fileID: 11400000, guid: 5dacfb3891ab47a4a98f3f90b92b009b, type: 2}
+    order: 1100
+  - name: Timeline
+    window: {fileID: 11400000, guid: d0e6637c93206ac4e8a13a44a8731f0e, type: 2}
+    order: 1200
+  - name: Unity Mesh Importer
+    window: {fileID: 11400000, guid: d6a273f6058b79049974cb67a32ec666, type: 2}
+    order: 1250
+  - name: Unity UI
+    window: {fileID: 11400000, guid: 8e257ccf9b3f0e144a89dd89a18d2bea, type: 2}
+    order: 1300
+  - name: Visual Studio Editor
+    window: {fileID: 11400000, guid: a07ed0228c364344da2df7381ed77561, type: 2}
+    order: 1400
+--- !u!114 &2275450969826520466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8414356083029593608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 531709056, guid: dafb04f606d4329438debe490f91c078, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rootVisible: 1

@@ -7,4 +7,6 @@
     </ui:VisualElement>
     <ui:VisualElement name="Unpositioned" />
     <ui:VisualElement name="TransformCellMenu" style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); position: absolute; width: 220px; top: 0; right: 4px;" />
+    <ui:VisualElement name="InfoBox" style="flex-grow: 1; left: 300px; top: 40px; height: 40px; width: 40px;" />
+    <ui:VisualElement name="Boosty" style="flex-grow: 1; position: absolute; bottom: 5%; right: 5px;" />
 </ui:UXML>

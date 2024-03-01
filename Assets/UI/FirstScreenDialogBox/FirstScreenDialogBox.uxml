@@ -1,0 +1,21 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" MemoryProfiler="Unity.MemoryProfiler.Editor" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/_PopUps/PopUpDemonstratingTextField.uss?fileID=7433441132597879392&amp;guid=e71505f448a860047b3911b78bdca4d4&amp;type=3#PopUpDemonstratingTextField" />
+    <Style src="project://database/Assets/UI/SettingsMenu.uss?fileID=7433441132597879392&amp;guid=efed3eca3ea875545847001be4c6ff5a&amp;type=3#SettingsMenu" />
+    <ui:VisualElement name="Container" class="borderPoly" style="flex-grow: 1; background-color: rgb(255, 255, 117); position: absolute; left: 10%; top: 10%; width: 80%; height: 80%;">
+        <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+            <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="PopUpHeader" />
+            <ui:VisualElement name="Separator" style="flex-grow: 1; min-height: 4px; background-color: rgb(253, 240, 154);" />
+            <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" mode="VerticalAndHorizontal" style="height: 80%;">
+                <ui:TextField picking-mode="Ignore" readonly="true" name="PlaceholderForLongText" multiline="true" value="Long Long Text" class="TextPlaceholder" style="height: 100%; background-color: rgba(51, 200, 37, 0); -unity-background-image-tint-color: rgb(67, 47, 47);" />
+            </ui:ScrollView>
+            <ui:VisualElement name="Separator" style="flex-grow: 1; min-height: 4px; background-color: rgb(253, 240, 154);" />
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0); flex-direction: row-reverse;">
+                <ui:VisualElement name="Separator" style="background-color: rgb(253, 240, 154); width: 24px;" />
+                <ui:Button tabindex="-1" text="Cancel" display-tooltip-when-elided="true" name="Cancel" class="borderPoly" style="background-color: rgb(207, 120, 87); min-width: 200px; position: relative; max-width: 50%; visibility: hidden;" />
+                <ui:VisualElement name="Separator" style="background-color: rgb(253, 240, 154); width: 20px;" />
+                <ui:Button tabindex="-1" text="Ok" display-tooltip-when-elided="true" name="Ok" class="borderPoly" style="background-color: rgb(140, 204, 130); min-width: 200px; max-width: 50%;" />
+            </ui:VisualElement>
+            <ui:VisualElement name="Separator" style="flex-grow: 1; min-height: 4px; background-color: rgb(253, 240, 154);" />
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>

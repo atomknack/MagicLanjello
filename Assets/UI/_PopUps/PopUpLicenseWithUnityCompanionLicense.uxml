@@ -1,0 +1,20 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" MemoryProfiler="Unity.MemoryProfiler.Editor" noNamespaceSchemaLocation="../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/UI/PopUps/PopUpDemonstratingTextField.uss?fileID=7433441132597879392&amp;guid=e71505f448a860047b3911b78bdca4d4&amp;type=3#PopUpDemonstratingTextField" />
+    <Style src="project://database/Assets/SettingsMenu.uss?fileID=7433441132597879392&amp;guid=efed3eca3ea875545847001be4c6ff5a&amp;type=3#SettingsMenu" />
+    <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0.29); width: 100%; height: 100%;">
+        <ui:VisualElement name="Container" class="borderPoly" style="flex-grow: 1; background-color: rgb(156, 195, 111); position: absolute; left: 7%; top: 4%; width: 80%; height: 80%;">
+            <ui:VisualElement style="flex-grow: 1; background-color: rgba(0, 0, 0, 0);">
+                <ui:Label tabindex="-1" text="Label" display-tooltip-when-elided="true" name="PopUpHeader" />
+                <ui:VisualElement name="Separator" style="flex-grow: 1; min-height: 10px; background-color: rgb(156, 195, 111);" />
+                <ui:ScrollView scroll-deceleration-rate="0,135" elasticity="0,1" mode="VerticalAndHorizontal" style="height: 90%;">
+                    <ui:TextField picking-mode="Ignore" readonly="true" name="PlaceholderForLongText" multiline="true" value="Long Long Text" class="TextPlaceholder" style="background-color: rgba(51, 200, 37, 0); -unity-background-image-tint-color: rgb(67, 47, 47);" />
+                    <ui:VisualElement name="Separator" style="flex-grow: 1; min-height: 10px; background-color: rgb(156, 195, 111);" />
+                    <ui:Button tabindex="-1" text="Unity Companion License" display-tooltip-when-elided="true" name="UnityCompanionLicense" />
+                    <ui:VisualElement name="Separator" style="flex-grow: 1; min-height: 10px; background-color: rgb(156, 195, 111);" />
+                </ui:ScrollView>
+                <ui:VisualElement name="Separator" style="flex-grow: 1; min-height: 10px; background-color: rgb(156, 195, 111);" />
+                <ui:Button tabindex="-1" text="Close" display-tooltip-when-elided="true" name="Close" class="borderPoly" />
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
